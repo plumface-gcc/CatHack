@@ -34,11 +34,6 @@ namespace CatHack
 
         Regex rgx = new Regex(pattern);
 
-        public SaveImage()
-        {
-
-        }
-
         public SaveImage(Int32 x, Int32 y, Int32 w, Int32 h, Size s)
         {
             InitializeComponent();
@@ -73,7 +68,7 @@ namespace CatHack
 
                     Output(final);
 
-                    System.Threading.Thread.Sleep(200);
+                    System.Threading.Thread.Sleep(100);
 
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
@@ -124,8 +119,8 @@ namespace CatHack
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);
 
                     cAttackTime = 1 / attackSpeed;
-                    WindupPercent = 17.544f / 100;
-                    bWindupTime = (1 / 0.658f) * WindupPercent;
+                    WindupPercent = 16.622f / 100;
+                    bWindupTime = (1 / 0.665f) * WindupPercent;
                     tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime);
 
                     tAttackWindup = tAttackWindup * 1000;
@@ -134,16 +129,14 @@ namespace CatHack
 
                     Keyboard keyboard = new Keyboard();
 
-                    System.Threading.Thread.Sleep(tAttackWindupFinal);
                     keyboard.SendKeyDown(Keyboard.ScanCodeShort.KEY_A);
                     keyboard.SendKeyUp(Keyboard.ScanCodeShort.KEY_A);
                     System.Threading.Thread.Sleep(tAttackCooldownFinal);
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
 
-                    System.Threading.Thread.Sleep(30);
-
-                    Console.WriteLine("space pressed");
+                    System.Threading.Thread.Sleep(52); //Kite mode (current user ping + 20)
+                    //System.Threading.Thread.Sleep(32); //Spaceglide mode (current user ping only)
 
                     tAttackCooldown = 0;
                     cAttackTime = 0;
