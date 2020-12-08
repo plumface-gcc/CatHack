@@ -18,10 +18,16 @@ namespace CatHack
             Parallel.Invoke(      
                 () =>
                 {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new CatHack());
+                },
 
+                () =>
+                {
                     bool loop = true;
 
-                    while(loop)
+                    while (loop)
                     {
                         SaveImage.OrbWalkTest(null, null);
                     }
@@ -29,10 +35,9 @@ namespace CatHack
 
                 () =>
                 {
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new CatHack());
+                    Application.Run(new CatHackMain());
                 }
+
             );
         }
     }

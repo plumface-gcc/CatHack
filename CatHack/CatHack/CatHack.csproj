@@ -183,6 +183,12 @@
     <Compile Include="CatHack.Designer.cs">
       <DependentUpon>CatHack.cs</DependentUpon>
     </Compile>
+    <Compile Include="CatHackMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatHackMain.Designer.cs">
+      <DependentUpon>CatHackMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Keyboard.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="Program.cs" />
@@ -201,6 +207,9 @@
     </Compile>
     <EmbeddedResource Include="CatHack.resx">
       <DependentUpon>CatHack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatHackMain.resx">
+      <DependentUpon>CatHackMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -21,7 +21,7 @@ namespace CatHack
         private void button1_Click(object sender, EventArgs e)
         {
             ScreenshotArea area = new ScreenshotArea();
-            //this.Hide();
+            this.Hide();
             area.Show();
         }
 

@@ -68,12 +68,19 @@ namespace CatHack
 
                     Output(final);
 
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(50);
 
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
 
-                    attackSpeed = float.Parse(final);                                                      
+                    try
+                    {
+                        attackSpeed = float.Parse(final);
+                    }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 else
                 {
@@ -114,13 +121,13 @@ namespace CatHack
             {
                 if (spaceKeyIsPressed)
                 {
-
+                    CatHackMain cathack = new CatHackMain();
                     tAttackCooldown = (1 / attackSpeed) * 1000;
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);
 
                     cAttackTime = 1 / attackSpeed;
-                    WindupPercent = 16.622f / 100;
-                    bWindupTime = (1 / 0.665f) * WindupPercent;
+                    WindupPercent = 17.544f / 100;
+                    bWindupTime = (1 / 0.658f) * WindupPercent;
                     tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime);
 
                     tAttackWindup = tAttackWindup * 1000;
@@ -135,8 +142,31 @@ namespace CatHack
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
 
-                    System.Threading.Thread.Sleep(52); //Kite mode (current user ping + 20)
-                    //System.Threading.Thread.Sleep(32); //Spaceglide mode (current user ping only)
+                    if(cathack.getSpaceGlide() == true)
+                    {
+                        System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode (current user ping only, dps loss of ~200)
+                    }
+
+                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == false)
+                    {
+                        int delayAndPing = int.Parse(cathack.getUserPing());
+                        int finalDelay = delayAndPing + 20;
+                        System.Threading.Thread.Sleep(finalDelay); //Kite mode (current user ping + 20, dps loss of ~300)   
+                    }
+
+                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == true)
+                    {
+                        if (attackSpeed > 2.50)
+                        {                       
+                            System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode (current user ping only, dps loss of ~200)
+                        }
+                        else
+                        {
+                            int delayAndPing = int.Parse(cathack.getUserPing());
+                            int finalDelay = delayAndPing + 20;
+                            System.Threading.Thread.Sleep(finalDelay); //Kite mode (current user ping + 20, dps loss of ~300)    
+                        }
+                    }
 
                     tAttackCooldown = 0;
                     cAttackTime = 0;
@@ -149,7 +179,11 @@ namespace CatHack
 
             catch (DivideByZeroException error)
             {
-
+                Console.WriteLine(error.Message);
+            }
+            catch (OverflowException error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
     }
