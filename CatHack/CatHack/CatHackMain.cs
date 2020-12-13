@@ -15,10 +15,16 @@ namespace CatHack
         public static bool checkSpaceGlide;
         public static bool checkKiteMode;
         public static bool thresholdCheck;
+        public static bool cathackCheck;
         public static string userPing;
         public CatHackMain()
         {
             InitializeComponent();
+        }
+
+        public bool getCatHack()
+        {
+            return cathackCheck;
         }
 
         public bool getSpaceGlide()
@@ -80,6 +86,18 @@ namespace CatHack
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             userPing = textBox1.Text;
+        }
+
+        private void cathackStart_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cathackStart.Checked)
+            {
+                cathackCheck = true;
+            }
+            else
+            {
+                cathackCheck = false;
+            }
         }
     }
 }

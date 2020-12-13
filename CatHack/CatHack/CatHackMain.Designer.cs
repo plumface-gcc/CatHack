@@ -44,6 +44,7 @@ namespace CatHack
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.cathackStart = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -191,11 +192,26 @@ namespace CatHack
             this.textBox1.TabIndex = 6;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // cathackStart
+            // 
+            this.cathackStart.AutoSize = true;
+            this.cathackStart.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cathackStart.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.cathackStart.Location = new System.Drawing.Point(100, 208);
+            this.cathackStart.Name = "cathackStart";
+            this.cathackStart.Size = new System.Drawing.Size(110, 17);
+            this.cathackStart.TabIndex = 6;
+            this.cathackStart.Text = "Activate CatHack";
+            this.cathackStart.UseVisualStyleBackColor = false;
+            this.cathackStart.CheckedChanged += new System.EventHandler(this.cathackStart_CheckedChanged);
+            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Sienna;
+            this.ClientSize = new System.Drawing.Size(337, 407);
+            this.Controls.Add(this.cathackStart);
             this.Controls.Add(this.checkKiteModeBox);
             this.Controls.Add(this.thresholdCheckBox);
             this.Controls.Add(this.checkSpaceGlideBox);
@@ -229,5 +245,6 @@ namespace CatHack
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.CheckBox cathackStart;
     }
 }

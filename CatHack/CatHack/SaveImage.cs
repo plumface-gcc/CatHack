@@ -68,7 +68,7 @@ namespace CatHack
 
                     Output(final);
 
-                    System.Threading.Thread.Sleep(50);
+                    //System.Threading.Thread.Sleep(20);
 
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
@@ -116,18 +116,18 @@ namespace CatHack
             short keyState = GetAsyncKeyState(VK_SNAPSHOT);
             bool spaceKeyIsPressed = ((keyState >> 15) & 0x0001) == 0x0001;
             bool unprocessedPress = ((keyState >> 0) & 0x0001) == 0x0001;
+            CatHackMain cathack = new CatHackMain();
 
             try
             {
-                if (spaceKeyIsPressed)
+                if (spaceKeyIsPressed && cathack.getCatHack())
                 {
-                    CatHackMain cathack = new CatHackMain();
                     tAttackCooldown = (1 / attackSpeed) * 1000;
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);
 
                     cAttackTime = 1 / attackSpeed;
-                    WindupPercent = 17.544f / 100;
-                    bWindupTime = (1 / 0.658f) * WindupPercent;
+                    WindupPercent = 20.192f / 100;
+                    bWindupTime = (1 / 0.679f) * WindupPercent;
                     tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime);
 
                     tAttackWindup = tAttackWindup * 1000;
