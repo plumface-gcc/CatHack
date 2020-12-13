@@ -45,8 +45,15 @@ namespace CatHack
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cathackStart = new System.Windows.Forms.CheckBox();
+            this.championBox = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkSpaceGlideBox
@@ -124,6 +131,9 @@ namespace CatHack
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.textBox2);
@@ -134,7 +144,7 @@ namespace CatHack
             this.panel2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.panel2.Location = new System.Drawing.Point(21, 230);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 169);
+            this.panel2.Size = new System.Drawing.Size(279, 272);
             this.panel2.TabIndex = 5;
             // 
             // label5
@@ -142,7 +152,7 @@ namespace CatHack
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(55, 125);
+            this.label5.Location = new System.Drawing.Point(55, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 13);
             this.label5.TabIndex = 11;
@@ -150,14 +160,14 @@ namespace CatHack
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 122);
+            this.textBox3.Location = new System.Drawing.Point(16, 159);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(33, 20);
             this.textBox3.TabIndex = 10;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(16, 81);
+            this.textBox2.Location = new System.Drawing.Point(16, 99);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 20);
             this.textBox2.TabIndex = 9;
@@ -167,7 +177,7 @@ namespace CatHack
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(55, 84);
+            this.label4.Location = new System.Drawing.Point(55, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(194, 13);
             this.label4.TabIndex = 8;
@@ -178,7 +188,7 @@ namespace CatHack
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(55, 44);
+            this.label3.Location = new System.Drawing.Point(55, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(209, 13);
             this.label3.TabIndex = 7;
@@ -186,7 +196,7 @@ namespace CatHack
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 41);
+            this.textBox1.Location = new System.Drawing.Point(16, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(33, 20);
             this.textBox1.TabIndex = 6;
@@ -205,12 +215,105 @@ namespace CatHack
             this.cathackStart.UseVisualStyleBackColor = false;
             this.cathackStart.CheckedChanged += new System.EventHandler(this.cathackStart_CheckedChanged);
             // 
+            // championBox
+            // 
+            this.championBox.BackColor = System.Drawing.Color.Tomato;
+            this.championBox.FormattingEnabled = true;
+            this.championBox.Items.AddRange(new object[] {
+            "Aphelios",
+            "Ashe",
+            "Azir",
+            "Bard",
+            "Caitlyn",
+            "Corki",
+            "Draven",
+            "Ezreal",
+            "Gnar",
+            "Jayce",
+            "Jinx",
+            "Kai\'Sa",
+            "Kalista",
+            "Kayle",
+            "Kennen",
+            "Kindred",
+            "Kog\'Maw",
+            "Lucian",
+            "Miss Fortune",
+            "Neeko",
+            "Samira",
+            "Quinn",
+            "Sivir",
+            "Teemo",
+            "Tristana",
+            "Twitch",
+            "Twisted Fate",
+            "Varus",
+            "Vayne",
+            "Xayah"});
+            this.championBox.Location = new System.Drawing.Point(14, 42);
+            this.championBox.Name = "championBox";
+            this.championBox.Size = new System.Drawing.Size(353, 21);
+            this.championBox.TabIndex = 7;
+            this.championBox.SelectionChangeCommitted += new System.EventHandler(this.championBox_SelectionChangeCommitted);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Controls.Add(this.championBox);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.panel3.Location = new System.Drawing.Point(341, 35);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(384, 467);
+            this.panel3.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Black;
+            this.label6.ForeColor = System.Drawing.Color.Peru;
+            this.label6.Location = new System.Drawing.Point(156, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Champion Selector";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(55, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 12;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(16, 220);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(33, 20);
+            this.textBox4.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(55, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(181, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Save Attack Speed Box (X, Y, W, H)";
+            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Sienna;
-            this.ClientSize = new System.Drawing.Size(337, 407);
+            this.ClientSize = new System.Drawing.Size(748, 514);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.cathackStart);
             this.Controls.Add(this.checkKiteModeBox);
             this.Controls.Add(this.thresholdCheckBox);
@@ -223,6 +326,8 @@ namespace CatHack
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +351,11 @@ namespace CatHack
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.CheckBox cathackStart;
+        private System.Windows.Forms.ComboBox championBox;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label7;
     }
 }

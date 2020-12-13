@@ -27,9 +27,9 @@ namespace CatHack
         public static float baseAttackWindup;
         public static float attackSpeed;
 
-        public static float cAttackTime;
         public static float WindupPercent;
         public static float bWindupTime;
+        public static float cAttackTime;
         public static float WindupModifier;
 
         Regex rgx = new Regex(pattern);
@@ -66,10 +66,6 @@ namespace CatHack
 
                     count += 1;
 
-                    Output(final);
-
-                    //System.Threading.Thread.Sleep(20);
-
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
 
@@ -90,13 +86,6 @@ namespace CatHack
             }
         }
 
-        public static void Output(string input)
-        {
-            CatHack catHackForm = new CatHack();
-
-            catHackForm.attackSpeedBox.Text = input;
-        }
-
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
         [DllImport("user32.dll")]
@@ -110,25 +99,42 @@ namespace CatHack
 
         /// <summary>
         /// Handles calculating attack speed cooldown and time.
+        /// Kite Mode = (current user ping + 20, dps loss of ~300) 
+        /// Space Glide Mode = (current user ping only, dps loss of ~200)
         /// </summary>
         public static void OrbWalkTest(object sender, EventArgs e)
         {
             short keyState = GetAsyncKeyState(VK_SNAPSHOT);
             bool spaceKeyIsPressed = ((keyState >> 15) & 0x0001) == 0x0001;
             bool unprocessedPress = ((keyState >> 0) & 0x0001) == 0x0001;
+
             CatHackMain cathack = new CatHackMain();
 
             try
             {
-                if (spaceKeyIsPressed && cathack.getCatHack())
+                if (spaceKeyIsPressed && cathack.getCatHack()) // If bound key is pressed AND cathack activation form is checked
                 {
                     tAttackCooldown = (1 / attackSpeed) * 1000;
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);
 
-                    cAttackTime = 1 / attackSpeed;
-                    WindupPercent = 20.192f / 100;
-                    bWindupTime = (1 / 0.679f) * WindupPercent;
-                    tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime);
+                    float champWindupPercent = cathack.getWindupPercent();
+                    float champBaseWindupTime = cathack.getBaseWindupTime();
+                    float champWindupModifier = cathack.getWindupModifier();
+
+                    if(champWindupModifier == 0)
+                    {
+                        cAttackTime = 1 / attackSpeed;
+                        WindupPercent = (champWindupPercent) / 100;
+                        bWindupTime = (1 / champBaseWindupTime) * WindupPercent;
+                        tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime); 
+                    }
+                    else
+                    {
+                        cAttackTime = 1 / attackSpeed;
+                        WindupPercent = (champWindupPercent) / 100;
+                        bWindupTime = (1 / champBaseWindupTime) * WindupPercent;
+                        tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime) * champWindupModifier;
+                    }
 
                     tAttackWindup = tAttackWindup * 1000;
 
@@ -142,29 +148,29 @@ namespace CatHack
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
 
-                    if(cathack.getSpaceGlide() == true)
+                    if(cathack.getSpaceGlide() == true) // if only spaceglide is checked
                     {
-                        System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode (current user ping only, dps loss of ~200)
+                        System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode 
                     }
 
-                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == false)
+                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == false)  // if kite mode is checked AND Orbwalk threshold is not checked
                     {
                         int delayAndPing = int.Parse(cathack.getUserPing());
                         int finalDelay = delayAndPing + 20;
-                        System.Threading.Thread.Sleep(finalDelay); //Kite mode (current user ping + 20, dps loss of ~300)   
+                        System.Threading.Thread.Sleep(finalDelay); //Kite mode 
                     }
 
-                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == true)
+                    if(cathack.getKiteMode() == true && cathack.getThresholdCheck() == true) // if kite mode is checked AND Orbwalk threshold is checked
                     {
                         if (attackSpeed > 2.50)
                         {                       
-                            System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode (current user ping only, dps loss of ~200)
+                            System.Threading.Thread.Sleep(int.Parse(cathack.getUserPing())); //Spaceglide mode 
                         }
                         else
                         {
                             int delayAndPing = int.Parse(cathack.getUserPing());
                             int finalDelay = delayAndPing + 20;
-                            System.Threading.Thread.Sleep(finalDelay); //Kite mode (current user ping + 20, dps loss of ~300)    
+                            System.Threading.Thread.Sleep(finalDelay); //Kite mode   
                         }
                     }
 
