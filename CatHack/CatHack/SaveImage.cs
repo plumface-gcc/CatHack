@@ -23,6 +23,7 @@ namespace CatHack
         public int count = 1;
         public static short keyState;
         public static string pattern = @"([1-9]+[.])\w+";
+        private static string userName = Environment.UserName;
 
         public static float tAttackCooldown;
         public static float tAttackWindup;
@@ -54,7 +55,7 @@ namespace CatHack
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
                 Graphics newGraphic = Graphics.FromImage(bmpRecurse);
                 newGraphic.CopyFromScreen(rectRecurse.Left, rectRecurse.Top, 0, 0, s, CopyPixelOperation.SourceCopy);
-                bmpRecurse.Save(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
                 imageCapture.Image = bmpRecurse;
 
                 var output = new IronTesseract();
@@ -62,7 +63,7 @@ namespace CatHack
                 output.Configuration.PageSegmentationMode = TesseractPageSegmentationMode.SingleBlock;
                 output.Configuration.WhiteListCharacters = "0123456789.";
 
-                var input = new OcrInput(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
+                var input = new OcrInput(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
 
                 input = input.EnhanceResolution();
                 //input = input.DeNoise();
@@ -77,7 +78,7 @@ namespace CatHack
                     count += 1;
 
                     bmpRecurse.Dispose();
-                    System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
+                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
 
                     try
                     {
@@ -91,7 +92,7 @@ namespace CatHack
                 else
                 {
                     bmpRecurse.Dispose();
-                    System.IO.File.Delete(@"D:\Users\Maks Klimenko\Documents\recurseImg.jpeg");
+                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
                 }
             }
         }
