@@ -37,10 +37,12 @@ namespace CatHack
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -48,9 +50,7 @@ namespace CatHack
             this.championBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.keycodeLink = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -131,13 +131,13 @@ namespace CatHack
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.keycodeLink);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBox1);
@@ -146,6 +146,34 @@ namespace CatHack
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(279, 272);
             this.panel2.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(55, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(181, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Save Attack Speed Box (X, Y, W, H)";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(16, 220);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(33, 20);
+            this.textBox4.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(55, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 12;
             // 
             // label5
             // 
@@ -171,17 +199,7 @@ namespace CatHack
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 20);
             this.textBox2.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(55, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Orb Walk Bind (What key to start kiting)";
+            this.textBox2.TextChanged += new System.EventHandler(this.userOrbWalkBind_TextChanged);
             // 
             // label3
             // 
@@ -200,7 +218,7 @@ namespace CatHack
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(33, 20);
             this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.userPingBox_TextChanged);
             // 
             // cathackStart
             // 
@@ -279,33 +297,18 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
-            // label7
+            // keycodeLink
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Black;
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(55, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 13);
-            this.label7.TabIndex = 12;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(16, 220);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(33, 20);
-            this.textBox4.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(55, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Save Attack Speed Box (X, Y, W, H)";
+            this.keycodeLink.AutoSize = true;
+            this.keycodeLink.LinkColor = System.Drawing.Color.White;
+            this.keycodeLink.Location = new System.Drawing.Point(55, 102);
+            this.keycodeLink.Name = "keycodeLink";
+            this.keycodeLink.Size = new System.Drawing.Size(212, 13);
+            this.keycodeLink.TabIndex = 8;
+            this.keycodeLink.TabStop = true;
+            this.keycodeLink.Text = "OrbWalk Keycode (What key to start kiting)";
+            this.keycodeLink.UseWaitCursor = true;
+            this.keycodeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.keycodeLink_LinkClicked);
             // 
             // CatHackMain
             // 
@@ -348,7 +351,6 @@ namespace CatHack
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.CheckBox cathackStart;
         private System.Windows.Forms.ComboBox championBox;
@@ -357,5 +359,6 @@ namespace CatHack
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel keycodeLink;
     }
 }

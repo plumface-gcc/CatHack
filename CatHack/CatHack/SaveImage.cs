@@ -21,7 +21,9 @@ namespace CatHack
 
         public bool loop = true;
         public int count = 1;
+        public static short keyState;
         public static string pattern = @"([1-9]+[.])\w+";
+
         public static float tAttackCooldown;
         public static float tAttackWindup;
         public static float baseAttackWindup;
@@ -31,6 +33,14 @@ namespace CatHack
         public static float bWindupTime;
         public static float cAttackTime;
         public static float WindupModifier;
+
+        private static readonly int VK_SPACE = 0x20;
+        private static readonly int VK_MOUSE4 = 0x05;
+        private static readonly int VK_MOUSE5 = 0x06;
+        private static readonly int VK_V = 0x56;
+        private static readonly int VK_C = 0x43;
+        private static readonly int VK_G = 0x47;
+        private static readonly int VK_X = 0x58;
 
         Regex rgx = new Regex(pattern);
 
@@ -95,7 +105,6 @@ namespace CatHack
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
 
         static extern uint RegisterWindowMessage(string lpString);
-        private static readonly int VK_SNAPSHOT = 0x20; //This is the space key.
 
         /// <summary>
         /// Handles calculating attack speed cooldown and time.
@@ -104,15 +113,43 @@ namespace CatHack
         /// </summary>
         public static void OrbWalkTest(object sender, EventArgs e)
         {
-            short keyState = GetAsyncKeyState(VK_SNAPSHOT);
-            bool spaceKeyIsPressed = ((keyState >> 15) & 0x0001) == 0x0001;
-            bool unprocessedPress = ((keyState >> 0) & 0x0001) == 0x0001;
-
             CatHackMain cathack = new CatHackMain();
+
+            if(cathack.getUserKeycode() == "0x05")
+            {
+                keyState = GetAsyncKeyState(VK_MOUSE4);
+            }
+            if(cathack.getUserKeycode() == "0x06")
+            {
+                keyState = GetAsyncKeyState(VK_MOUSE5);
+            }
+            if (cathack.getUserKeycode() == "0x56")
+            {
+                keyState = GetAsyncKeyState(VK_V);
+            }
+            if(cathack.getUserKeycode() == "0x43")
+            {
+                keyState = GetAsyncKeyState(VK_C);
+            }
+            if(cathack.getUserKeycode() == "0x47")
+            {
+                keyState = GetAsyncKeyState(VK_G);
+            }
+            if(cathack.getUserKeycode() == "0x58")
+            {
+                keyState = GetAsyncKeyState(VK_X);
+            }
+            if (cathack.getUserKeycode() == "0x20")
+            {
+                keyState = GetAsyncKeyState(VK_SPACE);
+            }
+
+            bool keyIsPressed = ((keyState >> 15) & 0x0001) == 0x0001;
+            bool unprocessedPress = ((keyState >> 0) & 0x0001) == 0x0001;
 
             try
             {
-                if (spaceKeyIsPressed && cathack.getCatHack()) // If bound key is pressed AND cathack activation form is checked
+                if (keyIsPressed && cathack.getCatHack()) // If bound key is pressed AND cathack checkbox is checked
                 {
                     tAttackCooldown = (1 / attackSpeed) * 1000;
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);
