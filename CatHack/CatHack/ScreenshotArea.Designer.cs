@@ -31,13 +31,11 @@ namespace CatHack
         {
             this.panelDrag = new System.Windows.Forms.Panel();
             this.capureThis = new System.Windows.Forms.Button();
-            this.panelDrag.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDrag
             // 
             this.panelDrag.AccessibleName = "";
-            this.panelDrag.Controls.Add(this.capureThis);
             this.panelDrag.Location = new System.Drawing.Point(12, 12);
             this.panelDrag.Name = "panelDrag";
             this.panelDrag.Size = new System.Drawing.Size(776, 426);
@@ -47,13 +45,13 @@ namespace CatHack
             // 
             // capureThis
             // 
-            this.capureThis.Location = new System.Drawing.Point(285, 133);
+            this.capureThis.BackColor = System.Drawing.Color.Transparent;
+            this.capureThis.Location = new System.Drawing.Point(778, 428);
             this.capureThis.Name = "capureThis";
-            this.capureThis.Size = new System.Drawing.Size(75, 23);
+            this.capureThis.Size = new System.Drawing.Size(10, 10);
             this.capureThis.TabIndex = 0;
             this.capureThis.Text = "button1";
-            this.capureThis.UseVisualStyleBackColor = true;
-            this.capureThis.Click += new System.EventHandler(this.captureThis_Click);
+            this.capureThis.UseVisualStyleBackColor = false;
             this.capureThis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.captureThis_KeyDown);
             // 
             // ScreenshotArea
@@ -61,11 +59,11 @@ namespace CatHack
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.capureThis);
             this.Controls.Add(this.panelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScreenshotArea";
             this.Text = "ScreenshotArea";
-            this.panelDrag.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

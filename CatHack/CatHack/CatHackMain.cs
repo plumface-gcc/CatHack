@@ -16,6 +16,7 @@ namespace CatHack
         private static bool checkKiteMode;
         private static bool thresholdCheck;
         private static bool cathackCheck;
+        private static bool attackSpeedScreenshotCheck;
         private static string userKeycode;
         private static string userPing;
         private static string selectedChampion;
@@ -28,6 +29,17 @@ namespace CatHack
             InitializeComponent();
         }
 
+        private void keycodeLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://cathackcodes.weebly.com/");
+        }
+        private void attackSpeedScreenshotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (attackSpeedScreenshotCheckBox.Checked)
+            {
+                attackSpeedScreenshotCheck = true;
+            }
+        }
         private void spaceGlideBox_CheckedChanged(object sender, EventArgs e)
         {
             if (checkSpaceGlideBox.Checked)
@@ -39,7 +51,6 @@ namespace CatHack
                 thresholdCheckBox.Checked = false;
             }
         }
-
         private void kiteModeBox_CheckedChanged(object sender, EventArgs e)
         {
             if (checkKiteModeBox.Checked)
@@ -51,7 +62,6 @@ namespace CatHack
                 thresholdCheckBox.Checked = false;
             }
         }
-
         private void thresholdCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (thresholdCheckBox.Checked)
@@ -63,17 +73,14 @@ namespace CatHack
                 checkKiteModeBox.Checked = true;
             }
         }
-
         private void userPingBox_TextChanged(object sender, EventArgs e)
         {
             userPing = textBox1.Text;
         }
-
         private void userOrbWalkBind_TextChanged(object sender, EventArgs e)
         {
             userKeycode = textBox2.Text;
         }
-
         private void cathackStart_CheckedChanged(object sender, EventArgs e)
         {
             if (cathackStart.Checked)
@@ -85,50 +92,45 @@ namespace CatHack
                 cathackCheck = false;
             }
         }
-
         public bool getCatHack()
         {
             return cathackCheck;
         }
-
         public bool getSpaceGlide()
         {
             return checkSpaceGlide;
         }
-
         public bool getKiteMode()
         {
             return checkKiteMode;
         }
-
         public bool getThresholdCheck()
         {
             return thresholdCheck;
         }
-
         public float getWindupPercent()
         {
             return WindupPercent;
         }
-
         public float getBaseWindupTime()
         {
             return bWindupTime;
         }
-
         public float getWindupModifier()
         {
             return WindupModifier;
         }
-
         public string getUserPing()
         {
             return userPing;
         }
-
         public string getUserKeycode()
         {
             return userKeycode;
+        }
+        public bool getAttackSpeedScreenshot()
+        {
+            return attackSpeedScreenshotCheck;
         }
         private void championBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -286,11 +288,6 @@ namespace CatHack
                 WindupPercent = 17.687f;
                 bWindupTime = 0.625f;
             }
-        }
-
-        private void keycodeLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://cathackcodes.weebly.com/");
         }
     }
 }

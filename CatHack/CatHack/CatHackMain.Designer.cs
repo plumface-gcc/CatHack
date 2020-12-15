@@ -37,8 +37,9 @@ namespace CatHack
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.attackSpeedScreenshotCheckBox = new System.Windows.Forms.CheckBox();
+            this.keycodeLink = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@ namespace CatHack
             this.championBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.keycodeLink = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -131,9 +131,9 @@ namespace CatHack
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.attackSpeedScreenshotCheckBox);
             this.panel2.Controls.Add(this.keycodeLink);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox3);
@@ -147,23 +147,39 @@ namespace CatHack
             this.panel2.Size = new System.Drawing.Size(279, 272);
             this.panel2.TabIndex = 5;
             // 
+            // attackSpeedScreenshotCheckBox
+            // 
+            this.attackSpeedScreenshotCheckBox.AutoSize = true;
+            this.attackSpeedScreenshotCheckBox.Location = new System.Drawing.Point(26, 219);
+            this.attackSpeedScreenshotCheckBox.Name = "attackSpeedScreenshotCheckBox";
+            this.attackSpeedScreenshotCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.attackSpeedScreenshotCheckBox.TabIndex = 15;
+            this.attackSpeedScreenshotCheckBox.UseVisualStyleBackColor = true;
+            this.attackSpeedScreenshotCheckBox.CheckedChanged += new System.EventHandler(this.attackSpeedScreenshotCheckBox_CheckedChanged);
+            // 
+            // keycodeLink
+            // 
+            this.keycodeLink.AutoSize = true;
+            this.keycodeLink.LinkColor = System.Drawing.Color.White;
+            this.keycodeLink.Location = new System.Drawing.Point(55, 102);
+            this.keycodeLink.Name = "keycodeLink";
+            this.keycodeLink.Size = new System.Drawing.Size(212, 13);
+            this.keycodeLink.TabIndex = 8;
+            this.keycodeLink.TabStop = true;
+            this.keycodeLink.Text = "OrbWalk Keycode (What key to start kiting)";
+            this.keycodeLink.UseWaitCursor = true;
+            this.keycodeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.keycodeLink_LinkClicked);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(55, 223);
+            this.label8.Location = new System.Drawing.Point(55, 219);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 13);
+            this.label8.Size = new System.Drawing.Size(187, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Save Attack Speed Box (X, Y, W, H)";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(16, 220);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(33, 20);
-            this.textBox4.TabIndex = 13;
+            this.label8.Text = "Save Attack Speed Box? (X, Y, W, H)";
             // 
             // label7
             // 
@@ -297,19 +313,6 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
-            // keycodeLink
-            // 
-            this.keycodeLink.AutoSize = true;
-            this.keycodeLink.LinkColor = System.Drawing.Color.White;
-            this.keycodeLink.Location = new System.Drawing.Point(55, 102);
-            this.keycodeLink.Name = "keycodeLink";
-            this.keycodeLink.Size = new System.Drawing.Size(212, 13);
-            this.keycodeLink.TabIndex = 8;
-            this.keycodeLink.TabStop = true;
-            this.keycodeLink.Text = "OrbWalk Keycode (What key to start kiting)";
-            this.keycodeLink.UseWaitCursor = true;
-            this.keycodeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.keycodeLink_LinkClicked);
-            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,8 +360,8 @@ namespace CatHack
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel keycodeLink;
+        private System.Windows.Forms.CheckBox attackSpeedScreenshotCheckBox;
     }
 }

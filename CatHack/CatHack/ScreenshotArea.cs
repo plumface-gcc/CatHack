@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using System.IO;
 
 namespace CatHack
 {
     public partial class ScreenshotArea : Form
     {
+        private static string userName = Environment.UserName;
+        private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
+        private int xInput, yInput, widthInput, heightInput;
+        private Size sizeInput;
+
         public ScreenshotArea()
         {
             InitializeComponent();
@@ -21,13 +26,6 @@ namespace CatHack
             this.Opacity = .5D; // make trasparent
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true); // this is to avoid visual artifact
-        }
-        protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
-        {
-            e.Graphics.FillRectangle(Brushes.Green, Top);
-            e.Graphics.FillRectangle(Brushes.Green, Left);
-            e.Graphics.FillRectangle(Brushes.Green, Right);
-            e.Graphics.FillRectangle(Brushes.Green, Bottom);
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -60,6 +58,30 @@ namespace CatHack
 
         private void captureThis_KeyDown(object sender, KeyEventArgs e)
         {
+
+            CatHackMain cathack = new CatHackMain();
+
+            if(cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
+            {
+                xInput = this.Location.X;
+                yInput = this.Location.Y;
+                widthInput = this.Width;
+                heightInput = this.Height;
+                sizeInput = this.Size;
+
+                File.WriteAllText(path, String.Empty);
+
+                using (StreamWriter sr = File.AppendText(path)) // saving X,Y,W,H,S coordinates
+                {
+                    sr.WriteLine(xInput);
+                    sr.WriteLine(yInput);
+                    sr.WriteLine(widthInput);
+                    sr.WriteLine(heightInput);
+                    sr.WriteLine(sizeInput);
+                    sr.Close();
+                }
+            }
+
             try
             {
                 if (e.KeyCode == Keys.F)
