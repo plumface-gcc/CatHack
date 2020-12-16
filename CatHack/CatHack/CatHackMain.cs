@@ -18,7 +18,6 @@ namespace CatHack
         private static bool cathackCheck;
         private static bool attackSpeedScreenshotCheck;
         private static string userKeycode;
-        private static string userPing;
         private static string selectedChampion;
         private static float WindupPercent;
         private static float bWindupTime;
@@ -73,10 +72,6 @@ namespace CatHack
                 checkKiteModeBox.Checked = true;
             }
         }
-        private void userPingBox_TextChanged(object sender, EventArgs e)
-        {
-            userPing = textBox1.Text;
-        }
         private void userOrbWalkBind_TextChanged(object sender, EventArgs e)
         {
             userKeycode = textBox2.Text;
@@ -119,10 +114,6 @@ namespace CatHack
         public float getWindupModifier()
         {
             return WindupModifier;
-        }
-        public string getUserPing()
-        {
-            return userPing;
         }
         public string getUserKeycode()
         {
@@ -197,7 +188,7 @@ namespace CatHack
                 WindupPercent = 16.108f;
                 bWindupTime = 0.644f;
             }
-            if(selectedChampion == "Kalista") // SPECIAL CASE
+            if(selectedChampion == "Kalista") // TODO: "Kalista Double Jump" a weird exploit happens at 4.0+ attack speed. Only happens at (certain ms? ms difference? 32 + 5?)
             {
                 WindupPercent = 36.000f;
                 bWindupTime = 0.694f;

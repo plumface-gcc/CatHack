@@ -20,7 +20,7 @@ namespace CatHack
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new CatHack());
+                    Application.Run(new AttackSpeedForm());
                 },
 
                 () =>
@@ -29,15 +29,19 @@ namespace CatHack
 
                     while (loop)
                     {
-                        SaveImage.OrbWalkTest(null, null);
+                        CatHackOrbWalk.OrbWalk();
                     }
                 },
 
                 () =>
                 {
                     Application.Run(new CatHackMain());
-                }
+                },
 
+                () =>
+                {
+                    Application.Run(new PingForm());
+                }
             );
         }
     }

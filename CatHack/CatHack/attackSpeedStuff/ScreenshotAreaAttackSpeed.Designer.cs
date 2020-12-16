@@ -1,7 +1,7 @@
 ﻿
 namespace CatHack
 {
-    partial class ScreenshotArea
+    partial class ScreenshotAreaAttackSpeed
     {
         /// <summary>
         /// Required designer variable.
@@ -54,7 +54,7 @@ namespace CatHack
             this.capureThis.UseVisualStyleBackColor = false;
             this.capureThis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.captureThis_KeyDown);
             // 
-            // ScreenshotArea
+            // ScreenshotAreaAttackSpeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,8 +62,8 @@ namespace CatHack
             this.Controls.Add(this.capureThis);
             this.Controls.Add(this.panelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ScreenshotArea";
-            this.Text = "ScreenshotArea";
+            this.Name = "ScreenshotAreaAttackSpeed";
+            this.Text = "ScreenshotAreaAttackSpeed";
             this.ResumeLayout(false);
 
         }

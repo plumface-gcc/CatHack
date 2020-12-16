@@ -29,6 +29,7 @@ namespace CatHack
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatHackMain));
             this.checkSpaceGlideBox = new System.Windows.Forms.CheckBox();
             this.checkKiteModeBox = new System.Windows.Forms.CheckBox();
             this.thresholdCheckBox = new System.Windows.Forms.CheckBox();
@@ -44,13 +45,13 @@ namespace CatHack
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cathackStart = new System.Windows.Forms.CheckBox();
             this.championBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -131,6 +132,8 @@ namespace CatHack
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.attackSpeedScreenshotCheckBox);
             this.panel2.Controls.Add(this.keycodeLink);
             this.panel2.Controls.Add(this.label8);
@@ -138,9 +141,7 @@ namespace CatHack
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.panel2.Location = new System.Drawing.Point(21, 230);
             this.panel2.Name = "panel2";
@@ -150,7 +151,7 @@ namespace CatHack
             // attackSpeedScreenshotCheckBox
             // 
             this.attackSpeedScreenshotCheckBox.AutoSize = true;
-            this.attackSpeedScreenshotCheckBox.Location = new System.Drawing.Point(26, 219);
+            this.attackSpeedScreenshotCheckBox.Location = new System.Drawing.Point(26, 173);
             this.attackSpeedScreenshotCheckBox.Name = "attackSpeedScreenshotCheckBox";
             this.attackSpeedScreenshotCheckBox.Size = new System.Drawing.Size(15, 14);
             this.attackSpeedScreenshotCheckBox.TabIndex = 15;
@@ -161,7 +162,7 @@ namespace CatHack
             // 
             this.keycodeLink.AutoSize = true;
             this.keycodeLink.LinkColor = System.Drawing.Color.White;
-            this.keycodeLink.Location = new System.Drawing.Point(55, 102);
+            this.keycodeLink.Location = new System.Drawing.Point(55, 56);
             this.keycodeLink.Name = "keycodeLink";
             this.keycodeLink.Size = new System.Drawing.Size(212, 13);
             this.keycodeLink.TabIndex = 8;
@@ -175,7 +176,7 @@ namespace CatHack
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(55, 219);
+            this.label8.Location = new System.Drawing.Point(55, 173);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(187, 13);
             this.label8.TabIndex = 14;
@@ -196,7 +197,7 @@ namespace CatHack
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(55, 162);
+            this.label5.Location = new System.Drawing.Point(55, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 13);
             this.label5.TabIndex = 11;
@@ -204,37 +205,18 @@ namespace CatHack
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 159);
+            this.textBox3.Location = new System.Drawing.Point(16, 113);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(33, 20);
             this.textBox3.TabIndex = 10;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(16, 99);
+            this.textBox2.Location = new System.Drawing.Point(16, 53);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 20);
             this.textBox2.TabIndex = 9;
             this.textBox2.TextChanged += new System.EventHandler(this.userOrbWalkBind_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(55, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Your ping in MS (Do not use with bad ping)";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.userPingBox_TextChanged);
             // 
             // cathackStart
             // 
@@ -313,6 +295,26 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(26, 222);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(55, 222);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Save User Ping Box? (X, Y, W, H)";
+            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +328,7 @@ namespace CatHack
             this.Controls.Add(this.checkSpaceGlideBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CatHackMain";
             this.Text = "CatHackMain";
             this.panel1.ResumeLayout(false);
@@ -349,8 +352,6 @@ namespace CatHack
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -363,5 +364,7 @@ namespace CatHack
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel keycodeLink;
         private System.Windows.Forms.CheckBox attackSpeedScreenshotCheckBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

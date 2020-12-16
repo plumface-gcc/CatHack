@@ -12,14 +12,14 @@ using System.IO;
 
 namespace CatHack
 {
-    public partial class ScreenshotArea : Form
+    public partial class ScreenshotAreaAttackSpeed : Form
     {
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
         private int xInput, yInput, widthInput, heightInput;
         private Size sizeInput;
 
-        public ScreenshotArea()
+        public ScreenshotAreaAttackSpeed()
         {
             InitializeComponent();
 
@@ -87,7 +87,7 @@ namespace CatHack
                 if (e.KeyCode == Keys.F)
                 {
                     this.Hide();
-                    SaveImage save = new SaveImage(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
+                    SaveAttackSpeed save = new SaveAttackSpeed(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
                     save.Show();
                 }
             }
@@ -102,7 +102,7 @@ namespace CatHack
             if (e.KeyCode == Keys.F)
             {
                 this.Hide();
-                SaveImage save = new SaveImage(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
+                SaveAttackSpeed save = new SaveAttackSpeed(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
                 save.Show();
             }
         }
@@ -158,7 +158,7 @@ namespace CatHack
         private void captureThis_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SaveImage save = new SaveImage(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
+            SaveAttackSpeed save = new SaveAttackSpeed(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
             save.Show();
         }
     }

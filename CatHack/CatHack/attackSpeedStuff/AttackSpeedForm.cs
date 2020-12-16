@@ -11,23 +11,17 @@ using System.Drawing.Imaging;
 
 namespace CatHack
 {
-    public partial class CatHack : Form
+    public partial class AttackSpeedForm : Form
     {
-        public CatHack()
+        public AttackSpeedForm()
         { 
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ScreenshotArea area = new ScreenshotArea();
+            ScreenshotAreaAttackSpeed area = new ScreenshotAreaAttackSpeed();
             this.Hide();
-            area.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ScreenshotArea area = new ScreenshotArea();
             area.Show();
         }
     }
