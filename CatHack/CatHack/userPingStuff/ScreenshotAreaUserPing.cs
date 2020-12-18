@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,6 +14,18 @@ namespace CatHack
 {
     public partial class ScreenshotAreaUserPing : Form
     {
+        private string[] lines;
+        private List<string> list = new List<string>();
+        private static string userName = Environment.UserName;
+        private String path = @"C:\Users\" + userName + @"\Documents\userData2.txt";
+        private int xInput, yInput, widthInput, heightInput;
+        private Size sizeInput;
+
+        private static int xSave;
+        private static int ySave;
+        private static int wSave;
+        private static int hSave;
+
         public ScreenshotAreaUserPing()
         {
             InitializeComponent();
@@ -73,12 +86,62 @@ namespace CatHack
 
         private void captureThis_KeyDown(object sender, KeyEventArgs e)
         {
+            
+            CatHackMain cathack = new CatHackMain();
+
+            if (cathack.getUserPingSceenshot()) // TODO: check if file exists, if not - make one
+            {
+                xInput = this.Location.X;
+                yInput = this.Location.Y;
+                widthInput = this.Width;
+                heightInput = this.Height;
+                sizeInput = this.Size;
+
+                File.WriteAllText(path, String.Empty);
+
+                using (StreamWriter sr = File.AppendText(path)) // saving X,Y,W,H,S coordinates
+                {
+                    sr.WriteLine(xInput);
+                    sr.WriteLine(yInput);
+                    sr.WriteLine(widthInput);
+                    sr.WriteLine(heightInput);
+                    sr.WriteLine(sizeInput);
+                    sr.Close();
+                }
+            }
+
+            string[] lines;
+            var list = new List<string>();
+            var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            lines = list.ToArray();
+
+            xSave = Int32.Parse(lines[0]);
+            ySave = Int32.Parse(lines[1]);
+            wSave = Int32.Parse(lines[2]);
+            hSave = Int32.Parse(lines[3]);    
+
             try
             {
-                if (e.KeyCode == Keys.F)
+                if (e.KeyCode == Keys.F && cathack.getUseUserPing() == true)
+                {
+                    this.Hide();
+                    SaveUserPing save = new SaveUserPing(xSave, ySave, wSave, hSave, this.Size);
+                    save.Show();
+                }
+                if (e.KeyCode == Keys.F && cathack.getUseUserPing() == false)
                 {
                     this.Hide();
                     SaveUserPing save = new SaveUserPing(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
+                    save.Show();
                 }
             }
             catch (System.ArgumentException error)

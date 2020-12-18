@@ -21,6 +21,11 @@ namespace CatHack
         private string[] lines;
         private List<string> list = new List<string>();
 
+        private static int xSave;
+        private static int ySave;
+        private static int wSave;
+        private static int hSave;
+
         public ScreenshotAreaAttackSpeed()
         {
             InitializeComponent();
@@ -60,7 +65,7 @@ namespace CatHack
 
         private void captureThis_KeyDown(object sender, KeyEventArgs e)
         {
-
+            
             CatHackMain cathack = new CatHackMain();
 
             if (cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
@@ -84,9 +89,34 @@ namespace CatHack
                 }
             }
 
+            string[] lines;
+            var list = new List<string>();
+            var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            lines = list.ToArray();
+
+            xSave = Int32.Parse(lines[0]);
+            ySave = Int32.Parse(lines[1]);
+            wSave = Int32.Parse(lines[2]);
+            hSave = Int32.Parse(lines[3]);
+
             try
             {
-                if (e.KeyCode == Keys.F)
+                if (e.KeyCode == Keys.F && cathack.getUseAttackSpeed() == true)
+                {
+                    this.Hide();
+                    SaveAttackSpeed save = new SaveAttackSpeed(xSave, ySave, wSave, hSave, this.Size);
+                    save.Show();
+                }
+                if (e.KeyCode == Keys.F && cathack.getUseAttackSpeed() == false)
                 {
                     this.Hide();
                     SaveAttackSpeed save = new SaveAttackSpeed(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);

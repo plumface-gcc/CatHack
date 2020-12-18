@@ -34,7 +34,6 @@ namespace CatHack
 
             while (loop)
             {
-
                 Rectangle rectRecurse = new Rectangle(x, y, w, h);
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
                 Graphics newGraphic = Graphics.FromImage(bmpRecurse);

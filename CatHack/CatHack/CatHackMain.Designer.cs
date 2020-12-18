@@ -38,6 +38,8 @@ namespace CatHack
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.userPingScreenshotCheckBox = new System.Windows.Forms.CheckBox();
             this.attackSpeedScreenshotCheckBox = new System.Windows.Forms.CheckBox();
             this.keycodeLink = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,8 +52,10 @@ namespace CatHack
             this.championBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.useAttackSpeedCheckBox = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.useUserPingCheckBox = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -132,8 +136,12 @@ namespace CatHack
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.useUserPingCheckBox);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.useAttackSpeedCheckBox);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.userPingScreenshotCheckBox);
             this.panel2.Controls.Add(this.attackSpeedScreenshotCheckBox);
             this.panel2.Controls.Add(this.keycodeLink);
             this.panel2.Controls.Add(this.label8);
@@ -148,10 +156,31 @@ namespace CatHack
             this.panel2.Size = new System.Drawing.Size(279, 272);
             this.panel2.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(55, 238);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Save User Ping Box? (X, Y, W, H)";
+            // 
+            // userPingScreenshotCheckBox
+            // 
+            this.userPingScreenshotCheckBox.AutoSize = true;
+            this.userPingScreenshotCheckBox.Location = new System.Drawing.Point(26, 238);
+            this.userPingScreenshotCheckBox.Name = "userPingScreenshotCheckBox";
+            this.userPingScreenshotCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.userPingScreenshotCheckBox.TabIndex = 16;
+            this.userPingScreenshotCheckBox.UseVisualStyleBackColor = true;
+            this.userPingScreenshotCheckBox.CheckedChanged += new System.EventHandler(this.userPingScreenshotCheckBox_CheckedChanged);
+            // 
             // attackSpeedScreenshotCheckBox
             // 
             this.attackSpeedScreenshotCheckBox.AutoSize = true;
-            this.attackSpeedScreenshotCheckBox.Location = new System.Drawing.Point(26, 173);
+            this.attackSpeedScreenshotCheckBox.Location = new System.Drawing.Point(26, 205);
             this.attackSpeedScreenshotCheckBox.Name = "attackSpeedScreenshotCheckBox";
             this.attackSpeedScreenshotCheckBox.Size = new System.Drawing.Size(15, 14);
             this.attackSpeedScreenshotCheckBox.TabIndex = 15;
@@ -176,7 +205,7 @@ namespace CatHack
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(55, 173);
+            this.label8.Location = new System.Drawing.Point(55, 205);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(187, 13);
             this.label8.TabIndex = 14;
@@ -197,7 +226,7 @@ namespace CatHack
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(55, 116);
+            this.label5.Location = new System.Drawing.Point(55, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 13);
             this.label5.TabIndex = 11;
@@ -205,7 +234,7 @@ namespace CatHack
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 113);
+            this.textBox3.Location = new System.Drawing.Point(16, 103);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(33, 20);
             this.textBox3.TabIndex = 10;
@@ -295,25 +324,47 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
-            // checkBox1
+            // useAttackSpeedCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(26, 222);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.useAttackSpeedCheckBox.AutoSize = true;
+            this.useAttackSpeedCheckBox.Location = new System.Drawing.Point(26, 146);
+            this.useAttackSpeedCheckBox.Name = "useAttackSpeedCheckBox";
+            this.useAttackSpeedCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.useAttackSpeedCheckBox.TabIndex = 18;
+            this.useAttackSpeedCheckBox.UseVisualStyleBackColor = true;
+            this.useAttackSpeedCheckBox.CheckedChanged += new System.EventHandler(this.useAttackSpeedCheckBox_CheckedChanged);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(55, 222);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Save User Ping Box? (X, Y, W, H)";
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(55, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(155, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Use Saved Attack Speed Box?";
+            // 
+            // useUserPingCheckBox
+            // 
+            this.useUserPingCheckBox.AutoSize = true;
+            this.useUserPingCheckBox.Location = new System.Drawing.Point(26, 175);
+            this.useUserPingCheckBox.Name = "useUserPingCheckBox";
+            this.useUserPingCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.useUserPingCheckBox.TabIndex = 20;
+            this.useUserPingCheckBox.UseVisualStyleBackColor = true;
+            this.useUserPingCheckBox.CheckedChanged += new System.EventHandler(this.useUserPingCheckBox_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Black;
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(55, 176);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Use Saved User Ping Box?";
             // 
             // CatHackMain
             // 
@@ -365,6 +416,10 @@ namespace CatHack
         private System.Windows.Forms.LinkLabel keycodeLink;
         private System.Windows.Forms.CheckBox attackSpeedScreenshotCheckBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox userPingScreenshotCheckBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox useUserPingCheckBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox useAttackSpeedCheckBox;
     }
 }

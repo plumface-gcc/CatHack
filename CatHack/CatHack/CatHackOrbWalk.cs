@@ -9,17 +9,17 @@ namespace CatHack
 {
     class CatHackOrbWalk
     {
-        public static short keyState;
-        public static int userPing;
-        public static float userPingFloat;
+        private static short keyState;
+        private static int userPing;
+        private static float userPingFloat;
 
-        public static float attackSpeed;
-        public static float tAttackCooldown;
-        public static float tAttackWindup;
+        private static float attackSpeed;
+        private static float tAttackCooldown;
+        private static float tAttackWindup;
 
-        public static float WindupPercent;
-        public static float bWindupTime;
-        public static float cAttackTime;
+        private static float WindupPercent;
+        private static float bWindupTime;
+        private static float cAttackTime;
 
         private static readonly int VK_SPACE = 0x20;
         private static readonly int VK_MOUSE4 = 0x05;
@@ -28,7 +28,6 @@ namespace CatHack
         private static readonly int VK_C = 0x43;
         private static readonly int VK_G = 0x47;
         private static readonly int VK_X = 0x58;
-
 
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
@@ -46,7 +45,6 @@ namespace CatHack
         /// </summary>
         public static void OrbWalk()
         {
-
             CatHackMain cathack = new CatHackMain();
             SaveAttackSpeed attkSpeed = new SaveAttackSpeed();
             SaveUserPing savePing = new SaveUserPing();

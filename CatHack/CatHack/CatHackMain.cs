@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,17 @@ namespace CatHack
 {
     public partial class CatHackMain : Form
     {
+        private static string userName = Environment.UserName;
+        private String path = @"C:\Users\" + userName + @"\Documents\userData1.txt";
+
         private static bool checkSpaceGlide;
         private static bool checkKiteMode;
         private static bool thresholdCheck;
         private static bool cathackCheck;
         private static bool attackSpeedScreenshotCheck;
+        private static bool userPingScreenshotCheck;
+        private static bool useAttackSpeed;
+        private static bool useUserPing;
         private static string userKeycode;
         private static string selectedChampion;
         private static float WindupPercent;
@@ -37,6 +44,27 @@ namespace CatHack
             if (attackSpeedScreenshotCheckBox.Checked)
             {
                 attackSpeedScreenshotCheck = true;
+            }
+        }
+        private void userPingScreenshotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (userPingScreenshotCheckBox.Checked)
+            {
+                userPingScreenshotCheck = true;
+            }
+        }
+        private void useAttackSpeedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (useAttackSpeedCheckBox.Checked)
+            {
+                useAttackSpeed = true;
+            }
+        }
+        private void useUserPingCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (useUserPingCheckBox.Checked)
+            {
+                useUserPing = true;
             }
         }
         private void spaceGlideBox_CheckedChanged(object sender, EventArgs e)
@@ -122,6 +150,20 @@ namespace CatHack
         public bool getAttackSpeedScreenshot()
         {
             return attackSpeedScreenshotCheck;
+        }
+        public bool getUserPingSceenshot()
+        {
+            return userPingScreenshotCheck;
+        }
+
+        public bool getUseAttackSpeed()
+        {
+            return useAttackSpeed;
+        }
+
+        public bool getUseUserPing()
+        {
+            return useUserPing;
         }
         private void championBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
