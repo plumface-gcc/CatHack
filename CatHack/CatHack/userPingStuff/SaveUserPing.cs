@@ -17,9 +17,10 @@ namespace CatHack
     {
         private bool loop = true;
         private static string userName = Environment.UserName;
-        private static string pattern = @"(^[0-9]{1,3}$)";
+        private static string pattern = @"(^[0-9]{2,2}$)";
         private int count = 1;
-        private String userPing;
+        private static float userPing; // XDDDDD???
+        private int number;
 
         Regex rgx = new Regex(pattern);
 
@@ -41,7 +42,7 @@ namespace CatHack
                 var output = new IronTesseract();
 
                 output.Configuration.PageSegmentationMode = TesseractPageSegmentationMode.SingleBlock;
-                output.Configuration.WhiteListCharacters = "0123456789.";
+                output.Configuration.WhiteListCharacters = "0123456789";
 
                 var input = new OcrInput(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
                 input = input.EnhanceResolution();
@@ -52,11 +53,19 @@ namespace CatHack
                 if (rgx.IsMatch(final))
                 {
                     //Console.WriteLine(final + "    " + count);
-
+                    count++;
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
 
-                    userPing = final;
+                    try
+                    {
+                        userPing = float.Parse(final);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    //Console.WriteLine(userPing + "   " + count);
                 }
                 else
                 {
@@ -66,9 +75,9 @@ namespace CatHack
             }
         }
 
-        public int getUserPing()
+        public float getUserPing()
         {
-            return Convert.ToInt32(userPing);
+            return userPing;
         }
     }
 }

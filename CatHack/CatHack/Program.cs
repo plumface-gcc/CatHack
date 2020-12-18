@@ -20,7 +20,7 @@ namespace CatHack
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new AttackSpeedForm());
+                    Application.Run(new CatHackMain());
                 },
 
                 () =>
@@ -35,7 +35,7 @@ namespace CatHack
 
                 () =>
                 {
-                    Application.Run(new CatHackMain());
+                    Application.Run(new AttackSpeedForm());
                 },
 
                 () =>

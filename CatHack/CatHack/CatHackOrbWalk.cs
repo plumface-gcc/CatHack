@@ -11,6 +11,7 @@ namespace CatHack
     {
         public static short keyState;
         public static int userPing;
+        public static float userPingFloat;
 
         public static float attackSpeed;
         public static float tAttackCooldown;
@@ -28,6 +29,7 @@ namespace CatHack
         private static readonly int VK_G = 0x47;
         private static readonly int VK_X = 0x58;
 
+
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
         [DllImport("user32.dll")]
@@ -44,6 +46,7 @@ namespace CatHack
         /// </summary>
         public static void OrbWalk()
         {
+
             CatHackMain cathack = new CatHackMain();
             SaveAttackSpeed attkSpeed = new SaveAttackSpeed();
             SaveUserPing savePing = new SaveUserPing();
@@ -84,8 +87,10 @@ namespace CatHack
             {
                 if (keyIsPressed && cathack.getCatHack()) // If bound key is pressed AND cathack checkbox is checked
                 {
-                    userPing = savePing.getUserPing();
+                    userPingFloat = savePing.getUserPing();
                     attackSpeed = attkSpeed.getAttackSpeed();
+
+                    userPing = (int)userPingFloat;
 
                     tAttackCooldown = (1 / attackSpeed) * 1000;
                     int tAttackCooldownFinal = Convert.ToInt32(tAttackCooldown);

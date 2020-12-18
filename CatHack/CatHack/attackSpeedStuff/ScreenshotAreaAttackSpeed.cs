@@ -18,6 +18,8 @@ namespace CatHack
         private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
         private int xInput, yInput, widthInput, heightInput;
         private Size sizeInput;
+        private string[] lines;
+        private List<string> list = new List<string>();
 
         public ScreenshotAreaAttackSpeed()
         {
@@ -61,7 +63,7 @@ namespace CatHack
 
             CatHackMain cathack = new CatHackMain();
 
-            if(cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
+            if (cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
             {
                 xInput = this.Location.X;
                 yInput = this.Location.Y;
@@ -110,7 +112,6 @@ namespace CatHack
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
 
         protected override void WndProc(ref Message message)
         {

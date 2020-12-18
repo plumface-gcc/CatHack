@@ -13,26 +13,16 @@ using IronOcr;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.IO;
 
 namespace CatHack
 {
     public partial class SaveAttackSpeed : Form
     {
-        public bool loop = true;
-        public int count = 1;
-        public static short keyState;
-        public static string pattern = @"([1-9]+[.])\w+";
+        private bool loop = true;
+        private static string pattern = @"([1-9]+[.])\w+";
         private static string userName = Environment.UserName;
-
-        public static float tAttackCooldown;
-        public static float tAttackWindup;
-        public static float baseAttackWindup;
-        public static float attackSpeed;
-
-        public static float WindupPercent;
-        public static float bWindupTime;
-        public static float cAttackTime;
-        public static float WindupModifier;
+        private static float attackSpeed;
 
         Regex rgx = new Regex(pattern);
 
@@ -44,6 +34,7 @@ namespace CatHack
 
             while (loop)
             {
+
                 Rectangle rectRecurse = new Rectangle(x, y, w, h);
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
                 Graphics newGraphic = Graphics.FromImage(bmpRecurse);
