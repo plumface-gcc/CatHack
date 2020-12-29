@@ -153,6 +153,7 @@
     <Reference Include="IronOcr.Assets, Version=2020.11.2.0, Culture=neutral, PublicKeyToken=c2cbcea5ea3f6d8d, processorArchitecture=MSIL">
       <HintPath>..\packages\IronOcr.2020.11.2\lib\net40\IronOcr.Assets.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -175,6 +176,7 @@
     <Reference Include="tessnet2_32, Version=2.0.4.0, Culture=neutral, PublicKeyToken=1550524b5ba07e29, processorArchitecture=x86">
       <HintPath>..\packages\NuGet.Tessnet2.1.1.1\lib\net45\tessnet2_32.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attackSpeedStuff\AttackSpeedForm.cs">
@@ -190,7 +192,7 @@
       <DependentUpon>CatHackMain.cs</DependentUpon>
     </Compile>
     <Compile Include="CatHackOrbWalk.cs" />
-    <Compile Include="Keyboard.cs" />
+    <Compile Include="KeyboardOut.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="userPingStuff\PingForm.cs">
       <SubType>Form</SubType>
@@ -224,6 +226,7 @@
     <Compile Include="userPingStuff\ScreenshotAreaUserPing.Designer.cs">
       <DependentUpon>ScreenshotAreaUserPing.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\rsz_1mak_logo_2_nobg.png" />
     <EmbeddedResource Include="attackSpeedStuff\AttackSpeedForm.resx">
       <DependentUpon>AttackSpeedForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +244,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="attackSpeedStuff\SaveAttackSpeed.resx">
       <DependentUpon>SaveAttackSpeed.cs</DependentUpon>

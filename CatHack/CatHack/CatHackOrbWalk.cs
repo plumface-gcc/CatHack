@@ -4,12 +4,14 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace CatHack
 {
     class CatHackOrbWalk
     {
         private static short keyState;
+        //private static short keyStateChamp;
         private static int userPing;
         private static float userPingFloat;
 
@@ -28,6 +30,8 @@ namespace CatHack
         private static readonly int VK_C = 0x43;
         private static readonly int VK_G = 0x47;
         private static readonly int VK_X = 0x58;
+        private static readonly int VK_Q = 0x51;
+        private static readonly int VK_1 = 0x30;
 
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
@@ -43,6 +47,7 @@ namespace CatHack
         /// Kite Mode = (current user ping + 20, dps loss of ~300) 
         /// Space Glide Mode = (current user ping only, dps loss of ~200)
         /// </summary>
+        [STAThread]
         public static void OrbWalk()
         {
             CatHackMain cathack = new CatHackMain();
@@ -78,6 +83,10 @@ namespace CatHack
                 keyState = GetAsyncKeyState(VK_SPACE);
             }
 
+            //keyStateChamp = GetAsyncKeyState(VK_Q);
+
+            //bool keyIsPressedTest = ((keyStateChamp >> 15) & 0x0001) == 0x0001;
+            //bool unprocessedPressTest = ((keyStateChamp >> 0) & 0x0001) == 0x0001;
             bool keyIsPressed = ((keyState >> 15) & 0x0001) == 0x0001;
             bool unprocessedPress = ((keyState >> 0) & 0x0001) == 0x0001;
 
@@ -85,8 +94,10 @@ namespace CatHack
             {
                 if (keyIsPressed && cathack.getCatHack()) // If bound key is pressed AND cathack checkbox is checked
                 {
+
                     userPingFloat = savePing.getUserPing();
                     attackSpeed = attkSpeed.getAttackSpeed();
+                    Console.WriteLine(attackSpeed + " | " + userPingFloat);
 
                     userPing = (int)userPingFloat;
 
@@ -96,51 +107,48 @@ namespace CatHack
                     float champWindupPercent = cathack.getWindupPercent();
                     float champBaseWindupTime = cathack.getBaseWindupTime();
                     float champWindupModifier = cathack.getWindupModifier();
-
-                    if (champWindupModifier == 0)
-                    {
-                        cAttackTime = 1 / attackSpeed;
-                        WindupPercent = (champWindupPercent) / 100;
-                        bWindupTime = (1 / champBaseWindupTime) * WindupPercent;
-                        tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime);
-                    }
-                    else
-                    {
-                        cAttackTime = 1 / attackSpeed;
-                        WindupPercent = (champWindupPercent) / 100;
-                        bWindupTime = (1 / champBaseWindupTime) * WindupPercent;
-                        tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime) * champWindupModifier;
-                    }
+                   
+                    cAttackTime = 1 / attackSpeed;
+                    WindupPercent = (champWindupPercent) / 100;
+                    bWindupTime = (1 / champBaseWindupTime) * WindupPercent;
+                    tAttackWindup = bWindupTime + ((cAttackTime * WindupPercent) - bWindupTime) * champWindupModifier;                  
 
                     tAttackWindup = tAttackWindup * 1000;
 
                     int tAttackWindupFinal = Convert.ToInt32(tAttackWindup);
 
-                    Keyboard keyboard = new Keyboard();
+                    KeyboardOut keyboard = new KeyboardOut();
 
-                    keyboard.SendKeyDown(Keyboard.ScanCodeShort.KEY_A);
-                    keyboard.SendKeyUp(Keyboard.ScanCodeShort.KEY_A);
-                    System.Threading.Thread.Sleep(tAttackCooldownFinal);
+                    /*
+                    if (cathack.getSelectedChampion() == "Vayne" && keyIsPressedTest)
+                    {
+                        Console.WriteLine("xD");
+                        System.Threading.Thread.Sleep(100);
+                    }*/
+
+                    keyboard.SendKeyDown(KeyboardOut.ScanCodeShort.KEY_A);
+                    keyboard.SendKeyUp(KeyboardOut.ScanCodeShort.KEY_A);
+
+                    if (cathack.getKalistaExploit() == true && attackSpeed > 2.50)
+                    {
+                        System.Threading.Thread.Sleep(userPing + 3); 
+                    }
+                    else
+                    {
+                        System.Threading.Thread.Sleep(tAttackCooldownFinal); 
+                    }
+
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
                     Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
 
                     if (cathack.getSpaceGlide() == true) // if only spaceglide is checked
                     {
-                        try
-                        {
-                            System.Threading.Thread.Sleep(userPing); //Spaceglide mode 
-                        }
-                        catch (ArgumentNullException error)
-                        {
-                            Console.WriteLine(error.Message);
-                        }
+                        System.Threading.Thread.Sleep(userPing + 20); 
                     }
 
                     if (cathack.getKiteMode() == true && cathack.getThresholdCheck() == false)  // if kite mode is checked AND Orbwalk threshold is not checked
                     {
-                        int delayAndPing = userPing;
-                        int finalDelay = delayAndPing + 20;
-                        System.Threading.Thread.Sleep(finalDelay); //Kite mode 
+                        System.Threading.Thread.Sleep(tAttackWindupFinal); //Kite mode 
                     }
 
                     if (cathack.getKiteMode() == true && cathack.getThresholdCheck() == true) // if kite mode is checked AND Orbwalk threshold is checked
@@ -151,9 +159,7 @@ namespace CatHack
                         }
                         else
                         {
-                            int delayAndPing = userPing;
-                            int finalDelay = delayAndPing + 20;
-                            System.Threading.Thread.Sleep(finalDelay); //Kite mode   
+                            System.Threading.Thread.Sleep(tAttackWindupFinal); //Kite mode 
                         }
                     }
 
@@ -163,6 +169,7 @@ namespace CatHack
                     bWindupTime = 0;
                     tAttackCooldownFinal = 0;
                     tAttackWindupFinal = 0;
+                    attackSpeed = 0;
                 }
             }
 

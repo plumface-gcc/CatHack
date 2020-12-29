@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CatHack
 {
-    class Keyboard
+    class KeyboardOut
     {
 
         public void SendKeyDown(ScanCodeShort a)

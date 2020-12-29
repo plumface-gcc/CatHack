@@ -72,6 +72,8 @@ namespace CatHack
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
                 }
+
+                input.Dispose();
             }
         }
 

@@ -49,6 +49,7 @@ namespace CatHack
                 var input = new OcrInput(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
 
                 input = input.EnhanceResolution();
+                input = input.ToGrayScale();
                 //input = input.DeNoise();
 
                 var result = output.Read(input);
@@ -77,6 +78,8 @@ namespace CatHack
                     bmpRecurse.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
                 }
+
+                input.Dispose();
             }
         }
         public float getAttackSpeed()
