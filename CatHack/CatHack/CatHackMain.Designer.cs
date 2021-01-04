@@ -64,6 +64,7 @@ namespace CatHack
             this.label10 = new System.Windows.Forms.Label();
             this.championPic = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,9 +78,9 @@ namespace CatHack
             this.checkSpaceGlideBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.checkSpaceGlideBox.Location = new System.Drawing.Point(17, 34);
             this.checkSpaceGlideBox.Name = "checkSpaceGlideBox";
-            this.checkSpaceGlideBox.Size = new System.Drawing.Size(236, 17);
+            this.checkSpaceGlideBox.Size = new System.Drawing.Size(244, 17);
             this.checkSpaceGlideBox.TabIndex = 0;
-            this.checkSpaceGlideBox.Text = "Space Glide Mode (More DPS, less spacing)";
+            this.checkSpaceGlideBox.Text = "Normal Mode (Most DPS, less spacing, stable)";
             this.checkSpaceGlideBox.UseVisualStyleBackColor = false;
             this.checkSpaceGlideBox.CheckedChanged += new System.EventHandler(this.spaceGlideBox_CheckedChanged);
             // 
@@ -90,9 +91,9 @@ namespace CatHack
             this.checkKiteModeBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.checkKiteModeBox.Location = new System.Drawing.Point(17, 76);
             this.checkKiteModeBox.Name = "checkKiteModeBox";
-            this.checkKiteModeBox.Size = new System.Drawing.Size(199, 17);
+            this.checkKiteModeBox.Size = new System.Drawing.Size(234, 17);
             this.checkKiteModeBox.TabIndex = 1;
-            this.checkKiteModeBox.Text = "Kite Mode (Less DPS, more spacing)";
+            this.checkKiteModeBox.Text = "Kite Mode (Less DPS, more spacing, buggy)";
             this.checkKiteModeBox.UseVisualStyleBackColor = false;
             this.checkKiteModeBox.CheckedChanged += new System.EventHandler(this.kiteModeBox_CheckedChanged);
             // 
@@ -372,7 +373,7 @@ namespace CatHack
             this.panel3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.panel3.Location = new System.Drawing.Point(325, 117);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(347, 244);
+            this.panel3.Size = new System.Drawing.Size(347, 250);
             this.panel3.TabIndex = 5;
             // 
             // kalistaExploitCheckBox
@@ -466,12 +467,21 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Location = new System.Drawing.Point(385, 404);
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(245, 13);
+            this.hScrollBar1.TabIndex = 7;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
+            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Sienna;
             this.ClientSize = new System.Drawing.Size(700, 514);
+            this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.cathackStart);
             this.Controls.Add(this.thresholdCheckBox);
@@ -528,5 +538,6 @@ namespace CatHack
         private System.Windows.Forms.Label baseWindupTimeLabel;
         private System.Windows.Forms.Label windupPercentLabel;
         private System.Windows.Forms.CheckBox kalistaExploitCheckBox;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }

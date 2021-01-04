@@ -50,18 +50,15 @@ namespace CatHack
 
                 input = input.EnhanceResolution();
                 input = input.ToGrayScale();
-                //input = input.DeNoise();
 
                 var result = output.Read(input);
                 var final = result.Text;
       
                 if (rgx.IsMatch(final))
                 {
-                    //Console.WriteLine(final + "    " + count);
-
-                    //count += 1;
 
                     bmpRecurse.Dispose();
+                    input.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
 
                     try
@@ -76,10 +73,9 @@ namespace CatHack
                 else
                 {
                     bmpRecurse.Dispose();
+                    input.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
                 }
-
-                input.Dispose();
             }
         }
         public float getAttackSpeed()

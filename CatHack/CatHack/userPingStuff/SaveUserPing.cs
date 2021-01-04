@@ -18,9 +18,7 @@ namespace CatHack
         private bool loop = true;
         private static string userName = Environment.UserName;
         private static string pattern = @"(^[0-9]{2,2}$)";
-        private int count = 1;
         private static float userPing; // XDDDDD???
-        private int number;
 
         Regex rgx = new Regex(pattern);
 
@@ -52,9 +50,8 @@ namespace CatHack
 
                 if (rgx.IsMatch(final))
                 {
-                    //Console.WriteLine(final + "    " + count);
-                    count++;
                     bmpRecurse.Dispose();
+                    input.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
 
                     try
@@ -65,15 +62,13 @@ namespace CatHack
                     {
                         Console.WriteLine(e.Message);
                     }
-                    //Console.WriteLine(userPing + "   " + count);
                 }
                 else
                 {
                     bmpRecurse.Dispose();
+                    input.Dispose();
                     System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
                 }
-
-                input.Dispose();
             }
         }
 

@@ -566,5 +566,15 @@ namespace CatHack
                 championPic.ImageLocation = xayah;
             }
         }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            hScrollBar1.Maximum = 200;
+            hScrollBar1.Minimum = 0;
+            hScrollBar1.SmallChange = 1;
+
+            windupModifier = hScrollBar1.Value;
+            windupModifier = windupModifier / 100;
+        }
     }
 }
