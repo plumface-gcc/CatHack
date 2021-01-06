@@ -1,15 +1,9 @@
-﻿using IronOcr;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tesseract;
 
 namespace CatHack
 {
@@ -30,30 +24,27 @@ namespace CatHack
 
             while (loop)
             {
+                System.Threading.Thread.Sleep(1000);
+
                 Rectangle rectRecurse = new Rectangle(x, y, w, h);
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
                 Graphics newGraphic = Graphics.FromImage(bmpRecurse);
                 newGraphic.CopyFromScreen(rectRecurse.Left, rectRecurse.Top, 0, 0, s, CopyPixelOperation.SourceCopy);
-                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp", System.Drawing.Imaging.ImageFormat.Jpeg);
                 imageCapture.Image = bmpRecurse;
 
-                var output = new IronTesseract();
+                var ocr = new TesseractEngine(@"C:\Users\" + userName + @"\Documents\tessdata", "eng", EngineMode.LstmOnly);
+                ocr.SetVariable("tessedit_char_whitelist", "0123456789");
 
-                output.Configuration.PageSegmentationMode = TesseractPageSegmentationMode.SingleBlock;
-                output.Configuration.WhiteListCharacters = "0123456789";
+                var img = Pix.LoadFromFile(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp");
+                var res = ocr.Process(img, PageSegMode.SingleBlock);
 
-                var input = new OcrInput(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
-                input = input.EnhanceResolution();
-
-                var result = output.Read(input);
-                var final = result.Text;
+                var final = res.GetText();
+                ocr.Dispose();
+                bmpRecurse.Dispose();
 
                 if (rgx.IsMatch(final))
                 {
-                    bmpRecurse.Dispose();
-                    input.Dispose();
-                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
-
                     try
                     {
                         userPing = float.Parse(final);
@@ -62,12 +53,6 @@ namespace CatHack
                     {
                         Console.WriteLine(e.Message);
                     }
-                }
-                else
-                {
-                    bmpRecurse.Dispose();
-                    input.Dispose();
-                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg2.jpeg");
                 }
             }
         }

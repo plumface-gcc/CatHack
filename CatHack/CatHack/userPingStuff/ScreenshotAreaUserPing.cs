@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CatHack
 {
     public partial class ScreenshotAreaUserPing : Form
     {
-        private string[] lines;
-        private List<string> list = new List<string>();
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData2.txt";
         private int xInput, yInput, widthInput, heightInput;

@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
-using tessnet2;
-using IronOcr;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
-using System.IO;
+using Tesseract;
 
 namespace CatHack
 {
@@ -34,50 +24,39 @@ namespace CatHack
 
             while (loop)
             {
+                System.Threading.Thread.Sleep(1000);
+
                 Rectangle rectRecurse = new Rectangle(x, y, w, h);
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
                 Graphics newGraphic = Graphics.FromImage(bmpRecurse);
                 newGraphic.CopyFromScreen(rectRecurse.Left, rectRecurse.Top, 0, 0, s, CopyPixelOperation.SourceCopy);
-                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg.bmp", System.Drawing.Imaging.ImageFormat.Jpeg);
                 imageCapture.Image = bmpRecurse;
 
-                var output = new IronTesseract();
+                var ocr = new TesseractEngine(@"C:\Users\" + userName + @"\Documents\tessdata", "eng", EngineMode.TesseractOnly);
+                ocr.SetVariable("tessedit_char_whitelist", "0123456789.");
 
-                output.Configuration.PageSegmentationMode = TesseractPageSegmentationMode.SingleBlock;
-                output.Configuration.WhiteListCharacters = "0123456789.";
+                var img = Pix.LoadFromFile(@"C:\Users\" + userName + @"\Documents\recurseImg.bmp");
+                var res = ocr.Process(img);
 
-                var input = new OcrInput(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
+                var final = res.GetText();
+                ocr.Dispose();
+                bmpRecurse.Dispose();
 
-                input = input.EnhanceResolution();
-                input = input.ToGrayScale();
-
-                var result = output.Read(input);
-                var final = result.Text;
-      
                 if (rgx.IsMatch(final))
                 {
-
-                    bmpRecurse.Dispose();
-                    input.Dispose();
-                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
-
                     try
                     {
                         attackSpeed = float.Parse(final);
                     }
-                    catch(FormatException e)
+                    catch (FormatException e)
                     {
                         Console.WriteLine(e.Message);
                     }
                 }
-                else
-                {
-                    bmpRecurse.Dispose();
-                    input.Dispose();
-                    System.IO.File.Delete(@"C:\Users\" + userName + @"\Documents\recurseImg.jpeg");
-                }
             }
         }
+
         public float getAttackSpeed()
         {
             return attackSpeed;

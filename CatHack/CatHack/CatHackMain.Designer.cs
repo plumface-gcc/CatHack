@@ -65,6 +65,7 @@ namespace CatHack
             this.championPic = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.windupModifierBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -469,11 +470,18 @@ namespace CatHack
             // 
             // hScrollBar1
             // 
-            this.hScrollBar1.Location = new System.Drawing.Point(385, 404);
+            this.hScrollBar1.Location = new System.Drawing.Point(325, 392);
             this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(245, 13);
+            this.hScrollBar1.Size = new System.Drawing.Size(347, 12);
             this.hScrollBar1.TabIndex = 7;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
+            // 
+            // windupModifierBox
+            // 
+            this.windupModifierBox.Location = new System.Drawing.Point(452, 416);
+            this.windupModifierBox.Name = "windupModifierBox";
+            this.windupModifierBox.Size = new System.Drawing.Size(100, 20);
+            this.windupModifierBox.TabIndex = 8;
             // 
             // CatHackMain
             // 
@@ -481,6 +489,7 @@ namespace CatHack
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Sienna;
             this.ClientSize = new System.Drawing.Size(700, 514);
+            this.Controls.Add(this.windupModifierBox);
             this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.cathackStart);
@@ -539,5 +548,6 @@ namespace CatHack
         private System.Windows.Forms.Label windupPercentLabel;
         private System.Windows.Forms.CheckBox kalistaExploitCheckBox;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.TextBox windupModifierBox;
     }
 }
