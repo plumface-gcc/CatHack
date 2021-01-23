@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Tesseract;
 
 namespace CatHack
@@ -13,10 +14,11 @@ namespace CatHack
         private static string pattern = @"([1-9]+[.])\w+";
         private static string userName = Environment.UserName;
         private static float attackSpeed;
+        private static List<float> attackSpeedList = new List<float>();
 
         Regex rgx = new Regex(pattern);
 
-        public SaveAttackSpeed() {}
+        public SaveAttackSpeed() { }
 
         public SaveAttackSpeed(Int32 x, Int32 y, Int32 w, Int32 h, Size s)
         {
@@ -24,7 +26,7 @@ namespace CatHack
 
             while (loop)
             {
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(700);
 
                 Rectangle rectRecurse = new Rectangle(x, y, w, h);
                 Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
@@ -48,6 +50,9 @@ namespace CatHack
                     try
                     {
                         attackSpeed = float.Parse(final);
+
+                        float temp = attackSpeed;
+                        attackSpeedList.Add(temp);
                     }
                     catch (FormatException e)
                     {
@@ -60,6 +65,11 @@ namespace CatHack
         public float getAttackSpeed()
         {
             return attackSpeed;
+        }
+
+        public List<float> getList()
+        {
+            return attackSpeedList;
         }
     }
 }

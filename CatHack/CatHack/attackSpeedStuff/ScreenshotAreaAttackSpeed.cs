@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.IO;
 
 namespace CatHack
 {
@@ -14,8 +14,6 @@ namespace CatHack
         private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
         private int xInput, yInput, widthInput, heightInput;
         private Size sizeInput;
-        private string[] lines;
-        private List<string> list = new List<string>();
 
         private static int xSave;
         private static int ySave;
@@ -61,7 +59,7 @@ namespace CatHack
 
         private void captureThis_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             CatHackMain cathack = new CatHackMain();
 
             if (cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
@@ -120,7 +118,7 @@ namespace CatHack
                 }
             }
             catch (System.ArgumentException error)
-            {               
+            {
                 Console.WriteLine("caught");
             }
         }
@@ -162,9 +160,9 @@ namespace CatHack
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            this.panelDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top 
-                | System.Windows.Forms.AnchorStyles.Bottom) 
-                | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+                | System.Windows.Forms.AnchorStyles.Bottom)
+                | System.Windows.Forms.AnchorStyles.Left)
                 | System.Windows.Forms.AnchorStyles.Right)));
 
             this.panelDrag.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

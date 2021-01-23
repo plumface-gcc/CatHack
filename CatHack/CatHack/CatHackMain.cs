@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace CatHack
 {
     public partial class CatHackMain : Form
     {
+        [DllImport("User32.dll")]
+        public static extern IntPtr GetDC(IntPtr hwnd);
+        [DllImport("User32.dll")]
+        static extern int ReleaseDC(IntPtr hwnd, IntPtr dc);
+
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData1.txt";
 
@@ -14,9 +21,7 @@ namespace CatHack
         private static bool cathackCheck;
         private static bool kalistaExploitCheck;
         private static bool attackSpeedScreenshotCheck;
-        private static bool userPingScreenshotCheck;
         private static bool useAttackSpeed;
-        private static bool useUserPing;
         private static string userKeycode;
         private static string selectedChampion;
         private static float windupPercent;
@@ -70,25 +75,11 @@ namespace CatHack
                 attackSpeedScreenshotCheck = true;
             }
         }
-        private void userPingScreenshotCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (userPingScreenshotCheckBox.Checked)
-            {
-                userPingScreenshotCheck = true;
-            }
-        }
         private void useAttackSpeedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (useAttackSpeedCheckBox.Checked)
             {
                 useAttackSpeed = true;
-            }
-        }
-        private void useUserPingCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (useUserPingCheckBox.Checked)
-            {
-                useUserPing = true;
             }
         }
         private void spaceGlideBox_CheckedChanged(object sender, EventArgs e)
@@ -163,7 +154,7 @@ namespace CatHack
                 cathackCheck = false;
             }
         }
-        public bool getCatHack()
+        public static bool getCatHack()
         {
             return cathackCheck;
         }
@@ -199,11 +190,6 @@ namespace CatHack
         {
             return attackSpeedScreenshotCheck;
         }
-        public bool getUserPingSceenshot()
-        {
-            return userPingScreenshotCheck;
-        }
-
         public bool getUseAttackSpeed()
         {
             return useAttackSpeed;
@@ -212,11 +198,6 @@ namespace CatHack
         public bool getKalistaExploit()
         {
             return kalistaExploitCheck;
-        }
-
-        public bool getUseUserPing()
-        {
-            return useUserPing;
         }
 
         public string getSelectedChampion()
@@ -238,7 +219,7 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = aphelios;
             }
-            if(selectedChampion == "Ashe")
+            if (selectedChampion == "Ashe")
             {
                 windupPercent = 21.93f;
                 bWindupTime = 0.658f;
@@ -337,7 +318,7 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = jayce;
             }
-            if(selectedChampion == "Jinx")
+            if (selectedChampion == "Jinx")
             {
                 windupPercent = 16.875f;
                 bWindupTime = 0.625f;
@@ -370,7 +351,7 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = kalista;
             }
-            if(selectedChampion == "Kayle")
+            if (selectedChampion == "Kayle")
             {
                 windupPercent = 19.355f;
                 bWindupTime = 0.625f;
@@ -564,6 +545,15 @@ namespace CatHack
             hScrollBar1.Maximum = 200;
             hScrollBar1.Minimum = 0;
             hScrollBar1.SmallChange = 1;
+
+            
+            IntPtr desktop = GetDC(IntPtr.Zero);
+            using (Graphics g = Graphics.FromHdc(desktop))
+            {
+                g.FillRectangle(Brushes.Red, 400, 50, 1100, 950);
+            }
+            ReleaseDC(IntPtr.Zero, desktop);
+            
 
             windupModifier = hScrollBar1.Value;
             windupModifier = windupModifier / 100;

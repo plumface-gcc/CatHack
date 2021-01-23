@@ -6,7 +6,7 @@ namespace CatHack
     public partial class AttackSpeedForm : Form
     {
         public AttackSpeedForm()
-        { 
+        {
             InitializeComponent();
         }
 

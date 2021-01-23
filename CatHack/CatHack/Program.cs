@@ -11,7 +11,7 @@ namespace CatHack
         static void Main()
         {
 
-            Parallel.Invoke(      
+            Parallel.Invoke(
                 () =>
                 {
                     Application.EnableVisualStyles();
@@ -22,21 +22,17 @@ namespace CatHack
                 () =>
                 {
                     bool loop = true;
+                    //CatHackOrbWalk cathack = new CatHackOrbWalk();
 
                     while (loop)
                     {
-                        CatHackOrbWalk.OrbWalk();
+                        CatHackOrbWalk.OrbWalkTest();
                     }
                 },
 
                 () =>
                 {
                     Application.Run(new AttackSpeedForm());
-                },
-
-                () =>
-                {
-                    Application.Run(new PingForm());
                 }
             );
         }

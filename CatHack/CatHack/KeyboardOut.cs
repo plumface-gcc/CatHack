@@ -6,7 +6,7 @@ namespace CatHack
     class KeyboardOut
     {
 
-        public void SendKeyDown(ScanCodeShort a)
+        public static void SendKeyDown(ScanCodeShort a)
         {
             INPUT[] Inputs = new INPUT[1];
             INPUT Input = new INPUT();
@@ -17,7 +17,7 @@ namespace CatHack
             SendInput(1, Inputs, INPUT.Size);
         }
 
-        public void SendKeyUp(ScanCodeShort a)
+        public static void SendKeyUp(ScanCodeShort a)
         {
             INPUT[] Inputs = new INPUT[1];
             INPUT Input = new INPUT();
@@ -26,7 +26,7 @@ namespace CatHack
             Input.U.ki.dwFlags = KEYEVENTF.KEYUP | KEYEVENTF.SCANCODE;
             Inputs[0] = Input;
             SendInput(1, Inputs, INPUT.Size);
-        }  
+        }
         /// <summary>
         /// Declaration of external SendInput method
         /// </summary>
