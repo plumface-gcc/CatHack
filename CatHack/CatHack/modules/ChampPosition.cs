@@ -12,7 +12,7 @@ namespace CatHack.modules
 
         public static Point GetEnemyPosition()
         {
-            Rectangle FOV = new Rectangle(450, 100, 1000, 750);
+            Rectangle FOV = new Rectangle(450, 150, 1000, 750);
             Point[] Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_COLOR, 1);
 
             Point result = new Point();

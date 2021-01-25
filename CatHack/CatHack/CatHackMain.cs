@@ -550,7 +550,7 @@ namespace CatHack
             IntPtr desktop = GetDC(IntPtr.Zero);
             using (Graphics g = Graphics.FromHdc(desktop))
             {
-                g.FillRectangle(Brushes.Red, 400, 50, 1100, 950);
+                g.FillRectangle(Brushes.Red, 450, 150, 1000, 750);
             }
             ReleaseDC(IntPtr.Zero, desktop);
             

@@ -72,10 +72,10 @@ namespace CatHack
         {
             Point enemyPos = modules.ChampPosition.GetEnemyPosition();
 
-            short keyStateTemp = GetAsyncKeyState(0x43);
-            bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
+            short keyStateTemp = GetAsyncKeyState(0x43); 
+            bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;      
 
-            if (keyIsPressed)
+            if (keyIsPressed && CatHackMain.getCatHack())
             {
                 if (IsOrbAttackable && enemyPos != Point.Empty)
                 {
