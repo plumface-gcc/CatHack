@@ -47,3 +47,4 @@ C:\Users\thatr\source\repos\CatHack\CatHack\CatHack\obj\Release\CatHack.applicat
 C:\Users\thatr\source\repos\CatHack\CatHack\CatHack\obj\Release\CatHack.csproj.CopyComplete
 C:\Users\thatr\source\repos\CatHack\CatHack\CatHack\obj\Release\CatHack.exe
 C:\Users\thatr\source\repos\CatHack\CatHack\CatHack\obj\Release\CatHack.pdb
+C:\Users\thatr\source\repos\CatHack\CatHack\CatHack\obj\Release\CatHack.csprojAssemblyReference.cache

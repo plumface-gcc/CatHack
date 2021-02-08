@@ -84,9 +84,13 @@ namespace CatHack
 
         public static bool CanAttack()
         {
-            return LastAATick + getAttackWindup() + SaveUserPing.getUserPing() / 2 < Environment.TickCount;
-            //return ApiHandler.GetGameTime() + (SaveUserPing.getUserPing() / 2) + 25
-                //>= LastAATick + (getAttackDelay() * 1000);
+            return LastAATick + getAttackDelay() + SaveUserPing.getUserPing() / 2 < Environment.TickCount;
+            //return Environment.TickCount + (SaveUserPing.getUserPing() / 2) + 25 >= LastAATick + (getAttackDelay() * 1000);
+        }
+
+        public static bool CanMove()
+        {
+            return LastMoveCommandT < Environment.TickCount;
         }
 
         /// <summary>
@@ -95,6 +99,7 @@ namespace CatHack
         public static void OrbWalkTest()
         {
             Point enemyPos = modules.ChampPosition.GetEnemyPosition();
+            Random rnd = new Random();
 
             short keyStateTemp = GetAsyncKeyState(0x20);
             bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
@@ -102,28 +107,39 @@ namespace CatHack
             if (keyIsPressed && CatHackMain.getCatHack())
             {
                 if (CanAttack() && enemyPos != Point.Empty)
+                { 
+                    LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
+
+                    KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
+                    KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos);
+
+                    LastAATick2 = (int)((ApiHandler.GetGameTime() * 1000) + getAttackWindupTest() + SaveUserPing.getUserPing());
+
+                    LastAATick = Environment.TickCount;              
+                    LastMoveCommandT = Environment.TickCount + getAttackWindupTest();
+                }
+                if (CanMove() && enemyPos != Point.Empty)
                 {
+                    KeyMouseHandler.IssueOrder(OrderEnum.MoveTo, LastMovePoint);
                     LastMovePoint = Cursor.Position;
 
-                    KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos);
-                    KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos);
-                    System.Threading.Thread.Sleep((int)(SaveUserPing.getUserPing() / 2) + 25);
-                    KeyMouseHandler.IssueOrder(OrderEnum.MoveTo, LastMovePoint);
-
-                    LastAATick = (int)((Environment.TickCount * 1000) + getAttackWindupTest() + SaveUserPing.getUserPing());
+                    LastMoveCommandT = Environment.TickCount + rnd.Next(50, 80);
                 }
                 else
                 {
-                    if ((LastAATick + getAttackDelay() + SaveUserPing.getUserPing() / 2 < Environment.TickCount))
+                    if ((ApiHandler.GetGameTime() * 1000) >= LastAATick2)
                     {
                         Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
                         Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
-                    }                         
+                    }
                     else
                     {
-                        LastMovePoint = Cursor.Position;
+                        if (enemyPos == Point.Empty)
+                        {
+                            LastMovePoint = Cursor.Position;
+                        }
+
                         KeyMouseHandler.IssueOrder(OrderEnum.MoveTo, LastMovePoint);
-                        LastMovePoint = Cursor.Position;
                     }
                 }
             }
