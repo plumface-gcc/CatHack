@@ -2,7 +2,8 @@
 {
     public enum OrderEnum
     {
-        HoldPosition,
+        MoveMouse,
+        RightClick,
         MoveTo,
         AttackUnit,
         AutoAttack,

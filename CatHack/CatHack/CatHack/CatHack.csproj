@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -132,6 +132,10 @@
   <ItemGroup>
     <Compile Include="modules\ActivePlayerData.cs" />
     <Compile Include="modules\ApiStuff.cs" />
+    <Compile Include="OrbTest1.cs" />
+    <Compile Include="OrbTest2.cs" />
+    <Compile Include="OrbTest3.cs" />
+    <Compile Include="OrbWalk.cs" />
     <Compile Include="userPingStuff\UserPingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,7 +148,6 @@
     <Compile Include="CatHackMain.Designer.cs">
       <DependentUpon>CatHackMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="CatHackOrbWalk.cs" />
     <Compile Include="KeyboardOut.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>

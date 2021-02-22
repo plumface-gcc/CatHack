@@ -22,11 +22,10 @@ namespace CatHack
                 () =>
                 {
                     bool loop = true;
-                    //CatHackOrbWalk cathack = new CatHackOrbWalk();
 
                     while (loop)
                     {
-                        CatHackOrbWalk.OrbWalkTest();
+                        OrbWalk.OrbWalkEnemy();
                     }
                 },
 

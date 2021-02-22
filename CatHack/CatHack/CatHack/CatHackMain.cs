@@ -15,7 +15,7 @@ namespace CatHack
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData1.txt";
 
-        private static bool checkSpaceGlide;
+        private static bool checkNormalMode;
         private static bool checkKiteMode;
         private static bool thresholdCheck;
         private static bool cathackCheck;
@@ -27,6 +27,7 @@ namespace CatHack
         private static float windupPercent;
         private static float bWindupTime;
         private static float windupModifier;
+        private static int extraWindup;
 
         private readonly string aphelios = "https://1.bp.blogspot.com/-R5ozICNl7AY/Xd2iaJ1x8wI/AAAAAAABb1c/Lkeeq4TPd7c7Hn2ThLeJe1fDE8dq5p2LgCLcBGAsYHQ/s1600/523.png";
         private readonly string ashe = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4a/AsheSquare.png/revision/latest/scale-to-width-down/120?cb=20170728180206";
@@ -48,8 +49,9 @@ namespace CatHack
         private readonly string lucian = "https://img.rankedboost.com/wp-content/plugins/league/assets/champion-icons/Lucian-Icon.png";
         private readonly string missfortune = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9d/MissFortuneSquare.png/revision/latest/scale-to-width-down/120?cb=20170802061243";
         private readonly string neeko = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/NeekoSquare.png/revision/latest/scale-to-width-down/120?cb=20181124185830";
-        private readonly string samira = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b3/SamiraSquare.png/revision/latest/scale-to-width-down/120?cb=20200830082811";
+        private readonly string soraka = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8d/SorakaSquare.png/revision/latest/scale-to-width-down/120?cb=20170802134038";
         private readonly string quinn = "https://img.rankedboost.com/wp-content/plugins/league-of-legends-wild-rift/assets/champion-icons/Quinn-Icon.png";
+        private readonly string samira = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b3/SamiraSquare.png/revision/latest/scale-to-width-down/120?cb=20200830082811";
         private readonly string sivir = "https://img.rankedboost.com/wp-content/plugins/league/assets/champion-icons/Sivir-Icon.png";
         private readonly string teemo = "https://static.wikia.nocookie.net/leagueoflegends/images/9/9c/Teemo_OriginalSquare.png/revision/latest?cb=20150402221254";
         private readonly string tristana = "https://acqwmovtio.cloudimg.io/v7/https://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/Tristana.png?h=120";
@@ -82,17 +84,16 @@ namespace CatHack
                 useAttackSpeed = true;
             }
         }
-        private void spaceGlideBox_CheckedChanged(object sender, EventArgs e)
+        private void normalModeBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkSpaceGlideBox.Checked)
+            if (checkNormalModeBox.Checked)
             {
-                checkSpaceGlide = true;
+                checkNormalMode = true;
                 checkKiteMode = false;
                 thresholdCheck = false;
                 kalistaExploitCheck = false;
 
                 checkKiteModeBox.Checked = false;
-                thresholdCheckBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
         }
@@ -101,41 +102,25 @@ namespace CatHack
             if (checkKiteModeBox.Checked)
             {
                 checkKiteMode = true;
-                checkSpaceGlide = false;
+                checkNormalMode = false;
                 thresholdCheck = false;
                 kalistaExploitCheck = false;
 
-                checkSpaceGlideBox.Checked = false;
-                thresholdCheckBox.Checked = false;
+                checkNormalModeBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
         }
-        private void thresholdCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (thresholdCheckBox.Checked)
-            {
-                checkSpaceGlide = false;
-                checkKiteMode = true;
-                thresholdCheck = true;
-                kalistaExploitCheck = false;
-
-                checkSpaceGlideBox.Checked = false;
-                checkKiteModeBox.Checked = true;
-                thresholdCheckBox.Checked = true;
-                kalistaExploitCheckBox.Checked = false;
-            }
-        }
+        
         private void kalistaExploitCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (kalistaExploitCheckBox.Checked)
             {
-                checkSpaceGlide = false;
+                checkNormalMode = false;
                 checkKiteMode = false;
                 thresholdCheck = false;
                 kalistaExploitCheck = true;
 
-                thresholdCheckBox.Checked = false;
-                checkSpaceGlideBox.Checked = false;
+                checkNormalModeBox.Checked = false;
                 checkKiteModeBox.Checked = false;
             }
         }
@@ -154,13 +139,17 @@ namespace CatHack
                 cathackCheck = false;
             }
         }
+        public static int getExtraWindup()
+        {
+            return extraWindup;
+        }
         public static bool getCatHack()
         {
             return cathackCheck;
         }
-        public bool getSpaceGlide()
+        public bool getNormalMode()
         {
-            return checkSpaceGlide;
+            return checkNormalMode;
         }
         public bool getKiteMode()
         {
@@ -428,6 +417,17 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = neeko;
             }
+            if (selectedChampion == "Quinn")
+            {
+                windupPercent = 17.544f;
+                bWindupTime = 0.668f;
+                windupModifier = 1f;
+
+                windupPercentLabel.Text = windupPercent.ToString();
+                baseWindupTimeLabel.Text = bWindupTime.ToString();
+                windupModifierLabel.Text = windupModifier.ToString();
+                championPic.ImageLocation = quinn;
+            }
             if (selectedChampion == "Samira")
             {
                 windupPercent = 15.00f;
@@ -439,16 +439,18 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = samira;
             }
-            if (selectedChampion == "Quinn")
+            if (selectedChampion == "Soraka")
             {
-                windupPercent = 17.544f;
-                bWindupTime = 0.668f;
+
+                windupPercent = 18.7f;
+                bWindupTime = 0.625f;
                 windupModifier = 1f;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
                 windupModifierLabel.Text = windupModifier.ToString();
-                championPic.ImageLocation = quinn;
+                championPic.ImageLocation = soraka;
+
             }
             if (selectedChampion == "Sivir")
             {
@@ -542,22 +544,20 @@ namespace CatHack
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            hScrollBar1.Maximum = 200;
+            hScrollBar1.Maximum = 100;
             hScrollBar1.Minimum = 0;
             hScrollBar1.SmallChange = 1;
 
-
+#if debug
             IntPtr desktop = GetDC(IntPtr.Zero);
             using (Graphics g = Graphics.FromHdc(desktop))
             {
                 g.FillRectangle(Brushes.Red, 250, 50, 1350, 870);
             }
             ReleaseDC(IntPtr.Zero, desktop);
-
-
-            windupModifier = hScrollBar1.Value;
-            windupModifier = windupModifier / 100;
-            windupModifierBox.Text = windupModifier.ToString();
+#endif
+            extraWindup = hScrollBar1.Value;         
+            windupModifierBox.Text = extraWindup.ToString();
         }
     }
 }

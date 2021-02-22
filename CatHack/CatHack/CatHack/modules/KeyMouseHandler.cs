@@ -9,9 +9,13 @@ namespace CatHack.modules
         {
             switch (Order)
             {
-                case OrderEnum.HoldPosition:
-                    KeyboardOut.SendKeyDown(KeyboardOut.ScanCodeShort.KEY_S);
-                    KeyboardOut.SendKeyUp(KeyboardOut.ScanCodeShort.KEY_S);
+                case OrderEnum.MoveMouse:
+                    Mouse.SetCursorPosition(Vector2D.X, Vector2D.Y);
+                    break;
+
+                case OrderEnum.RightClick:
+                    Mouse.MouseEvent(Mouse.MouseEventFlags.RightDown);
+                    Mouse.MouseEvent(Mouse.MouseEventFlags.RightUp);
                     break;
 
                 case OrderEnum.MoveTo:

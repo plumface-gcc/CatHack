@@ -30,9 +30,8 @@ namespace CatHack
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatHackMain));
-            this.checkSpaceGlideBox = new System.Windows.Forms.CheckBox();
+            this.checkNormalModeBox = new System.Windows.Forms.CheckBox();
             this.checkKiteModeBox = new System.Windows.Forms.CheckBox();
-            this.thresholdCheckBox = new System.Windows.Forms.CheckBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,50 +61,39 @@ namespace CatHack
             this.label10 = new System.Windows.Forms.Label();
             this.championPic = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.championPic)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkSpaceGlideBox
+            // checkNormalModeBox
             // 
-            this.checkSpaceGlideBox.AutoSize = true;
-            this.checkSpaceGlideBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkSpaceGlideBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.checkSpaceGlideBox.Location = new System.Drawing.Point(17, 34);
-            this.checkSpaceGlideBox.Name = "checkSpaceGlideBox";
-            this.checkSpaceGlideBox.Size = new System.Drawing.Size(244, 17);
-            this.checkSpaceGlideBox.TabIndex = 0;
-            this.checkSpaceGlideBox.Text = "Normal Mode (Most DPS, less spacing, stable)";
-            this.checkSpaceGlideBox.UseVisualStyleBackColor = false;
-            this.checkSpaceGlideBox.CheckedChanged += new System.EventHandler(this.spaceGlideBox_CheckedChanged);
+            this.checkNormalModeBox.AutoSize = true;
+            this.checkNormalModeBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkNormalModeBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.checkNormalModeBox.Location = new System.Drawing.Point(17, 40);
+            this.checkNormalModeBox.Name = "checkNormalModeBox";
+            this.checkNormalModeBox.Size = new System.Drawing.Size(244, 17);
+            this.checkNormalModeBox.TabIndex = 0;
+            this.checkNormalModeBox.Text = "Normal Mode (Most DPS, less spacing, stable)";
+            this.checkNormalModeBox.UseVisualStyleBackColor = false;
+            this.checkNormalModeBox.CheckedChanged += new System.EventHandler(this.normalModeBox_CheckedChanged);
             // 
             // checkKiteModeBox
             // 
             this.checkKiteModeBox.AutoSize = true;
             this.checkKiteModeBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkKiteModeBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.checkKiteModeBox.Location = new System.Drawing.Point(17, 76);
+            this.checkKiteModeBox.Location = new System.Drawing.Point(17, 82);
             this.checkKiteModeBox.Name = "checkKiteModeBox";
             this.checkKiteModeBox.Size = new System.Drawing.Size(199, 17);
             this.checkKiteModeBox.TabIndex = 1;
             this.checkKiteModeBox.Text = "Kite Mode (Less DPS, more spacing)";
             this.checkKiteModeBox.UseVisualStyleBackColor = false;
             this.checkKiteModeBox.CheckedChanged += new System.EventHandler(this.kiteModeBox_CheckedChanged);
-            // 
-            // thresholdCheckBox
-            // 
-            this.thresholdCheckBox.AutoSize = true;
-            this.thresholdCheckBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.thresholdCheckBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.thresholdCheckBox.Location = new System.Drawing.Point(38, 153);
-            this.thresholdCheckBox.Name = "thresholdCheckBox";
-            this.thresholdCheckBox.Size = new System.Drawing.Size(213, 17);
-            this.thresholdCheckBox.TabIndex = 2;
-            this.thresholdCheckBox.Text = "ONLY enable Space Glide at > 2.50 AS";
-            this.thresholdCheckBox.UseVisualStyleBackColor = false;
-            this.thresholdCheckBox.CheckedChanged += new System.EventHandler(this.thresholdCheckBox_CheckedChanged);
             // 
             // label1
             // 
@@ -122,9 +110,10 @@ namespace CatHack
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.checkKiteModeBox);
-            this.panel1.Controls.Add(this.checkSpaceGlideBox);
+            this.panel1.Controls.Add(this.checkNormalModeBox);
             this.panel1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Location = new System.Drawing.Point(21, 35);
             this.panel1.Name = "panel1";
@@ -168,9 +157,9 @@ namespace CatHack
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(55, 141);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 13);
+            this.label4.Size = new System.Drawing.Size(162, 13);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Use saved location of your user ping?";
+            this.label4.Text = "Use saved location of your ping?";
             // 
             // useAttackSpeedCheckBox
             // 
@@ -212,9 +201,9 @@ namespace CatHack
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(55, 169);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(177, 13);
+            this.label8.Size = new System.Drawing.Size(154, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Save the location of your user ping?";
+            this.label8.Text = "Save the location of your ping?";
             // 
             // label7
             // 
@@ -292,8 +281,9 @@ namespace CatHack
             "Lucian",
             "Miss Fortune",
             "Neeko",
-            "Samira",
             "Quinn",
+            "Samira",
+            "Soraka",
             "Sivir",
             "Teemo",
             "Tristana",
@@ -311,6 +301,7 @@ namespace CatHack
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.windupModifierBox);
             this.panel3.Controls.Add(this.kalistaExploitCheckBox);
             this.panel3.Controls.Add(this.hScrollBar1);
@@ -324,14 +315,14 @@ namespace CatHack
             this.panel3.Controls.Add(this.championBox);
             this.panel3.Controls.Add(this.label6);
             this.panel3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.panel3.Location = new System.Drawing.Point(325, 35);
+            this.panel3.Location = new System.Drawing.Point(326, 35);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(347, 401);
             this.panel3.TabIndex = 5;
             // 
             // windupModifierBox
             // 
-            this.windupModifierBox.Location = new System.Drawing.Point(124, 315);
+            this.windupModifierBox.Location = new System.Drawing.Point(119, 350);
             this.windupModifierBox.Name = "windupModifierBox";
             this.windupModifierBox.Size = new System.Drawing.Size(100, 20);
             this.windupModifierBox.TabIndex = 8;
@@ -350,7 +341,7 @@ namespace CatHack
             // 
             // hScrollBar1
             // 
-            this.hScrollBar1.Location = new System.Drawing.Point(7, 279);
+            this.hScrollBar1.Location = new System.Drawing.Point(7, 309);
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(333, 14);
             this.hScrollBar1.TabIndex = 7;
@@ -435,6 +426,28 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.checkBox1.Location = new System.Drawing.Point(18, 125);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(211, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Ex Machina Mode (Best of both worlds)";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(113, 278);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Extra Windup Override";
+            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +456,6 @@ namespace CatHack
             this.ClientSize = new System.Drawing.Size(700, 454);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.cathackStart);
-            this.Controls.Add(this.thresholdCheckBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -463,9 +475,8 @@ namespace CatHack
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkSpaceGlideBox;
+        private System.Windows.Forms.CheckBox checkNormalModeBox;
         private System.Windows.Forms.CheckBox checkKiteModeBox;
-        private System.Windows.Forms.CheckBox thresholdCheckBox;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -495,5 +506,7 @@ namespace CatHack
         private System.Windows.Forms.CheckBox kalistaExploitCheckBox;
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.TextBox windupModifierBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
