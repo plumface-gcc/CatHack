@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CatHack.exe.manifest" size="11039">
+    <dependentAssembly dependencyType="install" codebase="CatHack.exe.manifest" size="11924">
       <assemblyIdentity name="CatHack.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>u9Nub2iNB5nB6OZcYZ9GQilwh5E/+0F+vovp+9WCdQc=</dsig:DigestValue>
+        <dsig:DigestValue>UT4G63kQfQsUY6MGAc6JPVUnYL2ZzmMZN2+mO/uMCqk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

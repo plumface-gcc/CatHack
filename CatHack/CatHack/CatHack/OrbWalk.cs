@@ -6,6 +6,11 @@ using System.Windows.Forms;
 
 namespace CatHack
 {
+    /*
+     * Huge credits to jiingz for orbwalking source code
+     * Huge credits aswell to admiralzero for pixelsearch source and league API source
+     * www.unknowncheats.me/forum/league-of-legends/ 
+     */
     class OrbWalk
     {
         private static int LastAATick;
@@ -17,11 +22,7 @@ namespace CatHack
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
 
-        /// <summary>
-        /// Handles calculating the current champion's attack windup
-        /// </summary>
-        /// <returns>Attack Windup</returns>
-        public static int getAttackWindup() // credit: jiingz
+        public static int GetAttackWindup()
         {
             CatHackMain cathack = new CatHackMain();
             float champWindupPercent = cathack.getWindupPercent();
@@ -31,19 +32,19 @@ namespace CatHack
             return calc;
         }
 
-        public static int getAttackDelay() // credit: jiingz
+        public static int GetAttackDelay()
         {
             return (int)(1000.0f / LocalPlayer.GetAttackSpeed());
         }
 
-        public static bool CanAttack() // credit: jiingz
+        public static bool CanAttack()
         {
-            return Environment.TickCount + SaveUserPing.getUserPing() / 2 + 25 >= LastAATick + getAttackDelay();
+            return LastAATick + GetAttackDelay() + SaveUserPing.getUserPing() / 2 - 10 < Environment.TickCount;
         }
 
-        public static bool CanMove(float extraWindup) // credit: jiingz
+        public static bool CanMove(float extraWindup)
         {
-            return LastMoveCommandT >= Environment.TickCount + extraWindup;
+            return LastMoveCommandT < Environment.TickCount + extraWindup;
         }
 
         /// <summary>
@@ -51,47 +52,36 @@ namespace CatHack
         /// </summary>      
         public static void OrbWalkEnemy()
         {
-            Point enemyPos = modules.ChampPosition.GetEnemyPosition(); // credit: admiralzero
-            Random rnd = new Random();
-
             short keyStateTemp = GetAsyncKeyState(0x20);
             bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
 
             if (keyIsPressed && CatHackMain.getCatHack())
             {
+                Point enemyPos = modules.ChampPosition.GetEnemyPosition();
+                Random rnd = new Random();
+
                 if (CanAttack() && enemyPos != Point.Empty)
                 {
-                    if (!CanMove(CatHackMain.getExtraWindup()))
-                    {
-                        attacking++;
-                        System.Diagnostics.Debug.WriteLine("attacking" + " | " + attacking);
+                    attacking++;
+                    System.Diagnostics.Debug.WriteLine("attacking" + " | " + attacking);
 
-                        LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
-                        KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
+                    LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
+                    KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
 
-                        if (getAttackDelay() >= 400) // this is here so it doesn't cancel too many auto attacks at lower attack speeds
-                        {
-                            System.Threading.Thread.Sleep(10);
-                        }
+                    LastAATick = Environment.TickCount;
+                    LastMoveCommandT = Environment.TickCount + GetAttackWindup();
 
-                        LastAATick = Environment.TickCount;
-                        LastMoveCommandT = Environment.TickCount + getAttackWindup();
-
-                        KeyMouseHandler.IssueOrder(OrderEnum.MoveMouse, LastMovePoint); // move back cursor to original position, but don't right click
-                    }
+                    KeyMouseHandler.IssueOrder(OrderEnum.MoveMouse, LastMovePoint); // move back cursor to original position, but don't right click
                 }
-                if (CanMove(CatHackMain.getExtraWindup()) && enemyPos != Point.Empty)
+                else if (CanMove(CatHackMain.getExtraWindup()))
                 {
-                    if (!CanAttack())
-                    {
-                        moving++;
-                        System.Diagnostics.Debug.WriteLine("moving" + " | " + moving);
+                    moving++;
+                    System.Diagnostics.Debug.WriteLine("moving" + " | " + moving);
 
-                        KeyMouseHandler.IssueOrder(OrderEnum.RightClick);
+                    KeyMouseHandler.IssueOrder(OrderEnum.RightClick);
 
-                        LastMovePoint = Cursor.Position;
-                        LastMoveCommandT = Environment.TickCount + rnd.Next(50, 80);
-                    }
+                    LastMovePoint = Cursor.Position;
+                    LastMoveCommandT = Environment.TickCount + rnd.Next(50, 80);
                 }
                 else
                 {

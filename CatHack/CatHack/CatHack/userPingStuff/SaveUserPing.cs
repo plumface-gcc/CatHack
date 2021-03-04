@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
@@ -17,45 +16,44 @@ namespace CatHack
 
         Regex rgx = new Regex(pattern);
 
-        public SaveUserPing() { }
-
         public SaveUserPing(Int32 x, Int32 y, Int32 w, Int32 h, Size s)
         {
-                InitializeComponent();
+            InitializeComponent();
 
-                while (loop)
+            while (loop)
+            {
+
+                Rectangle rectRecurse = new Rectangle(x, y, w, h);
+                Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
+                Graphics newGraphic = Graphics.FromImage(bmpRecurse);
+                newGraphic.CopyFromScreen(rectRecurse.Left, rectRecurse.Top, 0, 0, s, CopyPixelOperation.SourceCopy);
+                bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp", System.Drawing.Imaging.ImageFormat.Jpeg);
+                imageCapture.Image = bmpRecurse; 
+
+                var ocr = new TesseractEngine(@"C:\Users\" + userName + @"\Documents\tessdata", "eng", EngineMode.LstmOnly);
+                ocr.SetVariable("tessedit_char_whitelist", "0123456789");
+
+                var img = Pix.LoadFromFile(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp");
+                var res = ocr.Process(img, PageSegMode.SingleBlock);
+
+                var final = res.GetText();
+                ocr.Dispose();
+                bmpRecurse.Dispose();
+
+                if (rgx.IsMatch(final))
                 {
-                    System.Threading.Thread.Sleep(1000);
-
-                    Rectangle rectRecurse = new Rectangle(x, y, w, h);
-                    Bitmap bmpRecurse = new Bitmap(rectRecurse.Width, rectRecurse.Height, PixelFormat.Format32bppArgb);
-                    Graphics newGraphic = Graphics.FromImage(bmpRecurse);
-                    newGraphic.CopyFromScreen(rectRecurse.Left, rectRecurse.Top, 0, 0, s, CopyPixelOperation.SourceCopy);
-                    bmpRecurse.Save(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp", System.Drawing.Imaging.ImageFormat.Jpeg);
-                    imageCapture.Image = bmpRecurse;
-
-                    var ocr = new TesseractEngine(@"C:\Users\" + userName + @"\Documents\tessdata", "eng", EngineMode.LstmOnly);
-                    ocr.SetVariable("tessedit_char_whitelist", "0123456789");
-
-                    var img = Pix.LoadFromFile(@"C:\Users\" + userName + @"\Documents\recurseImg2.bmp");
-                    var res = ocr.Process(img, PageSegMode.SingleBlock);
-
-                    var final = res.GetText();
-                    ocr.Dispose();
-                    bmpRecurse.Dispose();
-
-                    if (rgx.IsMatch(final))
+                    try
                     {
-                        try
-                        {
-                            userPing = float.Parse(final);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        userPing = float.Parse(final);
                     }
-                }       
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+
+                System.Threading.Thread.Sleep(1000);
+            }
         }
 
         public static float getUserPing()

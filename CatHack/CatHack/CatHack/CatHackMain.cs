@@ -60,6 +60,7 @@ namespace CatHack
         private readonly string varus = "https://acqwmovtio.cloudimg.io/v7/https://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/Varus.png?h=120";
         private readonly string vayne = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/95/VayneSquare.png/revision/latest/scale-to-width-down/120?cb=20170802170334";
         private readonly string xayah = "https://img.rankedboost.com/wp-content/plugins/league/assets/champion-icons/Xayah-Icon.png";
+        private readonly string zilean = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/ac/ZileanSquare.png/revision/latest/scale-to-width-down/120?cb=20170802185212";
 
         public CatHackMain()
         {
@@ -96,6 +97,9 @@ namespace CatHack
                 checkKiteModeBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
+
+            extraWindup = 25;
+            extraWindupBox.Text = extraWindup.ToString();
         }
         private void kiteModeBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -109,6 +113,9 @@ namespace CatHack
                 checkNormalModeBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
+
+            extraWindup = 35;
+            extraWindupBox.Text = extraWindup.ToString();
         }
         
         private void kalistaExploitCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -189,7 +196,7 @@ namespace CatHack
             return kalistaExploitCheck;
         }
 
-        public string getSelectedChampion()
+        public static string getSelectedChampion()
         {
             return selectedChampion;
         }
@@ -540,6 +547,17 @@ namespace CatHack
                 windupModifierLabel.Text = windupModifier.ToString();
                 championPic.ImageLocation = xayah;
             }
+            if (selectedChampion == "Zilean")
+            {
+                windupPercent = 18.000f;
+                bWindupTime = 0.625f;
+                windupModifier = 1f;
+
+                windupPercentLabel.Text = windupPercent.ToString();
+                baseWindupTimeLabel.Text = bWindupTime.ToString();
+                windupModifierLabel.Text = windupModifier.ToString();
+                championPic.ImageLocation = zilean;
+            }
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -557,7 +575,7 @@ namespace CatHack
             ReleaseDC(IntPtr.Zero, desktop);
 #endif
             extraWindup = hScrollBar1.Value;         
-            windupModifierBox.Text = extraWindup.ToString();
+            extraWindupBox.Text = extraWindup.ToString();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="CatHack.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Mak_Logo_2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="CatHack" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="194560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="317952">
       <assemblyIdentity name="CatHack" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zaZpsgTESxrdc5prf0L2/9GUT5DNSSs2FXla6jl7M2o=</dsig:DigestValue>
+        <dsig:DigestValue>4zHJAvEgZCOQcUb8CijhrjfSebpKqcV9wON+2QhM35Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -192,6 +193,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>GDqR0iAkD+5v9zr0MkzUUtDjBINiep5TqltmkuQo4Nk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Mak_Logo_2.ico" size="122565">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>d/YASe4EusfSZInoE4eZlopnr969QiSI1Bf1r4oIdoQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Mak_Logo_2_nobg.ico" size="118837">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/vpzDV3nSQDzR+0w/1qucauVwza3qKkK3yft346vKt4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

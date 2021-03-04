@@ -7,9 +7,7 @@ namespace CatHack.modules
 {
     class ChampPosition
     {
-        private static Color RGB_ENEMY_HP_BAR_COLOR = Color.FromArgb(0x94, 0x24, 0x18);
-        private static Color RGB_ENEMY_LEVEL_COLOR = Color.FromArgb(0x35, 0x03, 0x00);
-        private static Color RGB_ENEMY_LEVEL_NUMBER_COLOR = Color.FromArgb(0xFF, 0xEB, 0xEB);
+        private static readonly Color RGB_ENEMY_LEVEL_NUMBER_COLOR = Color.FromArgb(0xFF, 0xEB, 0xEB);
 
         public static Point GetEnemyPosition()
         {
@@ -43,7 +41,7 @@ namespace CatHack.modules
                 Point point2 = new Point((int)tuple.Item1.X, (int)tuple.Item1.Y);
 
                 result.X = point2.X + 50;
-                result.Y = point2.Y + 100;
+                result.Y = point2.Y + 125;
             }
 
             return result;

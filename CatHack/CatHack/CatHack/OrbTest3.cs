@@ -43,7 +43,7 @@ namespace CatHack
 
         public static bool CanMove(float extraWindup)
         {
-            //return ApiHandler.GetGameTime() + SaveUserPing.getUserPing() / 2 >= LastAATick + getAttackDelay() * 1000 + extraWindup;
+            //return ApiHandler.GetGameTime() + SaveUserPing.getUserPing() / 2 >= LastAATick + GetAttackDelay() * 1000 + extraWindup;
             return LastMoveCommandT < Environment.TickCount + extraWindup;
         }
 

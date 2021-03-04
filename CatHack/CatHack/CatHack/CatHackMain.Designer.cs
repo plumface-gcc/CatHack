@@ -35,6 +35,7 @@ namespace CatHack
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +51,8 @@ namespace CatHack
             this.cathackStart = new System.Windows.Forms.CheckBox();
             this.championBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.windupModifierBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.extraWindupBox = new System.Windows.Forms.TextBox();
             this.kalistaExploitCheckBox = new System.Windows.Forms.CheckBox();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.windupModifierLabel = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@ namespace CatHack
             this.label10 = new System.Windows.Forms.Label();
             this.championPic = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -119,6 +119,18 @@ namespace CatHack
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(279, 169);
             this.panel1.TabIndex = 4;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.checkBox1.Location = new System.Drawing.Point(18, 125);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(211, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Ex Machina Mode (Best of both worlds)";
+            this.checkBox1.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -291,7 +303,8 @@ namespace CatHack
             "Twisted Fate",
             "Varus",
             "Vayne",
-            "Xayah"});
+            "Xayah",
+            "Zilean"});
             this.championBox.Location = new System.Drawing.Point(14, 42);
             this.championBox.Name = "championBox";
             this.championBox.Size = new System.Drawing.Size(319, 21);
@@ -302,7 +315,7 @@ namespace CatHack
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.windupModifierBox);
+            this.panel3.Controls.Add(this.extraWindupBox);
             this.panel3.Controls.Add(this.kalistaExploitCheckBox);
             this.panel3.Controls.Add(this.hScrollBar1);
             this.panel3.Controls.Add(this.windupModifierLabel);
@@ -320,12 +333,22 @@ namespace CatHack
             this.panel3.Size = new System.Drawing.Size(347, 401);
             this.panel3.TabIndex = 5;
             // 
-            // windupModifierBox
+            // label3
             // 
-            this.windupModifierBox.Location = new System.Drawing.Point(119, 350);
-            this.windupModifierBox.Name = "windupModifierBox";
-            this.windupModifierBox.Size = new System.Drawing.Size(100, 20);
-            this.windupModifierBox.TabIndex = 8;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(113, 278);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Extra Windup Override";
+            // 
+            // extraWindupBox
+            // 
+            this.extraWindupBox.Location = new System.Drawing.Point(119, 350);
+            this.extraWindupBox.Name = "extraWindupBox";
+            this.extraWindupBox.Size = new System.Drawing.Size(100, 20);
+            this.extraWindupBox.TabIndex = 8;
             // 
             // kalistaExploitCheckBox
             // 
@@ -426,28 +449,6 @@ namespace CatHack
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.checkBox1.Location = new System.Drawing.Point(18, 125);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(211, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Ex Machina Mode (Best of both worlds)";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(113, 278);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Extra Windup Override";
-            // 
             // CatHackMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,7 +506,7 @@ namespace CatHack
         private System.Windows.Forms.Label windupPercentLabel;
         private System.Windows.Forms.CheckBox kalistaExploitCheckBox;
         private System.Windows.Forms.HScrollBar hScrollBar1;
-        private System.Windows.Forms.TextBox windupModifierBox;
+        private System.Windows.Forms.TextBox extraWindupBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
     }

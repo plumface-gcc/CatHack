@@ -66,16 +66,16 @@ namespace CatHack
         public static bool CanAttack()
         {
             /*
-            return Environment.TickCount + SaveUserPing.getUserPing() / 2 + 25 >= LastAATick + getAttackDelay() * 1000;
+            return Environment.TickCount + SaveUserPing.getUserPing() / 2 + 25 >= LastAATick + GetAttackDelay() * 1000;
 
             if (LastAATick <= Environment.TickCount)
             {
-                return (Environment.TickCount + SaveUserPing.getUserPing() / 2 >= LastAATick + getAttackDelay() + 50);
-                return (Environment.TickCount + SaveUserPing.getUserPing() / 2 >= LastAATick + getAttackDelay() * 1000);
+                return (Environment.TickCount + SaveUserPing.getUserPing() / 2 >= LastAATick + GetAttackDelay() + 50);
+                return (Environment.TickCount + SaveUserPing.getUserPing() / 2 >= LastAATick + GetAttackDelay() * 1000);
             }
             return false;
 
-           return Environment.TickCount + SaveUserPing.getUserPing() / 2 + 25 >= LastAATick + getAttackDelay() * 1000;
+           return Environment.TickCount + SaveUserPing.getUserPing() / 2 + 25 >= LastAATick + GetAttackDelay() * 1000;
             */
             if (Environment.TickCount - /* ?? */ LastAATick <= 100 + SaveUserPing.getUserPing())
             {
@@ -86,7 +86,7 @@ namespace CatHack
 
         public static bool CanMove(float extraWindup)
         {
-            //return (ApiHandler.GetGameTime() + SaveUserPing.getUserPing() / 2 >= LastAATick + getAttackDelay() * 1000 + extraWindup);
+            //return (ApiHandler.GetGameTime() + SaveUserPing.getUserPing() / 2 >= LastAATick + GetAttackDelay() * 1000 + extraWindup);
 
             //if (LastAATick <= Environment.TickCount)
             //{

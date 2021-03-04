@@ -26,6 +26,7 @@ namespace CatHack
                     while (loop)
                     {
                         OrbWalk.OrbWalkEnemy();
+                        //OrbTest1.OrbWalk();
                     }
                 },
 
