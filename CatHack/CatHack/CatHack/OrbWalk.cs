@@ -1,8 +1,10 @@
-﻿using CatHack.modules;
+﻿using CatHack.GUI;
+using CatHack.modules;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace CatHack
 {
@@ -15,34 +17,66 @@ namespace CatHack
     {
         private static int LastAATick;
         private static int LastMoveCommandT;
-        private static int moving;
-        private static int attacking;
+        private static readonly Random random = new Random();
         private static Point LastMovePoint;
+        private static List<float> attackDelayList = new List<float>();
+        private static List<float> pingList = new List<float>();
 
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
 
-        public static int GetAttackWindup()
+        private static int GetAttackWindup()
         {
-            CatHackMain cathack = new CatHackMain();
-            float champWindupPercent = cathack.getWindupPercent();
+            float champWindupPercent = CatHackGUIChampions.getWindupPercent();
 
             int calc = (int)((1 / LocalPlayer.GetAttackSpeed() * 1000) * champWindupPercent);
 
             return calc;
         }
 
-        public static int GetAttackDelay()
+        private static int GetAttackDelay()
         {
-            return (int)(1000.0f / LocalPlayer.GetAttackSpeed());
+            int attackDelay = (int)(1000.0f / LocalPlayer.GetAttackSpeed());
+            attackDelayList.Add(attackDelay);
+
+            try
+            {
+                if (attackDelayList[attackDelayList.Count - 1] < attackDelayList[attackDelayList.Count - 2] || attackDelayList[attackDelayList.Count - 1] > attackDelayList[attackDelayList.Count - 2])
+                {
+                    System.Diagnostics.Debug.WriteLine("Attack speed changed, cancelling auto");
+                    KeyMouseHandler.IssueOrder(OrderEnum.Stop);
+                }
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            return attackDelay;
         }
 
-        public static bool CanAttack()
-        {
-            return LastAATick + GetAttackDelay() + SaveUserPing.getUserPing() / 2 - 10 < Environment.TickCount;
+        private static bool CanAttack()
+        {   
+            float lastPing = SaveUserPing.getUserPing();
+            pingList.Add(lastPing);
+
+            try
+            {
+                if (pingList[pingList.Count - 1] < pingList[pingList.Count - 2])
+                {
+                    System.Diagnostics.Debug.WriteLine("Ping changed, cancelling auto");
+                    KeyMouseHandler.IssueOrder(OrderEnum.Stop);
+                }
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return LastAATick + GetAttackDelay() + SaveUserPing.getUserPing() / 2 - CatHackGUIOrb.getExtraWindup() < Environment.TickCount;
         }
 
-        public static bool CanMove(float extraWindup)
+        private static bool CanMove(float extraWindup)
         {
             return LastMoveCommandT < Environment.TickCount + extraWindup;
         }
@@ -55,16 +89,12 @@ namespace CatHack
             short keyStateTemp = GetAsyncKeyState(0x20);
             bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
 
-            if (keyIsPressed && CatHackMain.getCatHack())
+            if (keyIsPressed && CatHackGUIOrb.getOrbCheck())
             {
                 Point enemyPos = modules.ChampPosition.GetEnemyPosition();
-                Random rnd = new Random();
 
                 if (CanAttack() && enemyPos != Point.Empty)
                 {
-                    attacking++;
-                    System.Diagnostics.Debug.WriteLine("attacking" + " | " + attacking);
-
                     LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
                     KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
 
@@ -75,13 +105,10 @@ namespace CatHack
                 }
                 else if (CanMove(CatHackMain.getExtraWindup()))
                 {
-                    moving++;
-                    System.Diagnostics.Debug.WriteLine("moving" + " | " + moving);
-
                     KeyMouseHandler.IssueOrder(OrderEnum.RightClick);
 
                     LastMovePoint = Cursor.Position;
-                    LastMoveCommandT = Environment.TickCount + rnd.Next(50, 80);
+                    LastMoveCommandT = Environment.TickCount + random.Next(50, 80);
                 }
                 else
                 {
@@ -92,7 +119,7 @@ namespace CatHack
 
                     KeyMouseHandler.IssueOrder(OrderEnum.RightClick);
                 }
-                System.Diagnostics.Debug.WriteLine("Last AA Tick: " + LastAATick + " | " + "Last Move Command Time: " + LastMoveCommandT + " | " + "Env TickCount: " + Environment.TickCount + " | " + "Ping: " + SaveUserPing.getUserPing());
+                System.Diagnostics.Debug.WriteLine("Ping: " + SaveUserPing.getUserPing() + " | " + "Extra Windup: " + CatHackGUIOrb.getExtraWindup() + " | " + "Windup Percent: " + CatHackGUIChampions.getWindupPercent() + " | " + "Attack Delay: " + GetAttackDelay());
             }
         }
     }

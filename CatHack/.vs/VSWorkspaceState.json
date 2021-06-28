@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CatHack"
+    "\\CatHack",
+    "\\CatHack\\CatHack",
+    "\\CatHack\\CatHack\\GUI"
   ],
-  "SelectedNode": "\\CatHack\\CatHack.sln",
+  "SelectedNode": "\\CatHack\\CatHack\\CatHack.csproj",
   "PreviewInSolutionExplorer": false
 }

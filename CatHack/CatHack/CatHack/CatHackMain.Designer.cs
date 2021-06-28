@@ -35,7 +35,7 @@ namespace CatHack
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkExMachinaMode = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,9 +76,9 @@ namespace CatHack
             this.checkNormalModeBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.checkNormalModeBox.Location = new System.Drawing.Point(17, 40);
             this.checkNormalModeBox.Name = "checkNormalModeBox";
-            this.checkNormalModeBox.Size = new System.Drawing.Size(244, 17);
+            this.checkNormalModeBox.Size = new System.Drawing.Size(245, 17);
             this.checkNormalModeBox.TabIndex = 0;
-            this.checkNormalModeBox.Text = "Normal Mode (Most DPS, less spacing, stable)";
+            this.checkNormalModeBox.Text = "Normal Mode (More DPS, less spacing, stable)";
             this.checkNormalModeBox.UseVisualStyleBackColor = false;
             this.checkNormalModeBox.CheckedChanged += new System.EventHandler(this.normalModeBox_CheckedChanged);
             // 
@@ -110,7 +110,7 @@ namespace CatHack
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.checkExMachinaMode);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.checkKiteModeBox);
             this.panel1.Controls.Add(this.checkNormalModeBox);
@@ -120,17 +120,18 @@ namespace CatHack
             this.panel1.Size = new System.Drawing.Size(279, 169);
             this.panel1.TabIndex = 4;
             // 
-            // checkBox1
+            // checkExMachinaMode
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.checkBox1.Location = new System.Drawing.Point(18, 125);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(211, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Ex Machina Mode (Best of both worlds)";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkExMachinaMode.AutoSize = true;
+            this.checkExMachinaMode.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkExMachinaMode.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.checkExMachinaMode.Location = new System.Drawing.Point(18, 125);
+            this.checkExMachinaMode.Name = "checkExMachinaMode";
+            this.checkExMachinaMode.Size = new System.Drawing.Size(239, 17);
+            this.checkExMachinaMode.TabIndex = 4;
+            this.checkExMachinaMode.Text = "Ex Machina Mode (Best DPS, cancels autos)";
+            this.checkExMachinaMode.UseVisualStyleBackColor = false;
+            this.checkExMachinaMode.CheckedChanged += new System.EventHandler(this.exMachinaModeBox_CheckedChanged);
             // 
             // label2
             // 
@@ -507,7 +508,7 @@ namespace CatHack
         private System.Windows.Forms.CheckBox kalistaExploitCheckBox;
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.TextBox extraWindupBox;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkExMachinaMode;
         private System.Windows.Forms.Label label3;
     }
 }

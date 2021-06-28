@@ -16,7 +16,7 @@ namespace CatHack
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new CatHackMain());
+                    Application.Run(new CatHackGUI());
                 },
 
                 () =>

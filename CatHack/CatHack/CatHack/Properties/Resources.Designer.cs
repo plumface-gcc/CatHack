@@ -63,9 +63,99 @@ namespace CatHack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imageedit_1_6449737234 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_1_6449737234", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_11_2080037162 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_11_2080037162", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_14_2337334315 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_14_2337334315", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_15_6760091815 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_15_6760091815", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_2_7235112875 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_2_7235112875", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_4_3216173295 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_4_3216173295", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_7_4334187328 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_7_4334187328", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_7_8844802025 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_7_8844802025", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rsz_1mak_logo_2_nobg {
             get {
                 object obj = ResourceManager.GetObject("rsz_1mak_logo_2_nobg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SwordTransparent {
+            get {
+                object obj = ResourceManager.GetObject("SwordTransparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

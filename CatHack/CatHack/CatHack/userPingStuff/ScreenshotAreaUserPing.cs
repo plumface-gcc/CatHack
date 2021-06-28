@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatHack.GUI;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -59,10 +60,7 @@ namespace CatHack
 
         private void captureThis_KeyDown(object sender, KeyEventArgs e)
         {
-
-            CatHackMain cathack = new CatHackMain();
-
-            if (cathack.getAttackSpeedScreenshot()) // TODO: check if file exists, if not - make one
+            if (CatHackGUIPlayer.getSavePingCheck()) // TODO: check if file exists, if not - make one
             {
                 xInput = this.Location.X;
                 yInput = this.Location.Y;
@@ -112,13 +110,13 @@ namespace CatHack
 
             try
             {
-                if (e.KeyCode == Keys.F && cathack.getUseAttackSpeed() == true)
+                if (e.KeyCode == Keys.F && CatHackGUIPlayer.getSavedPingCheck() == true)
                 {
                     this.Hide();
                     SaveUserPing save = new SaveUserPing(xSave, ySave, wSave, hSave, this.Size);
                     save.Show();
                 }
-                if (e.KeyCode == Keys.F && cathack.getUseAttackSpeed() == false)
+                if (e.KeyCode == Keys.F && CatHackGUIPlayer.getSavedPingCheck() == false)
                 {
                     this.Hide();
                     SaveUserPing save = new SaveUserPing(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);

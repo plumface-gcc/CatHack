@@ -41,7 +41,7 @@ namespace CatHack.modules
                 Point point2 = new Point((int)tuple.Item1.X, (int)tuple.Item1.Y);
 
                 result.X = point2.X + 50;
-                result.Y = point2.Y + 125;
+                result.Y = point2.Y + 115;
             }
 
             return result;

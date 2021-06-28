@@ -17,6 +17,7 @@ namespace CatHack
 
         private static bool checkNormalMode;
         private static bool checkKiteMode;
+        private static bool checkMachinaMode;
         private static bool thresholdCheck;
         private static bool cathackCheck;
         private static bool kalistaExploitCheck;
@@ -94,11 +95,12 @@ namespace CatHack
                 thresholdCheck = false;
                 kalistaExploitCheck = false;
 
+                checkExMachinaMode.Checked = false;
                 checkKiteModeBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
 
-            extraWindup = 25;
+            extraWindup = 5;
             extraWindupBox.Text = extraWindup.ToString();
         }
         private void kiteModeBox_CheckedChanged(object sender, EventArgs e)
@@ -110,14 +112,34 @@ namespace CatHack
                 thresholdCheck = false;
                 kalistaExploitCheck = false;
 
+                checkExMachinaMode.Checked = false;
                 checkNormalModeBox.Checked = false;
                 kalistaExploitCheckBox.Checked = false;
             }
 
-            extraWindup = 35;
+            extraWindup = 2;
             extraWindupBox.Text = extraWindup.ToString();
         }
-        
+
+        private void exMachinaModeBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkExMachinaMode.Checked)
+            {
+                checkMachinaMode = true;
+                checkKiteMode = false;
+                checkNormalMode = false;
+                thresholdCheck = false;
+                kalistaExploitCheck = false;
+
+                checkExMachinaMode.Checked = true;
+                checkNormalModeBox.Checked = false;
+                kalistaExploitCheckBox.Checked = false;
+            }
+
+            extraWindup = 10;
+            extraWindupBox.Text = extraWindup.ToString();
+        }
+
         private void kalistaExploitCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (kalistaExploitCheckBox.Checked)
@@ -562,7 +584,7 @@ namespace CatHack
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            hScrollBar1.Maximum = 100;
+            hScrollBar1.Maximum = 30;
             hScrollBar1.Minimum = 0;
             hScrollBar1.SmallChange = 1;
 
