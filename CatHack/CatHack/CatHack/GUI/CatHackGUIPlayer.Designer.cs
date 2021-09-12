@@ -35,13 +35,13 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.orbKey = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +97,7 @@ namespace CatHack.GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.orbKey);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label5);
@@ -111,6 +111,15 @@ namespace CatHack.GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
+            // 
+            // orbKey
+            // 
+            this.orbKey.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.orbKey.Location = new System.Drawing.Point(142, 155);
+            this.orbKey.Name = "orbKey";
+            this.orbKey.Size = new System.Drawing.Size(28, 20);
+            this.orbKey.TabIndex = 17;
+            this.orbKey.TextChanged += new System.EventHandler(this.orbKey_TextChanged);
             // 
             // label3
             // 
@@ -196,14 +205,6 @@ namespace CatHack.GUI
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(142, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(28, 20);
-            this.textBox1.TabIndex = 17;
-            // 
             // CatHackGUIPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +217,7 @@ namespace CatHack.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CatHackGUIPlayer";
             this.Text = "CatHackGUI";
+            this.Load += new System.EventHandler(this.CatHackGUIPlayer_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -237,6 +239,6 @@ namespace CatHack.GUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox orbKey;
     }
 }

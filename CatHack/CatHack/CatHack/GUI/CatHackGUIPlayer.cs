@@ -12,6 +12,7 @@ namespace CatHack.GUI
 {
     public partial class CatHackGUIPlayer : Form
     {
+        private static char orbwalkKey;
         private bool mouseDown;
         private Point offset;
         private static bool savePingCheck;
@@ -24,7 +25,7 @@ namespace CatHack.GUI
             savePingArea.IsOn = Properties.Settings.Default.savePingCheck;
             savedPingArea.IsOn = Properties.Settings.Default.savedPingCheck;
             userKeycode = Properties.Settings.Default.keycodeInput;
-            textBox1.Text = Properties.Settings.Default.keycodeInput;
+            orbKey.Text = Properties.Settings.Default.keycodeInput;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -82,13 +83,66 @@ namespace CatHack.GUI
         {
             Properties.Settings.Default.savePingCheck = savePingArea.IsOn;
             Properties.Settings.Default.savedPingCheck = savedPingArea.IsOn;
-            Properties.Settings.Default.keycodeInput = textBox1.Text;
+            Properties.Settings.Default.keycodeInput = orbKey.Text;
             Properties.Settings.Default.Save();
 
             CatHackGUI mainForm = new CatHackGUI();
             mainForm.Show();
             this.Hide();
+
+            this.SaveWindowPosition();
         }
 
+        private void RestoreWindowPosition()
+        {
+            if (Properties.Settings.Default.HasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.WindowState;
+                this.Location = Properties.Settings.Default.Location;
+                this.Size = Properties.Settings.Default.Size;
+            }
+        }
+
+        private void SaveWindowPosition()
+        {
+            Properties.Settings.Default.WindowState = this.WindowState;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = this.Location;
+                Properties.Settings.Default.Size = this.Size;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.Size = this.RestoreBounds.Size;
+            }
+
+            Properties.Settings.Default.HasSetDefaults = true;
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void CatHackGUIPlayer_Load(object sender, EventArgs e)
+        {
+            this.RestoreWindowPosition();
+        }
+
+        private void orbKey_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                orbwalkKey = char.Parse(orbKey.Text);
+            }
+            catch(FormatException error)
+            {
+                System.Diagnostics.Debug.WriteLine(error.Message);
+            }
+        }
+
+        public static char getOrbwalkKey()
+        {
+            return orbwalkKey;
+        }
     }
 }

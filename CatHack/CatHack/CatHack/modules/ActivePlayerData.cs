@@ -14,6 +14,11 @@ namespace CatHack.modules
             {
                 return ApiStuff.GetActivePlayerData()["championStats"]["attackSpeed"].ToObject<float>();
             }
+
+            public static float GetAttackRange()
+            {
+                return ApiStuff.GetActivePlayerData()["championStats"]["attackRange"].ToObject<float>();
+            }
         }
     }
 }

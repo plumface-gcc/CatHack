@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CatHack.GUI;
 using System.Windows.Forms;
+using CatHack.modules;
 
 namespace CatHack.GUI
 {
@@ -68,7 +69,7 @@ namespace CatHack.GUI
             {
                 NormalModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
-                extraWindup = 3;
+                extraWindup = 0;
             }
         }
 
@@ -78,7 +79,7 @@ namespace CatHack.GUI
             {
                 KiteModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
-                extraWindup = 7;
+                extraWindup = 5;
             }
         }
 
@@ -88,7 +89,7 @@ namespace CatHack.GUI
             {
                 KiteModeToggle.IsOn = false;
                 NormalModeToggle.IsOn = false;
-                extraWindup = 25;
+                extraWindup = 10;
             }
         }
 
@@ -104,10 +105,41 @@ namespace CatHack.GUI
             }
         }
 
+        private void RestoreWindowPosition()
+        {
+            if (Properties.Settings.Default.HasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.WindowState;
+                this.Location = Properties.Settings.Default.Location;
+                this.Size = Properties.Settings.Default.Size;
+            }
+        }
+
+        private void SaveWindowPosition()
+        {
+            Properties.Settings.Default.WindowState = this.WindowState;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = this.Location;
+                Properties.Settings.Default.Size = this.Size;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.Size = this.RestoreBounds.Size;
+            }
+
+            Properties.Settings.Default.HasSetDefaults = true;
+
+            Properties.Settings.Default.Save();
+        }
+
         private void exitPicBox_MouseClick(object sender, MouseEventArgs e)
         {
             Properties.Settings.Default.orbCheck = getOrbCheck();
             Properties.Settings.Default.extraWindup = getExtraWindup();
+            Properties.Settings.Default.orbKiteIsOn = KiteModeToggle.IsOn;
             Properties.Settings.Default.orbToggleIsOn = OrbwalkToggle.IsOn;
             Properties.Settings.Default.orbNormalIsOn = NormalModeToggle.IsOn;
             Properties.Settings.Default.orbRageIsOn = RageModeToggle.IsOn;
@@ -116,6 +148,13 @@ namespace CatHack.GUI
             CatHackGUI mainForm = new CatHackGUI();
             mainForm.Show();
             this.Hide();
+
+            this.SaveWindowPosition();
+        }
+
+        private void CatHackGUIOrb_Load(object sender, EventArgs e)
+        {
+            this.RestoreWindowPosition();
         }
     }
 }

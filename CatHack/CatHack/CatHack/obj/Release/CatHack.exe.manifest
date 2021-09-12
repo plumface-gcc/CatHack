@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="573952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="576000">
       <assemblyIdentity name="CatHack" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LvJ19ZKeNN/csgbCX2CzBFZRpI6tfyHr5sacps70bTY=</dsig:DigestValue>
+        <dsig:DigestValue>bndu9h8mPB/++vhZdlQm/mn7coFv97SdtzMb6dLtDGo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -258,13 +258,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CatHack.exe.config" size="2682">
+  <file name="CatHack.exe.config" size="3094">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>460Da3wdjWdppGtaUsnjEQcN+czzGxSucdAKzciShfI=</dsig:DigestValue>
+      <dsig:DigestValue>q6YLRIIBJSvWO2vtXX35KU80AcwQ2q5pOOtK/wFKLpQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Mak_Logo_2.ico" size="122565">

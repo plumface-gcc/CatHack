@@ -257,6 +257,7 @@ namespace CatHack.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CatHackGUIChampions";
             this.Text = "CatHackGUI";
+            this.Load += new System.EventHandler(this.CatHackGUIChampions_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.championPic)).EndInit();

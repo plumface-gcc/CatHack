@@ -314,6 +314,7 @@ namespace CatHack.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CatHackGUIOrb";
             this.Text = "CatHackGUI";
+            this.Load += new System.EventHandler(this.CatHackGUIOrb_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).EndInit();

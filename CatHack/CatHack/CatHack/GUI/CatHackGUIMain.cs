@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,14 +16,16 @@ namespace CatHack
     {
         private bool mouseDown;
         private Point offset;
-        
+
+        [DllImport("User32.dll")]
+        public static extern IntPtr GetDC(IntPtr hwnd);
+        [DllImport("User32.dll")]
+        static extern int ReleaseDC(IntPtr hwnd, IntPtr dc);
+
+
         public CatHackGUI()
         {
             InitializeComponent();
-
-            CatHackGUIOrb orbForm = new CatHackGUIOrb();
-            CatHackGUIChampions champForm = new CatHackGUIChampions();
-            CatHackGUIPlayer playerForm = new CatHackGUIPlayer();
 
             int x = (panel5.Size.Width - label1.Size.Width) / 2;
             label1.Location = new Point(x, label1.Location.Y);
@@ -37,6 +40,7 @@ namespace CatHack
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
+
             if (mouseDown == true)
             {
                 Point currentScreenPos = PointToScreen(e.Location);
@@ -183,6 +187,8 @@ namespace CatHack
 
         private void OrbwalkingPicBox_MouseClick(object sender, MouseEventArgs e)
         {
+            this.SaveWindowPosition();
+
             CatHackGUIOrb orbForm = new CatHackGUIOrb();
             orbForm.Show();
             this.Hide();
@@ -190,6 +196,8 @@ namespace CatHack
 
         private void ChampionsPicBox_MouseClick(object sender, MouseEventArgs e)
         {
+            this.SaveWindowPosition();
+
             CatHackGUIChampions champForm = new CatHackGUIChampions();
             champForm.Show();
             this.Hide();
@@ -197,9 +205,46 @@ namespace CatHack
 
         private void PlayerPicBox_MouseClick(object sender, MouseEventArgs e)
         {
+            this.SaveWindowPosition();
+
             CatHackGUIPlayer playerForm = new CatHackGUIPlayer();
             playerForm.Show();
             this.Hide();
+        }
+
+        private void RestoreWindowPosition()
+        {
+            if (Properties.Settings.Default.HasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.WindowState;
+                this.Location = Properties.Settings.Default.Location;
+                this.Size = Properties.Settings.Default.Size;
+            }
+        }
+
+        private void SaveWindowPosition()
+        {
+            Properties.Settings.Default.WindowState = this.WindowState;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = this.Location;
+                Properties.Settings.Default.Size = this.Size;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.Size = this.RestoreBounds.Size;
+            }
+
+            Properties.Settings.Default.HasSetDefaults = true;
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void CatHackGUI_Load(object sender, EventArgs e)
+        {
+            this.RestoreWindowPosition();
         }
     }
 }

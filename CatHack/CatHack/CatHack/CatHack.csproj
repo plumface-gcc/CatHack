@@ -198,7 +198,6 @@
     <Compile Include="KeyboardOut.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="modules\ApiHandler.cs" />
     <Compile Include="modules\ChampPosition.cs" />
     <Compile Include="modules\GameStats.cs" />
     <Compile Include="modules\KeyMouseHandler.cs" />

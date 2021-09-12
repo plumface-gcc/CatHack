@@ -19,6 +19,7 @@ namespace CatHack.GUI
         private static float windupPercent;
         private static float bWindupTime;
         private static float windupModifier;
+        private static int attackRange;
 
         private readonly string aphelios = "https://1.bp.blogspot.com/-R5ozICNl7AY/Xd2iaJ1x8wI/AAAAAAABb1c/Lkeeq4TPd7c7Hn2ThLeJe1fDE8dq5p2LgCLcBGAsYHQ/s1600/523.png";
         private readonly string ashe = "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4a/AsheSquare.png/revision/latest/scale-to-width-down/120?cb=20170728180206";
@@ -85,6 +86,7 @@ namespace CatHack.GUI
                 windupPercent = 15.333f;
                 bWindupTime = 0.64f;
                 windupModifier = 1f;
+                attackRange = 550;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -96,6 +98,7 @@ namespace CatHack.GUI
                 windupPercent = 21.93f;
                 bWindupTime = 0.658f;
                 windupModifier = 1f;
+                attackRange = 600;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -107,6 +110,7 @@ namespace CatHack.GUI
                 windupPercent = 15.625f;
                 bWindupTime = 0.625f;
                 windupModifier = 1f;
+                attackRange = 525;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -118,6 +122,7 @@ namespace CatHack.GUI
                 windupPercent = 18.75f;
                 bWindupTime = 0.625f;
                 windupModifier = 1f;
+                attackRange = 500;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -129,6 +134,7 @@ namespace CatHack.GUI
                 windupPercent = 17.708f;
                 bWindupTime = 0.681f;
                 windupModifier = 1f;
+                attackRange = 650;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -140,6 +146,7 @@ namespace CatHack.GUI
                 windupPercent = 10.00f;
                 bWindupTime = 0.638f;
                 windupModifier = 1f;
+                attackRange = 550;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -151,6 +158,7 @@ namespace CatHack.GUI
                 windupPercent = 15.614f;
                 bWindupTime = 0.679f;
                 windupModifier = 1f;
+                attackRange = 550;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -162,6 +170,7 @@ namespace CatHack.GUI
                 windupPercent = 18.839f;
                 bWindupTime = 0.625f;
                 windupModifier = 1f;
+                attackRange = 550;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -173,6 +182,7 @@ namespace CatHack.GUI
                 windupPercent = 14.6f;
                 bWindupTime = 0.625f;
                 windupModifier = 1f;
+                attackRange = 400;
 
                 windupPercentLabel.Text = windupPercent.ToString();
                 baseWindupTimeLabel.Text = bWindupTime.ToString();
@@ -574,7 +584,7 @@ namespace CatHack.GUI
             }
             if (selectedChampion == "Kalista") // TODO: "Kalista Double Jump" a weird exploit happens at 4.0+ attack speed. Only happens at (certain ms? ms difference? 32 + 5?)
             {
-                windupPercent = 36.000f;
+                windupPercent = 36.000f; // ???????
                 bWindupTime = 0.694f;
                 windupModifier = 0.75f;
 
@@ -795,9 +805,44 @@ namespace CatHack.GUI
             }
         }
 
+        public static string getSelectedChampion()
+        {
+            return selectedChampion;
+        }
+
         public static float getWindupPercent()
         {
             return windupPercent;
+        }
+
+        private void RestoreWindowPosition()
+        {
+            if (Properties.Settings.Default.HasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.WindowState;
+                this.Location = Properties.Settings.Default.Location;
+                this.Size = Properties.Settings.Default.Size;
+            }
+        }
+
+        private void SaveWindowPosition()
+        {
+            Properties.Settings.Default.WindowState = this.WindowState;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = this.Location;
+                Properties.Settings.Default.Size = this.Size;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.Size = this.RestoreBounds.Size;
+            }
+
+            Properties.Settings.Default.HasSetDefaults = true;
+
+            Properties.Settings.Default.Save();
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -808,6 +853,13 @@ namespace CatHack.GUI
             CatHackGUI mainForm = new CatHackGUI();
             mainForm.Show();
             this.Hide();
+
+            this.SaveWindowPosition();
+        }
+
+        private void CatHackGUIChampions_Load(object sender, EventArgs e)
+        {
+            this.RestoreWindowPosition();
         }
     }
 }
