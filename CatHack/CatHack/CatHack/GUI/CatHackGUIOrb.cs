@@ -156,5 +156,61 @@ namespace CatHack.GUI
         {
             this.RestoreWindowPosition();
         }
+
+        private void OrbwalkSettingClick(object sender, EventArgs e)
+        {
+            if (FpsFixButton.Visible == false)
+            {
+                FpsFixButton.Visible = true;
+                label6.Visible = true;
+            }
+            else
+            {
+                FpsFixButton.Visible = false;
+                label6.Visible = false;
+            }
+        }
+
+        private void KiteSettingClick(object sender, EventArgs e)
+        {
+            if (KiteSettingTextbox.Visible == false)
+            {
+                KiteSettingTextbox.Visible = true;
+                label7.Visible = true;
+            }
+            else
+            {
+                KiteSettingTextbox.Visible = false;
+                label7.Visible = false;
+            }
+        }
+
+        private void NormalSettingClick(object sender, EventArgs e)
+        {
+            if (NormalSettingTextbox.Visible == false)
+            {
+                NormalSettingTextbox.Visible = true;
+                label9.Visible = true;
+            }
+            else
+            {
+                NormalSettingTextbox.Visible = false;
+                label9.Visible = false;
+            }
+        }
+
+        private void RageSettingClick(object sender, EventArgs e)
+        {
+            if (RageSettingTextbox.Visible == false)
+            {
+                RageSettingTextbox.Visible = true;
+                label8.Visible = true;
+            }
+            else
+            {
+                RageSettingTextbox.Visible = false;
+                label8.Visible = false;
+            }
+        }
     }
 }

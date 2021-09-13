@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="583168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CatHack.exe" size="587776">
       <assemblyIdentity name="CatHack" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gjSIt07BDidK7P71h5BzqTl0kP3/Yl+MbC/nlydkvS8=</dsig:DigestValue>
+        <dsig:DigestValue>TeUTWq9ra1yU7jaQpD0/xtvovXXuOhZLKh0WEfo/mbw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

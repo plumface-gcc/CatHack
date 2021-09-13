@@ -35,6 +35,10 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,13 +48,9 @@ namespace CatHack.GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,15 +130,52 @@ namespace CatHack.GUI
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
             // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox4.Location = new System.Drawing.Point(398, 145);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(42, 20);
+            this.textBox4.TabIndex = 26;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox3.Location = new System.Drawing.Point(282, 145);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(42, 20);
+            this.textBox3.TabIndex = 25;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox2.Location = new System.Drawing.Point(398, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(42, 20);
+            this.textBox2.TabIndex = 22;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.HideSelection = false;
+            this.textBox1.Location = new System.Drawing.Point(283, 105);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(42, 20);
+            this.textBox1.TabIndex = 19;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(311, 132);
+            this.label9.Location = new System.Drawing.Point(334, 143);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 27);
+            this.label9.Size = new System.Drawing.Size(57, 29);
             this.label9.TabIndex = 24;
             this.label9.Text = "Y Size:";
             // 
@@ -146,11 +183,11 @@ namespace CatHack.GUI
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(228, 132);
+            this.label8.Location = new System.Drawing.Point(251, 143);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 27);
+            this.label8.Size = new System.Drawing.Size(25, 29);
             this.label8.TabIndex = 23;
             this.label8.Text = "Y:";
             // 
@@ -158,11 +195,11 @@ namespace CatHack.GUI
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(311, 92);
+            this.label7.Location = new System.Drawing.Point(334, 103);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 27);
+            this.label7.Size = new System.Drawing.Size(57, 29);
             this.label7.TabIndex = 21;
             this.label7.Text = "X Size:";
             // 
@@ -170,22 +207,22 @@ namespace CatHack.GUI
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(228, 93);
+            this.label6.Location = new System.Drawing.Point(251, 104);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 27);
+            this.label6.Size = new System.Drawing.Size(25, 29);
             this.label6.TabIndex = 20;
             this.label6.Text = "X:";
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(228, 67);
+            this.label4.Location = new System.Drawing.Point(249, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 23);
+            this.label4.Size = new System.Drawing.Size(210, 23);
             this.label4.TabIndex = 18;
             this.label4.Text = "Current Config Coordinates";
             // 
@@ -233,6 +270,17 @@ namespace CatHack.GUI
             this.label5.TabIndex = 16;
             this.label5.Text = "Use Config";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CatHack.Properties.Resources.imageedit_1_6449737234;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            // 
             // savedPingArea
             // 
             this.savedPingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -270,49 +318,6 @@ namespace CatHack.GUI
             this.savePingArea.Text = "ceLearningToggle1";
             this.savePingArea.TextEnabled = true;
             this.savePingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CatHack.Properties.Resources.imageedit_1_6449737234;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(263, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(28, 20);
-            this.textBox1.TabIndex = 19;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(378, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(28, 20);
-            this.textBox2.TabIndex = 22;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox3.Location = new System.Drawing.Point(263, 134);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(28, 20);
-            this.textBox3.TabIndex = 25;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox4.Location = new System.Drawing.Point(378, 134);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(28, 20);
-            this.textBox4.TabIndex = 26;
             // 
             // CatHackGUIPlayer
             // 

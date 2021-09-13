@@ -34,6 +34,14 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.RageSettingTextbox = new System.Windows.Forms.TextBox();
+            this.NormalSettingTextbox = new System.Windows.Forms.TextBox();
+            this.KiteSettingTextbox = new System.Windows.Forms.TextBox();
+            this.FpsFixButton = new CatHack.ToggleButton.CeLearningToggle();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.OrbwalkToggle = new CatHack.ToggleButton.CeLearningToggle();
             this.label5 = new System.Windows.Forms.Label();
             this.RageModeToggle = new CatHack.ToggleButton.CeLearningToggle();
@@ -106,6 +114,14 @@ namespace CatHack.GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.RageSettingTextbox);
+            this.panel5.Controls.Add(this.NormalSettingTextbox);
+            this.panel5.Controls.Add(this.KiteSettingTextbox);
+            this.panel5.Controls.Add(this.FpsFixButton);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.OrbwalkToggle);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.RageModeToggle);
@@ -126,6 +142,100 @@ namespace CatHack.GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
+            // 
+            // RageSettingTextbox
+            // 
+            this.RageSettingTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.RageSettingTextbox.Location = new System.Drawing.Point(380, 183);
+            this.RageSettingTextbox.Name = "RageSettingTextbox";
+            this.RageSettingTextbox.Size = new System.Drawing.Size(28, 20);
+            this.RageSettingTextbox.TabIndex = 30;
+            this.RageSettingTextbox.Visible = false;
+            // 
+            // NormalSettingTextbox
+            // 
+            this.NormalSettingTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.NormalSettingTextbox.Location = new System.Drawing.Point(380, 139);
+            this.NormalSettingTextbox.Name = "NormalSettingTextbox";
+            this.NormalSettingTextbox.Size = new System.Drawing.Size(28, 20);
+            this.NormalSettingTextbox.TabIndex = 29;
+            this.NormalSettingTextbox.Visible = false;
+            // 
+            // KiteSettingTextbox
+            // 
+            this.KiteSettingTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.KiteSettingTextbox.Location = new System.Drawing.Point(380, 95);
+            this.KiteSettingTextbox.Name = "KiteSettingTextbox";
+            this.KiteSettingTextbox.Size = new System.Drawing.Size(28, 20);
+            this.KiteSettingTextbox.TabIndex = 28;
+            this.KiteSettingTextbox.Visible = false;
+            // 
+            // FpsFixButton
+            // 
+            this.FpsFixButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.FpsFixButton.BorderColor = System.Drawing.Color.LightGray;
+            this.FpsFixButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FpsFixButton.ForeColor = System.Drawing.Color.White;
+            this.FpsFixButton.IsOn = false;
+            this.FpsFixButton.Location = new System.Drawing.Point(380, 53);
+            this.FpsFixButton.Name = "FpsFixButton";
+            this.FpsFixButton.OffColor = System.Drawing.Color.DarkGray;
+            this.FpsFixButton.OffText = "";
+            this.FpsFixButton.OnColor = System.Drawing.Color.Green;
+            this.FpsFixButton.OnText = "";
+            this.FpsFixButton.Size = new System.Drawing.Size(28, 16);
+            this.FpsFixButton.TabIndex = 27;
+            this.FpsFixButton.Text = "ceLearningToggle1";
+            this.FpsFixButton.TextEnabled = true;
+            this.FpsFixButton.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Gray;
+            this.label9.Location = new System.Drawing.Point(249, 138);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(159, 23);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Normal Windup Override:";
+            this.label9.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(249, 183);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 23);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Rage Windup:";
+            this.label8.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.Location = new System.Drawing.Point(249, 93);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(169, 23);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Kite Windup";
+            this.label7.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gray;
+            this.label6.Location = new System.Drawing.Point(249, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 23);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Fps Fix?";
+            this.label6.Visible = false;
             // 
             // OrbwalkToggle
             // 
@@ -271,6 +381,7 @@ namespace CatHack.GUI
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.KiteSettingClick);
             // 
             // pictureBox3
             // 
@@ -281,6 +392,7 @@ namespace CatHack.GUI
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.NormalSettingClick);
             // 
             // pictureBox4
             // 
@@ -291,6 +403,7 @@ namespace CatHack.GUI
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 15;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.RageSettingClick);
             // 
             // pictureBox5
             // 
@@ -301,6 +414,7 @@ namespace CatHack.GUI
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 18;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.OrbwalkSettingClick);
             // 
             // CatHackGUIOrb
             // 
@@ -346,5 +460,13 @@ namespace CatHack.GUI
         private System.Windows.Forms.Label label5;
         private ToggleButton.CeLearningToggle OrbwalkToggle;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private ToggleButton.CeLearningToggle FpsFixButton;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox RageSettingTextbox;
+        private System.Windows.Forms.TextBox NormalSettingTextbox;
+        private System.Windows.Forms.TextBox KiteSettingTextbox;
     }
 }
