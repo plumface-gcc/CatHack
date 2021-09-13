@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace CatHack.GUI
         private static bool savePingCheck;
         private static bool savedPingCheck;
         private static String userKeycode;
+        private static string userName = Environment.UserName;
+        private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
+        private static int x, y, xSize, ySize;
 
         public CatHackGUIPlayer()
         {
@@ -26,6 +30,38 @@ namespace CatHack.GUI
             savedPingArea.IsOn = Properties.Settings.Default.savedPingCheck;
             userKeycode = Properties.Settings.Default.keycodeInput;
             orbKey.Text = Properties.Settings.Default.keycodeInput;
+
+            try
+            {
+                string[] lines;
+                var list = new List<string>();
+
+                var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+
+                using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+                {
+                    string line;
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        list.Add(line);
+                    }
+                }
+                lines = list.ToArray();
+
+                x = Int32.Parse(lines[0]);
+                y = Int32.Parse(lines[1]);
+                xSize = Int32.Parse(lines[2]);
+                ySize = Int32.Parse(lines[3]);
+
+                textBox1.Text = lines[0];
+                textBox3.Text = lines[1];
+                textBox2.Text = lines[2];
+                textBox4.Text = lines[3];
+            }
+            catch (FileNotFoundException err)
+            {
+                FileStream fs = File.Create(path);
+            }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

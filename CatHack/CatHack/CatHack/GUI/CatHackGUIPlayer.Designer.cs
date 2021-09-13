@@ -35,12 +35,19 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.orbKey = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
-            this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,12 +104,19 @@ namespace CatHack.GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.orbKey);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.savedPingArea);
-            this.panel5.Controls.Add(this.savePingArea);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel3);
@@ -111,6 +125,97 @@ namespace CatHack.GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox4.Location = new System.Drawing.Point(378, 134);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(28, 20);
+            this.textBox4.TabIndex = 26;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox3.Location = new System.Drawing.Point(263, 134);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(28, 20);
+            this.textBox3.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Gray;
+            this.label9.Location = new System.Drawing.Point(311, 132);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 27);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Y Size:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(228, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 27);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Y:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox2.Location = new System.Drawing.Point(378, 94);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(28, 20);
+            this.textBox2.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.Location = new System.Drawing.Point(311, 92);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 27);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "X Size:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gray;
+            this.label6.Location = new System.Drawing.Point(228, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 27);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "X:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.Location = new System.Drawing.Point(263, 94);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(28, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(228, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(192, 23);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Current Config Coordinates";
             // 
             // orbKey
             // 
@@ -155,44 +260,6 @@ namespace CatHack.GUI
             this.label5.Size = new System.Drawing.Size(86, 23);
             this.label5.TabIndex = 16;
             this.label5.Text = "Use Config";
-            // 
-            // savedPingArea
-            // 
-            this.savedPingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.savedPingArea.BorderColor = System.Drawing.Color.LightGray;
-            this.savedPingArea.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.savedPingArea.ForeColor = System.Drawing.Color.White;
-            this.savedPingArea.IsOn = false;
-            this.savedPingArea.Location = new System.Drawing.Point(142, 70);
-            this.savedPingArea.Name = "savedPingArea";
-            this.savedPingArea.OffColor = System.Drawing.Color.DarkGray;
-            this.savedPingArea.OffText = "";
-            this.savedPingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.savedPingArea.OnText = "";
-            this.savedPingArea.Size = new System.Drawing.Size(28, 16);
-            this.savedPingArea.TabIndex = 8;
-            this.savedPingArea.Text = "ceLearningToggle1";
-            this.savedPingArea.TextEnabled = true;
-            this.savedPingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savedPingArea_sliderValueChanged);
-            // 
-            // savePingArea
-            // 
-            this.savePingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.savePingArea.BorderColor = System.Drawing.Color.LightGray;
-            this.savePingArea.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.savePingArea.ForeColor = System.Drawing.Color.White;
-            this.savePingArea.IsOn = false;
-            this.savePingArea.Location = new System.Drawing.Point(142, 113);
-            this.savePingArea.Name = "savePingArea";
-            this.savePingArea.OffColor = System.Drawing.Color.DarkGray;
-            this.savePingArea.OffText = "";
-            this.savePingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.savePingArea.OnText = "";
-            this.savePingArea.Size = new System.Drawing.Size(28, 16);
-            this.savePingArea.TabIndex = 7;
-            this.savePingArea.Text = "ceLearningToggle1";
-            this.savePingArea.TextEnabled = true;
-            this.savePingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
             // 
             // pictureBox1
             // 
@@ -240,5 +307,14 @@ namespace CatHack.GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox orbKey;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
