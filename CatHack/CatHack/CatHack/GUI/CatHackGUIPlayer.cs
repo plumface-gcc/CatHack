@@ -31,6 +31,7 @@ namespace CatHack.GUI
             userKeycode = Properties.Settings.Default.keycodeInput;
             orbKey.Text = Properties.Settings.Default.keycodeInput;
 
+           
             try
             {
                 string[] lines;

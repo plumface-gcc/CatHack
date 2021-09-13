@@ -35,20 +35,22 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.orbKey = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
+            this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -106,17 +108,19 @@ namespace CatHack.GUI
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.textBox4);
             this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.textBox2);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.orbKey);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.savedPingArea);
+            this.panel5.Controls.Add(this.savePingArea);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel3);
@@ -125,22 +129,6 @@ namespace CatHack.GUI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox4.Location = new System.Drawing.Point(378, 134);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(28, 20);
-            this.textBox4.TabIndex = 26;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox3.Location = new System.Drawing.Point(263, 134);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(28, 20);
-            this.textBox3.TabIndex = 25;
             // 
             // label9
             // 
@@ -166,14 +154,6 @@ namespace CatHack.GUI
             this.label8.TabIndex = 23;
             this.label8.Text = "Y:";
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(378, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(28, 20);
-            this.textBox2.TabIndex = 22;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -197,14 +177,6 @@ namespace CatHack.GUI
             this.label6.Size = new System.Drawing.Size(24, 27);
             this.label6.TabIndex = 20;
             this.label6.Text = "X:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(263, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(28, 20);
-            this.textBox1.TabIndex = 19;
             // 
             // label4
             // 
@@ -261,6 +233,44 @@ namespace CatHack.GUI
             this.label5.TabIndex = 16;
             this.label5.Text = "Use Config";
             // 
+            // savedPingArea
+            // 
+            this.savedPingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.savedPingArea.BorderColor = System.Drawing.Color.LightGray;
+            this.savedPingArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.savedPingArea.ForeColor = System.Drawing.Color.White;
+            this.savedPingArea.IsOn = false;
+            this.savedPingArea.Location = new System.Drawing.Point(142, 70);
+            this.savedPingArea.Name = "savedPingArea";
+            this.savedPingArea.OffColor = System.Drawing.Color.DarkGray;
+            this.savedPingArea.OffText = "";
+            this.savedPingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.savedPingArea.OnText = "";
+            this.savedPingArea.Size = new System.Drawing.Size(28, 16);
+            this.savedPingArea.TabIndex = 8;
+            this.savedPingArea.Text = "ceLearningToggle1";
+            this.savedPingArea.TextEnabled = true;
+            this.savedPingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savedPingArea_sliderValueChanged);
+            // 
+            // savePingArea
+            // 
+            this.savePingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.savePingArea.BorderColor = System.Drawing.Color.LightGray;
+            this.savePingArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.savePingArea.ForeColor = System.Drawing.Color.White;
+            this.savePingArea.IsOn = false;
+            this.savePingArea.Location = new System.Drawing.Point(142, 113);
+            this.savePingArea.Name = "savePingArea";
+            this.savePingArea.OffColor = System.Drawing.Color.DarkGray;
+            this.savePingArea.OffText = "";
+            this.savePingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.savePingArea.OnText = "";
+            this.savePingArea.Size = new System.Drawing.Size(28, 16);
+            this.savePingArea.TabIndex = 7;
+            this.savePingArea.Text = "ceLearningToggle1";
+            this.savePingArea.TextEnabled = true;
+            this.savePingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CatHack.Properties.Resources.imageedit_1_6449737234;
@@ -271,6 +281,38 @@ namespace CatHack.GUI
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.Location = new System.Drawing.Point(263, 94);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(28, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox2.Location = new System.Drawing.Point(378, 94);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(28, 20);
+            this.textBox2.TabIndex = 22;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox3.Location = new System.Drawing.Point(263, 134);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(28, 20);
+            this.textBox3.TabIndex = 25;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox4.Location = new System.Drawing.Point(378, 134);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(28, 20);
+            this.textBox4.TabIndex = 26;
             // 
             // CatHackGUIPlayer
             // 
@@ -308,13 +350,13 @@ namespace CatHack.GUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox orbKey;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
     }
 }
