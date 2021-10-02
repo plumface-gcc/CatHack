@@ -5,6 +5,10 @@ https://user-images.githubusercontent.com/60156453/135706903-2a95dd1b-000d-4d97-
 
 https://user-images.githubusercontent.com/60156453/135706978-167eff22-bdd3-4439-ba49-f06de844729e.mp4
 
+
+https://user-images.githubusercontent.com/60156453/135707337-339120eb-6e05-41f1-aa06-f0818d6ff3fd.mp4
+
+
 # CatHack
 An open source external orbwalker for league of legends.
 Please note this is not a GOOD orbwalker. This is just a project im working on.
@@ -20,9 +24,14 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 5. Click on New Config
 6. Open the other window containing the ping screenshot tool, and click the "Take MS Screenshot" button
 7. Position the gray box around your ping in league. It should look like this: 
+
 ![alt text](https://i.gyazo.com/4f89b7cd4731f088c20f7ab17ee418a5.png "User ping position")
+
 8. After you have successfully positoned the box, press F to save it. Also make sure to choose a keybind for CatHack to orbwalk with. (I recommend X)
 9. Go back into the main menu of CatHack, go into orbwalking and toggle it on. 
+
+![alt text](https://i.gyazo.com/afb814016279cf68b9b0c8860d852801.png "Orbwalk")
+
 10. Open up a practice tool game and test it. 
 
 # Usage remarks
