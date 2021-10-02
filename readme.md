@@ -17,8 +17,12 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 9. Go back into the main menu of CatHack, go into orbwalking and toggle it on. 
 10. Open up a practice tool game and test it. 
 
+# Usage remarks
 CatHack automatically saves settings, but anytime you close it you need to take the ping screenshot again.
-If you have already saved a screenshot, simply go into "Player" tab and click on Use Config and THEN take the picture (you do not need to move the box)
+If you have already saved a screenshot, simply go into "Player" tab and click on Use Config and THEN take the picture (you do not need to reposition the box)
+
+If you play league on 1920x1080, use the userData.txt file from the repo. It has the perfect position for ping (assuming you only have 2 digit ping)
+Place the text file in your documents folder, just like tessdata should be.
 
 # Todo
 - Orbwalker always misses on ping change
