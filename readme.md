@@ -1,3 +1,7 @@
+# Download
+
+[Release.zip](https://github.com/time007gc/CatHack/files/7272416/Release.zip)
+
 # Media
 
 https://user-images.githubusercontent.com/60156453/135706903-2a95dd1b-000d-4d97-b097-05c78fa593f3.mp4
@@ -17,7 +21,7 @@ Also, CatHack's system to take screenshots is **REALLY** fucking slow. Expect ~3
 I am planning on removing it as you can just hardcode your ping into the orbwalking calculation.
 
 # How to use
-1. Download the Tessdata folder from the repo
+1. Download the Tessdata folder and Release folder from the repo (make sure to unzip CatHack somewhere in your C drive)
 2. Put the Tessdata folder into your C: drive' documents folder. **(IT HAS TO BE IN C:)**
 3. Launch CatHack
 4. Go into the "Player" tab
