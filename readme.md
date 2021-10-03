@@ -12,7 +12,10 @@ https://user-images.githubusercontent.com/60156453/135706978-167eff22-bdd3-4439-
 
 https://user-images.githubusercontent.com/60156453/135707337-339120eb-6e05-41f1-aa06-f0818d6ff3fd.mp4
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> cd0e108f9eac95ddc207edbeae4ed38dc0dbebb9
 # CatHack
 An open source external orbwalker for league of legends.
 Please note this is not a GOOD orbwalker. This is just a project im working on.
@@ -40,7 +43,8 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 
 # Usage remarks
 CatHack automatically saves settings, but anytime you close it you need to take the ping screenshot again.
-If you have already saved a screenshot, simply go into "Player" tab and click on Use Config and THEN take the picture (you do not need to reposition the box)
+If you have already saved a screenshot, simply go into "Player" tab and click on Use Config and THEN take the picture (you do not need to reposition the box).
+After, open every other tab (orbwalk and champions), close them, and then you are good to go!
 
 If you play league on 1920x1080, use the userData.txt file from the repo. It has the perfect position for ping (assuming you only have 2 digit ping)
 Place the text file in your documents folder, just like tessdata should be.
