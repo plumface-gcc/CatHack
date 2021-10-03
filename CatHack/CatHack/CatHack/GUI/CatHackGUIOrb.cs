@@ -18,6 +18,7 @@ namespace CatHack.GUI
         private static bool orbCheck;
         private static int extraWindup;
         private bool mouseDown;
+        private static bool fpsFixChecked;
         private Point offset;
 
         public CatHackGUIOrb()
@@ -29,6 +30,7 @@ namespace CatHack.GUI
             RageModeToggle.IsOn = Properties.Settings.Default.orbRageIsOn;
             orbCheck = Properties.Settings.Default.orbCheck;
             extraWindup = Properties.Settings.Default.extraWindup;
+
             System.Diagnostics.Debug.WriteLine(extraWindup + " | " + orbCheck);
         }
 
@@ -70,6 +72,7 @@ namespace CatHack.GUI
                 NormalModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
                 extraWindup = 0;
+                KiteSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
 
@@ -80,6 +83,7 @@ namespace CatHack.GUI
                 KiteModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
                 extraWindup = 5;
+                NormalSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
 
@@ -90,6 +94,7 @@ namespace CatHack.GUI
                 KiteModeToggle.IsOn = false;
                 NormalModeToggle.IsOn = false;
                 extraWindup = 10;
+                RageSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
 
@@ -103,6 +108,11 @@ namespace CatHack.GUI
             {
                 orbCheck = false;
             }
+        }
+
+        public static bool getFpsCheck()
+        {
+            return fpsFixChecked;
         }
 
         private void RestoreWindowPosition()
@@ -210,6 +220,18 @@ namespace CatHack.GUI
             {
                 RageSettingTextbox.Visible = false;
                 label8.Visible = false;
+            }
+        }
+
+        private void FpsFixButton_sliderValueChanged(object sender, EventArgs e)
+        {
+            if (FpsFixButton.IsOn)
+            {
+                fpsFixChecked = true;
+            }
+            else
+            {
+                fpsFixChecked = false;
             }
         }
     }

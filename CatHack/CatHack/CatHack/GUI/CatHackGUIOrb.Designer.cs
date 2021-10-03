@@ -188,6 +188,7 @@ namespace CatHack.GUI
             this.FpsFixButton.Text = "ceLearningToggle1";
             this.FpsFixButton.TextEnabled = true;
             this.FpsFixButton.Visible = false;
+            this.FpsFixButton.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.FpsFixButton_sliderValueChanged);
             // 
             // label9
             // 

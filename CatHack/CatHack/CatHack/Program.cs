@@ -25,8 +25,15 @@ namespace CatHack
 
                     while (loop)
                     {
+                        if (GUI.CatHackGUIOrb.getFpsCheck() == true)
+                        {
+                            System.Threading.Thread.Sleep(20);
+                        }
+                        else
+                        {
+                            System.Threading.Thread.Sleep(10);
+                        }
                         OrbWalk.OrbWalkEnemy();
-                        System.Threading.Thread.Sleep(10);
                     }
                 },
 

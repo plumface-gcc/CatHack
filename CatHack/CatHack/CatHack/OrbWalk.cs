@@ -48,7 +48,7 @@ namespace CatHack
         {
             if (CatHackGUIChampions.getSelectedChampion() == "Kalista")
             {
-                return false;
+                return true;
             }
             else
             {
@@ -65,7 +65,7 @@ namespace CatHack
             int orbwalkKey = VkKeyScan(CatHackGUIPlayer.getOrbwalkKey());
             short keyStateTemp = GetAsyncKeyState(orbwalkKey);
             bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
-
+            
             if (keyIsPressed && CatHackGUIOrb.getOrbCheck())
             {
                 Point enemyPos = modules.ChampPosition.GetEnemyPosition();

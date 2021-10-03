@@ -10,24 +10,24 @@ namespace CatHack.modules
         private static readonly Color RGB_ENEMY_LEVEL_NUMBER_COLOR = Color.FromArgb(0xFD, 0xE9, 0xE9); // 0xFF, 0xEB, 0xEB
         private static Point[] Searched;
         private static Rectangle FOV;
-        private static readonly float attackRange = ActivePlayerData.ChampionStats.GetAttackRange();
 
         public static Point GetEnemyPosition()
         {
+            float attackRange = ActivePlayerData.ChampionStats.GetAttackRange();
 
             if (attackRange >= 550 && attackRange < 650)
             {
-                Rectangle FOV = new Rectangle(450, 120, 910, 750);
+                Rectangle FOV = new Rectangle(450, 70, 910, 750);
                 Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
             }
             else if (attackRange >= 650 && attackRange < 850)
             {
-                Rectangle FOV = new Rectangle(385, 55, 1100, 875);
+                Rectangle FOV = new Rectangle(385, 35, 1100, 875);
                 Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
             }
             else
             {
-                Rectangle FOV = new Rectangle(300, 50, 1300, 900);
+                Rectangle FOV = new Rectangle(200, 0, 1600, 900);
                 Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
             }
 
@@ -57,8 +57,8 @@ namespace CatHack.modules
                 Tuple<SharpDX.Vector2, double> tuple = (from t in list orderby t.Item2 select t).ElementAt(0);
                 Point point2 = new Point((int)tuple.Item1.X, (int)tuple.Item1.Y);
 
-                result.X = point2.X + 55;
-                result.Y = point2.Y + 105;
+                result.X = point2.X + 53;
+                result.Y = point2.Y + 100;
             }
 
             return result;

@@ -30,8 +30,7 @@ namespace CatHack.GUI
             savedPingArea.IsOn = Properties.Settings.Default.savedPingCheck;
             userKeycode = Properties.Settings.Default.keycodeInput;
             orbKey.Text = Properties.Settings.Default.keycodeInput;
-
-           
+         
             try
             {
                 string[] lines;
@@ -171,9 +170,12 @@ namespace CatHack.GUI
             {
                 orbwalkKey = char.Parse(orbKey.Text);
             }
-            catch(FormatException error)
+            catch(FormatException err)
             {
-                System.Diagnostics.Debug.WriteLine(error.Message);
+                if (Char.IsWhiteSpace(orbwalkKey))
+                {
+                    orbKey.Text = "spc";
+                }
             }
         }
 
