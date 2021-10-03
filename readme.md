@@ -12,6 +12,10 @@ https://user-images.githubusercontent.com/60156453/135706978-167eff22-bdd3-4439-
 
 https://user-images.githubusercontent.com/60156453/135707337-339120eb-6e05-41f1-aa06-f0818d6ff3fd.mp4
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd0e108f9eac95ddc207edbeae4ed38dc0dbebb9
 # CatHack
 An open source external orbwalker for league of legends.
 Please note this is not a GOOD orbwalker. This is just a project im working on.
