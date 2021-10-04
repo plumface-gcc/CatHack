@@ -1,6 +1,6 @@
 # Download
 
-[Release.zip](https://github.com/time007gc/CatHack/files/7272479/Release.zip)
+[Release.zip](https://github.com/time007gc/CatHack/files/7280769/Release.zip)
 
 # Media
 
@@ -36,6 +36,10 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 ![alt text](https://i.gyazo.com/afb814016279cf68b9b0c8860d852801.png "Orbwalk")
 
 10. Open up a practice tool game and test it. 
+
+or.. watch this video
+
+https://user-images.githubusercontent.com/60156453/135913108-a366f0f8-1441-49aa-927c-0b27ba0caa18.mp4
 
 # Usage remarks
 CatHack automatically saves settings, but anytime you close it you need to take the ping screenshot again.
