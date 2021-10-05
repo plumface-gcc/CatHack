@@ -207,24 +207,24 @@ namespace CatHack
             this.keycodeLink.UseWaitCursor = true;
             this.keycodeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.keycodeLink_LinkClicked);
             // 
-            // label8
+            // rageLabelParent
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(55, 169);
-            this.label8.Name = "label8";
+            this.label8.Name = "rageLabelParent";
             this.label8.Size = new System.Drawing.Size(154, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Save the location of your ping?";
             // 
-            // label7
+            // kiteLabelParent
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Location = new System.Drawing.Point(55, 161);
-            this.label7.Name = "label7";
+            this.label7.Name = "kiteLabelParent";
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 12;
             // 
@@ -438,14 +438,14 @@ namespace CatHack
             this.championPic.TabIndex = 8;
             this.championPic.TabStop = false;
             // 
-            // label6
+            // orbLabelParent
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.ForeColor = System.Drawing.Color.Peru;
             this.label6.Location = new System.Drawing.Point(137, 9);
-            this.label6.Name = "label6";
+            this.label6.Name = "orbLabelParent";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Champion Selector";

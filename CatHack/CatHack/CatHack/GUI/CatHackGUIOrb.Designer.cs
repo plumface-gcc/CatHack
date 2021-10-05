@@ -34,14 +34,15 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.windupOverride = new System.Windows.Forms.PictureBox();
             this.RageSettingTextbox = new System.Windows.Forms.TextBox();
             this.NormalSettingTextbox = new System.Windows.Forms.TextBox();
             this.KiteSettingTextbox = new System.Windows.Forms.TextBox();
             this.FpsFixButton = new CatHack.ToggleButton.CeLearningToggle();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.normalLabelParent = new System.Windows.Forms.Label();
+            this.rageLabelParent = new System.Windows.Forms.Label();
+            this.kiteLabelParent = new System.Windows.Forms.Label();
+            this.orbLabelParent = new System.Windows.Forms.Label();
             this.OrbwalkToggle = new CatHack.ToggleButton.CeLearningToggle();
             this.label5 = new System.Windows.Forms.Label();
             this.RageModeToggle = new CatHack.ToggleButton.CeLearningToggle();
@@ -55,7 +56,9 @@ namespace CatHack.GUI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.WindupOverrideTextbox = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.windupOverride)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -114,14 +117,16 @@ namespace CatHack.GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.WindupOverrideTextbox);
+            this.panel5.Controls.Add(this.windupOverride);
             this.panel5.Controls.Add(this.RageSettingTextbox);
             this.panel5.Controls.Add(this.NormalSettingTextbox);
             this.panel5.Controls.Add(this.KiteSettingTextbox);
             this.panel5.Controls.Add(this.FpsFixButton);
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.normalLabelParent);
+            this.panel5.Controls.Add(this.rageLabelParent);
+            this.panel5.Controls.Add(this.kiteLabelParent);
+            this.panel5.Controls.Add(this.orbLabelParent);
             this.panel5.Controls.Add(this.OrbwalkToggle);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.RageModeToggle);
@@ -143,6 +148,18 @@ namespace CatHack.GUI
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
             // 
+            // windupOverride
+            // 
+            this.windupOverride.Image = global::CatHack.Properties.Resources.imageedit_2_7235112875;
+            this.windupOverride.Location = new System.Drawing.Point(446, 103);
+            this.windupOverride.Name = "windupOverride";
+            this.windupOverride.Size = new System.Drawing.Size(62, 45);
+            this.windupOverride.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.windupOverride.TabIndex = 31;
+            this.windupOverride.TabStop = false;
+            this.windupOverride.Visible = false;
+            this.windupOverride.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WindupOverrideClick);
+            // 
             // RageSettingTextbox
             // 
             this.RageSettingTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -150,6 +167,7 @@ namespace CatHack.GUI
             this.RageSettingTextbox.Name = "RageSettingTextbox";
             this.RageSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.RageSettingTextbox.TabIndex = 30;
+            this.RageSettingTextbox.Text = "10";
             this.RageSettingTextbox.Visible = false;
             // 
             // NormalSettingTextbox
@@ -159,6 +177,7 @@ namespace CatHack.GUI
             this.NormalSettingTextbox.Name = "NormalSettingTextbox";
             this.NormalSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.NormalSettingTextbox.TabIndex = 29;
+            this.NormalSettingTextbox.Text = "5";
             this.NormalSettingTextbox.Visible = false;
             // 
             // KiteSettingTextbox
@@ -168,6 +187,7 @@ namespace CatHack.GUI
             this.KiteSettingTextbox.Name = "KiteSettingTextbox";
             this.KiteSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.KiteSettingTextbox.TabIndex = 28;
+            this.KiteSettingTextbox.Text = "0";
             this.KiteSettingTextbox.Visible = false;
             // 
             // FpsFixButton
@@ -190,53 +210,53 @@ namespace CatHack.GUI
             this.FpsFixButton.Visible = false;
             this.FpsFixButton.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.FpsFixButton_sliderValueChanged);
             // 
-            // label9
+            // normalLabelParent
             // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(249, 138);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 23);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Normal Windup Override:";
-            this.label9.Visible = false;
+            this.normalLabelParent.BackColor = System.Drawing.Color.Transparent;
+            this.normalLabelParent.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.normalLabelParent.ForeColor = System.Drawing.Color.Gray;
+            this.normalLabelParent.Location = new System.Drawing.Point(249, 138);
+            this.normalLabelParent.Name = "normalLabelParent";
+            this.normalLabelParent.Size = new System.Drawing.Size(159, 23);
+            this.normalLabelParent.TabIndex = 26;
+            this.normalLabelParent.Text = "Normal Windup Override:";
+            this.normalLabelParent.Visible = false;
             // 
-            // label8
+            // rageLabelParent
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(249, 183);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 23);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "Rage Windup:";
-            this.label8.Visible = false;
+            this.rageLabelParent.BackColor = System.Drawing.Color.Transparent;
+            this.rageLabelParent.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rageLabelParent.ForeColor = System.Drawing.Color.Gray;
+            this.rageLabelParent.Location = new System.Drawing.Point(249, 183);
+            this.rageLabelParent.Name = "rageLabelParent";
+            this.rageLabelParent.Size = new System.Drawing.Size(128, 23);
+            this.rageLabelParent.TabIndex = 25;
+            this.rageLabelParent.Text = "Rage Windup:";
+            this.rageLabelParent.Visible = false;
             // 
-            // label7
+            // kiteLabelParent
             // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(249, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(169, 23);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Kite Windup";
-            this.label7.Visible = false;
+            this.kiteLabelParent.BackColor = System.Drawing.Color.Transparent;
+            this.kiteLabelParent.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kiteLabelParent.ForeColor = System.Drawing.Color.Gray;
+            this.kiteLabelParent.Location = new System.Drawing.Point(249, 95);
+            this.kiteLabelParent.Name = "kiteLabelParent";
+            this.kiteLabelParent.Size = new System.Drawing.Size(169, 23);
+            this.kiteLabelParent.TabIndex = 24;
+            this.kiteLabelParent.Text = "Kite Windup";
+            this.kiteLabelParent.Visible = false;
             // 
-            // label6
+            // orbLabelParent
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(249, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 23);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Fps Fix?";
-            this.label6.Visible = false;
+            this.orbLabelParent.BackColor = System.Drawing.Color.Transparent;
+            this.orbLabelParent.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orbLabelParent.ForeColor = System.Drawing.Color.Gray;
+            this.orbLabelParent.Location = new System.Drawing.Point(249, 50);
+            this.orbLabelParent.Name = "orbLabelParent";
+            this.orbLabelParent.Size = new System.Drawing.Size(113, 23);
+            this.orbLabelParent.TabIndex = 23;
+            this.orbLabelParent.Text = "Fps Fix? (WIP)";
+            this.orbLabelParent.Visible = false;
             // 
             // OrbwalkToggle
             // 
@@ -336,7 +356,7 @@ namespace CatHack.GUI
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(16, 93);
+            this.label2.Location = new System.Drawing.Point(16, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 27);
             this.label2.TabIndex = 8;
@@ -349,7 +369,7 @@ namespace CatHack.GUI
             this.KiteModeToggle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KiteModeToggle.ForeColor = System.Drawing.Color.White;
             this.KiteModeToggle.IsOn = false;
-            this.KiteModeToggle.Location = new System.Drawing.Point(142, 96);
+            this.KiteModeToggle.Location = new System.Drawing.Point(142, 98);
             this.KiteModeToggle.Name = "KiteModeToggle";
             this.KiteModeToggle.OffColor = System.Drawing.Color.DarkGray;
             this.KiteModeToggle.OffText = "";
@@ -376,7 +396,7 @@ namespace CatHack.GUI
             // pictureBox2
             // 
             this.pictureBox2.Image = global::CatHack.Properties.Resources.imageedit_2_7235112875;
-            this.pictureBox2.Location = new System.Drawing.Point(168, 83);
+            this.pictureBox2.Location = new System.Drawing.Point(168, 85);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(62, 45);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -417,6 +437,16 @@ namespace CatHack.GUI
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.OrbwalkSettingClick);
             // 
+            // WindupOverrideTextbox
+            // 
+            this.WindupOverrideTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.WindupOverrideTextbox.Location = new System.Drawing.Point(519, 114);
+            this.WindupOverrideTextbox.Name = "WindupOverrideTextbox";
+            this.WindupOverrideTextbox.Size = new System.Drawing.Size(28, 20);
+            this.WindupOverrideTextbox.TabIndex = 32;
+            this.WindupOverrideTextbox.Text = "0";
+            this.WindupOverrideTextbox.Visible = false;
+            // 
             // CatHackGUIOrb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +462,7 @@ namespace CatHack.GUI
             this.Load += new System.EventHandler(this.CatHackGUIOrb_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.windupOverride)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -462,12 +493,14 @@ namespace CatHack.GUI
         private ToggleButton.CeLearningToggle OrbwalkToggle;
         private System.Windows.Forms.PictureBox pictureBox5;
         private ToggleButton.CeLearningToggle FpsFixButton;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label normalLabelParent;
+        private System.Windows.Forms.Label rageLabelParent;
+        private System.Windows.Forms.Label kiteLabelParent;
+        private System.Windows.Forms.Label orbLabelParent;
         private System.Windows.Forms.TextBox RageSettingTextbox;
         private System.Windows.Forms.TextBox NormalSettingTextbox;
         private System.Windows.Forms.TextBox KiteSettingTextbox;
+        private System.Windows.Forms.PictureBox windupOverride;
+        private System.Windows.Forms.TextBox WindupOverrideTextbox;
     }
 }

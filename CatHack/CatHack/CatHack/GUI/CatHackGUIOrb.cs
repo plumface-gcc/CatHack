@@ -30,6 +30,7 @@ namespace CatHack.GUI
             RageModeToggle.IsOn = Properties.Settings.Default.orbRageIsOn;
             orbCheck = Properties.Settings.Default.orbCheck;
             extraWindup = Properties.Settings.Default.extraWindup;
+            extraWindup = Int32.Parse(WindupOverrideTextbox.Text);
 
             System.Diagnostics.Debug.WriteLine(extraWindup + " | " + orbCheck);
         }
@@ -72,6 +73,7 @@ namespace CatHack.GUI
                 NormalModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
                 extraWindup = 0;
+
                 KiteSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
@@ -83,6 +85,7 @@ namespace CatHack.GUI
                 KiteModeToggle.IsOn = false;
                 RageModeToggle.IsOn = false;
                 extraWindup = 5;
+
                 NormalSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
@@ -94,6 +97,7 @@ namespace CatHack.GUI
                 KiteModeToggle.IsOn = false;
                 NormalModeToggle.IsOn = false;
                 extraWindup = 10;
+
                 RageSettingTextbox.Text = getExtraWindup().ToString();
             }
         }
@@ -172,12 +176,20 @@ namespace CatHack.GUI
             if (FpsFixButton.Visible == false)
             {
                 FpsFixButton.Visible = true;
-                label6.Visible = true;
+                orbLabelParent.Visible = true;
             }
             else
             {
                 FpsFixButton.Visible = false;
-                label6.Visible = false;
+                orbLabelParent.Visible = false;
+            }
+            if (orbLabelParent.Visible == true)
+            {
+                windupOverride.Visible = true;
+            }
+            else
+            {
+                windupOverride.Visible = false;
             }
         }
 
@@ -186,12 +198,12 @@ namespace CatHack.GUI
             if (KiteSettingTextbox.Visible == false)
             {
                 KiteSettingTextbox.Visible = true;
-                label7.Visible = true;
+                kiteLabelParent.Visible = true;
             }
             else
             {
                 KiteSettingTextbox.Visible = false;
-                label7.Visible = false;
+                kiteLabelParent.Visible = false;
             }
         }
 
@@ -200,12 +212,12 @@ namespace CatHack.GUI
             if (NormalSettingTextbox.Visible == false)
             {
                 NormalSettingTextbox.Visible = true;
-                label9.Visible = true;
+                normalLabelParent.Visible = true;
             }
             else
             {
                 NormalSettingTextbox.Visible = false;
-                label9.Visible = false;
+                normalLabelParent.Visible = false;
             }
         }
 
@@ -214,12 +226,20 @@ namespace CatHack.GUI
             if (RageSettingTextbox.Visible == false)
             {
                 RageSettingTextbox.Visible = true;
-                label8.Visible = true;
+                rageLabelParent.Visible = true;
             }
             else
             {
                 RageSettingTextbox.Visible = false;
-                label8.Visible = false;
+                rageLabelParent.Visible = false;
+            }
+        }
+
+        private void WindupOverrideClick(object sender, MouseEventArgs e)
+        {
+            if (WindupOverrideTextbox.Visible == false)
+            {
+                WindupOverrideTextbox.Visible = true;
             }
         }
 

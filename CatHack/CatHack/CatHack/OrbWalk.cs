@@ -75,8 +75,10 @@ namespace CatHack
                     LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
                     KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
 
-                    LastAATick = Environment.TickCount;
-                    LastMoveCommandT = Environment.TickCount + GetAttackWindup();
+                    System.Threading.Thread.Sleep(5);
+
+                    LastAATick = Environment.TickCount + 3;
+                    LastMoveCommandT = Environment.TickCount + GetAttackWindup() + 3;
 
                     KeyMouseHandler.IssueOrder(OrderEnum.MoveMouse, LastMovePoint); // move back cursor to original position, but don't right click
                 }
