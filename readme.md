@@ -1,6 +1,6 @@
 # Download
 
-[Release.zip](https://github.com/time007gc/CatHack/files/7272479/Release.zip)
+[Release.zip](https://github.com/time007gc/CatHack/files/7288074/Release.zip)
 
 # Media
 
@@ -12,10 +12,6 @@ https://user-images.githubusercontent.com/60156453/135706978-167eff22-bdd3-4439-
 
 https://user-images.githubusercontent.com/60156453/135707337-339120eb-6e05-41f1-aa06-f0818d6ff3fd.mp4
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cd0e108f9eac95ddc207edbeae4ed38dc0dbebb9
 # CatHack
 An open source external orbwalker for league of legends.
 Please note this is not a GOOD orbwalker. This is just a project im working on.
@@ -40,6 +36,10 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 ![alt text](https://i.gyazo.com/afb814016279cf68b9b0c8860d852801.png "Orbwalk")
 
 10. Open up a practice tool game and test it. 
+
+or.. watch this video
+
+https://user-images.githubusercontent.com/60156453/135913108-a366f0f8-1441-49aa-927c-0b27ba0caa18.mp4
 
 # Usage remarks
 CatHack automatically saves settings, but anytime you close it you need to take the ping screenshot again.
