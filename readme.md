@@ -16,13 +16,14 @@ Also, CatHack's system to take screenshots is **REALLY** fucking slow. Expect ~3
 I am planning on removing it as you can just hardcode your ping into the orbwalking calculation.
 
 # How to use
-1. Download the Release.zip from the repo (make sure to unzip CatHack somewhere in your C drive)
-2. From the Release folder, put the Tessdata folder into your C: drive' documents folder. **(IT HAS TO BE IN C:)**
-3. Launch CatHack
-4. Go into the "Player" tab
-5. Click on New Config
-6. Open the other window containing the ping screenshot tool, and click the "Take MS Screenshot" button
-7. Position the gray box around your ping in league. It should look like this: 
+1. Download the Release.zip from this link: https://www.unknowncheats.me/forum/downloads.php?do=file&id=34914 (make sure to unzip CatHack somewhere in your C drive)
+2. (if you do not want to download it from the link, compile CatHack yourself and use the Release folder it creates)
+3. From the Release folder, put the Tessdata folder into your C: drive' documents folder. **(IT HAS TO BE IN C:)**
+4. Launch CatHack
+5. Go into the "Player" tab
+6. Click on New Config
+7. Open the other window containing the ping screenshot tool, and click the "Take MS Screenshot" button
+8. Position the gray box around your ping in league. It should look like this: 
 
 ![alt text](https://i.gyazo.com/4f89b7cd4731f088c20f7ab17ee418a5.png "User ping position")
 
