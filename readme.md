@@ -1,7 +1,3 @@
-# Download
-
-[Release.zip](https://github.com/time007gc/CatHack/files/7288074/Release.zip)
-
 # Media
 
 https://user-images.githubusercontent.com/60156453/135706903-2a95dd1b-000d-4d97-b097-05c78fa593f3.mp4
