@@ -22,7 +22,6 @@ namespace CatHack
                 () =>
                 {
                     bool loop = true;
-
                     while (loop)
                     {
                         if (GUI.CatHackGUIOrb.getFpsCheck() == true)

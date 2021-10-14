@@ -35,6 +35,10 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
+            this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -49,8 +53,8 @@ namespace CatHack.GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.savedPingArea = new CatHack.ToggleButton.CeLearningToggle();
-            this.savePingArea = new CatHack.ToggleButton.CeLearningToggle();
+            this.bugged1 = new CatHack.ToggleButton.CeLearningToggle();
+            this.bugged2 = new CatHack.ToggleButton.CeLearningToggle();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -106,6 +110,10 @@ namespace CatHack.GUI
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.textBox5);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.savePingArea);
+            this.panel5.Controls.Add(this.savedPingArea);
             this.panel5.Controls.Add(this.textBox4);
             this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.textBox2);
@@ -119,8 +127,6 @@ namespace CatHack.GUI
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.savedPingArea);
-            this.panel5.Controls.Add(this.savePingArea);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel3);
@@ -130,10 +136,69 @@ namespace CatHack.GUI
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
             // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox5.Location = new System.Drawing.Point(346, 164);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(42, 20);
+            this.textBox5.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Gray;
+            this.label10.Location = new System.Drawing.Point(292, 161);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 29);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Ping:";
+            // 
+            // savePingArea
+            // 
+            this.savePingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.savePingArea.BorderColor = System.Drawing.Color.LightGray;
+            this.savePingArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.savePingArea.ForeColor = System.Drawing.Color.White;
+            this.savePingArea.IsOn = false;
+            this.savePingArea.Location = new System.Drawing.Point(142, 113);
+            this.savePingArea.Name = "savePingArea";
+            this.savePingArea.OffColor = System.Drawing.Color.DarkGray;
+            this.savePingArea.OffText = "";
+            this.savePingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.savePingArea.OnText = "";
+            this.savePingArea.Size = new System.Drawing.Size(28, 16);
+            this.savePingArea.TabIndex = 7;
+            this.savePingArea.Text = "ceLearningToggle1";
+            this.savePingArea.TextEnabled = true;
+            this.savePingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
+            // 
+            // savedPingArea
+            // 
+            this.savedPingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.savedPingArea.BorderColor = System.Drawing.Color.LightGray;
+            this.savedPingArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.savedPingArea.ForeColor = System.Drawing.Color.White;
+            this.savedPingArea.IsOn = false;
+            this.savedPingArea.Location = new System.Drawing.Point(142, 70);
+            this.savedPingArea.Name = "savedPingArea";
+            this.savedPingArea.OffColor = System.Drawing.Color.DarkGray;
+            this.savedPingArea.OffText = "";
+            this.savedPingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.savedPingArea.OnText = "";
+            this.savedPingArea.Size = new System.Drawing.Size(28, 16);
+            this.savedPingArea.TabIndex = 8;
+            this.savedPingArea.Text = "ceLearningToggle1";
+            this.savedPingArea.TextEnabled = true;
+            this.savedPingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savedPingArea_sliderValueChanged);
+            // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox4.Location = new System.Drawing.Point(398, 145);
+            this.textBox4.Location = new System.Drawing.Point(398, 128);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(42, 20);
@@ -142,7 +207,7 @@ namespace CatHack.GUI
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox3.Location = new System.Drawing.Point(282, 145);
+            this.textBox3.Location = new System.Drawing.Point(282, 128);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(42, 20);
@@ -151,7 +216,7 @@ namespace CatHack.GUI
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(398, 105);
+            this.textBox2.Location = new System.Drawing.Point(398, 88);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(42, 20);
@@ -161,56 +226,56 @@ namespace CatHack.GUI
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(283, 105);
+            this.textBox1.Location = new System.Drawing.Point(283, 88);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(42, 20);
             this.textBox1.TabIndex = 19;
             // 
-            // normalLabelParent
+            // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(334, 143);
-            this.label9.Name = "normalLabelParent";
+            this.label9.Location = new System.Drawing.Point(334, 126);
+            this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 29);
             this.label9.TabIndex = 24;
             this.label9.Text = "Y Size:";
             // 
-            // rageLabelParent
+            // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(251, 143);
-            this.label8.Name = "rageLabelParent";
+            this.label8.Location = new System.Drawing.Point(251, 126);
+            this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 29);
             this.label8.TabIndex = 23;
             this.label8.Text = "Y:";
             // 
-            // kiteLabelParent
+            // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(334, 103);
-            this.label7.Name = "kiteLabelParent";
+            this.label7.Location = new System.Drawing.Point(334, 86);
+            this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 29);
             this.label7.TabIndex = 21;
             this.label7.Text = "X Size:";
             // 
-            // orbLabelParent
+            // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(251, 104);
-            this.label6.Name = "orbLabelParent";
+            this.label6.Location = new System.Drawing.Point(251, 87);
+            this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 29);
             this.label6.TabIndex = 20;
             this.label6.Text = "X:";
@@ -220,7 +285,7 @@ namespace CatHack.GUI
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(249, 76);
+            this.label4.Location = new System.Drawing.Point(249, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 23);
             this.label4.TabIndex = 18;
@@ -281,43 +346,43 @@ namespace CatHack.GUI
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
-            // savedPingArea
+            // bugged1
             // 
-            this.savedPingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.savedPingArea.BorderColor = System.Drawing.Color.LightGray;
-            this.savedPingArea.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.savedPingArea.ForeColor = System.Drawing.Color.White;
-            this.savedPingArea.IsOn = false;
-            this.savedPingArea.Location = new System.Drawing.Point(142, 70);
-            this.savedPingArea.Name = "savedPingArea";
-            this.savedPingArea.OffColor = System.Drawing.Color.DarkGray;
-            this.savedPingArea.OffText = "";
-            this.savedPingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.savedPingArea.OnText = "";
-            this.savedPingArea.Size = new System.Drawing.Size(28, 16);
-            this.savedPingArea.TabIndex = 8;
-            this.savedPingArea.Text = "ceLearningToggle1";
-            this.savedPingArea.TextEnabled = true;
-            this.savedPingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savedPingArea_sliderValueChanged);
+            this.bugged1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.bugged1.BorderColor = System.Drawing.Color.LightGray;
+            this.bugged1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bugged1.ForeColor = System.Drawing.Color.White;
+            this.bugged1.IsOn = false;
+            this.bugged1.Location = new System.Drawing.Point(142, 70);
+            this.bugged1.Name = "bugged1";
+            this.bugged1.OffColor = System.Drawing.Color.DarkGray;
+            this.bugged1.OffText = "";
+            this.bugged1.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bugged1.OnText = "";
+            this.bugged1.Size = new System.Drawing.Size(28, 16);
+            this.bugged1.TabIndex = 8;
+            this.bugged1.Text = "ceLearningToggle1";
+            this.bugged1.TextEnabled = true;
+            this.bugged1.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savedPingArea_sliderValueChanged);
             // 
-            // savePingArea
+            // bugged2
             // 
-            this.savePingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.savePingArea.BorderColor = System.Drawing.Color.LightGray;
-            this.savePingArea.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.savePingArea.ForeColor = System.Drawing.Color.White;
-            this.savePingArea.IsOn = false;
-            this.savePingArea.Location = new System.Drawing.Point(142, 113);
-            this.savePingArea.Name = "savePingArea";
-            this.savePingArea.OffColor = System.Drawing.Color.DarkGray;
-            this.savePingArea.OffText = "";
-            this.savePingArea.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.savePingArea.OnText = "";
-            this.savePingArea.Size = new System.Drawing.Size(28, 16);
-            this.savePingArea.TabIndex = 7;
-            this.savePingArea.Text = "ceLearningToggle1";
-            this.savePingArea.TextEnabled = true;
-            this.savePingArea.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
+            this.bugged2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.bugged2.BorderColor = System.Drawing.Color.LightGray;
+            this.bugged2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bugged2.ForeColor = System.Drawing.Color.White;
+            this.bugged2.IsOn = false;
+            this.bugged2.Location = new System.Drawing.Point(142, 113);
+            this.bugged2.Name = "bugged2";
+            this.bugged2.OffColor = System.Drawing.Color.DarkGray;
+            this.bugged2.OffText = "";
+            this.bugged2.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bugged2.OnText = "";
+            this.bugged2.Size = new System.Drawing.Size(28, 16);
+            this.bugged2.TabIndex = 7;
+            this.bugged2.Text = "ceLearningToggle1";
+            this.bugged2.TextEnabled = true;
+            this.bugged2.sliderValueChanged += new CatHack.ToggleButton.CeLearningToggle.SliderChangedEventHandler(this.savePingArea_sliderValueChanged);
             // 
             // CatHackGUIPlayer
             // 
@@ -348,8 +413,8 @@ namespace CatHack.GUI
         private System.Windows.Forms.PictureBox pictureBox1;
         #endregion
 
-        private ToggleButton.CeLearningToggle savePingArea;
-        private ToggleButton.CeLearningToggle savedPingArea;
+        private ToggleButton.CeLearningToggle bugged2;
+        private ToggleButton.CeLearningToggle bugged1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -363,5 +428,9 @@ namespace CatHack.GUI
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private ToggleButton.CeLearningToggle savePingArea;
+        private ToggleButton.CeLearningToggle savedPingArea;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

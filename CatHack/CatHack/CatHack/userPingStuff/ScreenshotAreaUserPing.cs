@@ -116,7 +116,7 @@ namespace CatHack
                     SaveUserPing save = new SaveUserPing(xSave, ySave, wSave, hSave, this.Size);
                     save.Show();
                 }
-                if (e.KeyCode == Keys.F && CatHackGUIPlayer.getSavedPingCheck() == false)
+                else if (e.KeyCode == Keys.F && CatHackGUIPlayer.getSavedPingCheck() == false)
                 {
                     this.Hide();
                     SaveUserPing save = new SaveUserPing(this.Location.X, this.Location.Y, this.Width, this.Height, this.Size);
@@ -125,7 +125,7 @@ namespace CatHack
             }
             catch (System.ArgumentException error)
             {
-                Console.WriteLine("caught");
+                Console.WriteLine(error.Message);
             }
         }
 

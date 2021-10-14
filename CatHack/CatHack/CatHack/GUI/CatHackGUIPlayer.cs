@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,15 +23,17 @@ namespace CatHack.GUI
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
         private static int x, y, xSize, ySize;
+        private static int timer;
 
         public CatHackGUIPlayer()
         {
             InitializeComponent();
+
             savePingArea.IsOn = Properties.Settings.Default.savePingCheck;
             savedPingArea.IsOn = Properties.Settings.Default.savedPingCheck;
             userKeycode = Properties.Settings.Default.keycodeInput;
             orbKey.Text = Properties.Settings.Default.keycodeInput;
-         
+
             try
             {
                 string[] lines;
@@ -57,6 +60,8 @@ namespace CatHack.GUI
                 textBox3.Text = lines[1];
                 textBox2.Text = lines[2];
                 textBox4.Text = lines[3];
+
+                textBox5.Text = SaveUserPing.getUserPing().ToString();
             }
             catch (FileNotFoundException err)
             {
@@ -183,5 +188,6 @@ namespace CatHack.GUI
         {
             return orbwalkKey;
         }
+
     }
 }
