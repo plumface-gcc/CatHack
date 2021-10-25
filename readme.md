@@ -18,7 +18,7 @@ I am planning on removing it as you can just hardcode your ping into the orbwalk
 # How to use
 https://user-images.githubusercontent.com/60156453/136867934-1ed392f6-391f-4056-b761-7270b1e0502c.mp4
 
-https://www.unknowncheats.me/forum/downloads.php?do=file&id=34914 
+https://www.unknowncheats.me/forum/downloads.php?do=file&id=35016
 
 # Usage remarks
 CatHack automatically saves settings, but anytime you close it you need to take the ping screenshot again.
