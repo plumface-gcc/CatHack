@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +30,6 @@ namespace CatHack.GUI
             RageModeToggle.IsOn = Properties.Settings.Default.orbRageIsOn;
             orbCheck = Properties.Settings.Default.orbCheck;
             extraWindup = Properties.Settings.Default.extraWindup;
-            extraWindup = Int32.Parse(WindupOverrideTextbox.Text);
 
             System.Diagnostics.Debug.WriteLine(extraWindup + " | " + orbCheck);
         }
@@ -54,7 +53,7 @@ namespace CatHack.GUI
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }   
+        }
 
         public static int getExtraWindup()
         {
@@ -183,7 +182,8 @@ namespace CatHack.GUI
                 FpsFixButton.Visible = false;
                 orbLabelParent.Visible = false;
             }
-            if (orbLabelParent.Visible == true)
+
+            if (orbLabelParent.Visible == true && kiteLabelParent.Visible == true && normalLabelParent.Visible == true && rageLabelParent.Visible == true)
             {
                 windupOverride.Visible = true;
             }
@@ -205,6 +205,15 @@ namespace CatHack.GUI
                 KiteSettingTextbox.Visible = false;
                 kiteLabelParent.Visible = false;
             }
+
+            if (orbLabelParent.Visible == true && kiteLabelParent.Visible == true && normalLabelParent.Visible == true && rageLabelParent.Visible == true)
+            {
+                windupOverride.Visible = true;
+            }
+            else
+            {
+                windupOverride.Visible = false;
+            }
         }
 
         private void NormalSettingClick(object sender, EventArgs e)
@@ -219,6 +228,15 @@ namespace CatHack.GUI
                 NormalSettingTextbox.Visible = false;
                 normalLabelParent.Visible = false;
             }
+
+            if (orbLabelParent.Visible == true && kiteLabelParent.Visible == true && normalLabelParent.Visible == true && rageLabelParent.Visible == true)
+            {
+                windupOverride.Visible = true;
+            }
+            else
+            {
+                windupOverride.Visible = false;
+            }
         }
 
         private void RageSettingClick(object sender, EventArgs e)
@@ -232,6 +250,15 @@ namespace CatHack.GUI
             {
                 RageSettingTextbox.Visible = false;
                 rageLabelParent.Visible = false;
+            }
+
+            if (orbLabelParent.Visible == true && kiteLabelParent.Visible == true && normalLabelParent.Visible == true && rageLabelParent.Visible == true)
+            {
+                windupOverride.Visible = true;
+            }
+            else
+            {
+                windupOverride.Visible = false;
             }
         }
 

@@ -34,6 +34,7 @@ namespace CatHack.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.WindupOverrideTextbox = new System.Windows.Forms.TextBox();
             this.windupOverride = new System.Windows.Forms.PictureBox();
             this.RageSettingTextbox = new System.Windows.Forms.TextBox();
             this.NormalSettingTextbox = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@ namespace CatHack.GUI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.WindupOverrideTextbox = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.windupOverride)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exitPicBox)).BeginInit();
@@ -148,10 +148,19 @@ namespace CatHack.GUI
             this.panel5.Size = new System.Drawing.Size(569, 230);
             this.panel5.TabIndex = 6;
             // 
+            // WindupOverrideTextbox
+            // 
+            this.WindupOverrideTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.WindupOverrideTextbox.Location = new System.Drawing.Point(500, 114);
+            this.WindupOverrideTextbox.Name = "WindupOverrideTextbox";
+            this.WindupOverrideTextbox.Size = new System.Drawing.Size(28, 20);
+            this.WindupOverrideTextbox.TabIndex = 32;
+            this.WindupOverrideTextbox.Visible = false;
+            // 
             // windupOverride
             // 
             this.windupOverride.Image = global::CatHack.Properties.Resources.imageedit_2_7235112875;
-            this.windupOverride.Location = new System.Drawing.Point(446, 103);
+            this.windupOverride.Location = new System.Drawing.Point(438, 103);
             this.windupOverride.Name = "windupOverride";
             this.windupOverride.Size = new System.Drawing.Size(62, 45);
             this.windupOverride.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -167,7 +176,6 @@ namespace CatHack.GUI
             this.RageSettingTextbox.Name = "RageSettingTextbox";
             this.RageSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.RageSettingTextbox.TabIndex = 30;
-            this.RageSettingTextbox.Text = "10";
             this.RageSettingTextbox.Visible = false;
             // 
             // NormalSettingTextbox
@@ -177,7 +185,6 @@ namespace CatHack.GUI
             this.NormalSettingTextbox.Name = "NormalSettingTextbox";
             this.NormalSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.NormalSettingTextbox.TabIndex = 29;
-            this.NormalSettingTextbox.Text = "5";
             this.NormalSettingTextbox.Visible = false;
             // 
             // KiteSettingTextbox
@@ -187,7 +194,6 @@ namespace CatHack.GUI
             this.KiteSettingTextbox.Name = "KiteSettingTextbox";
             this.KiteSettingTextbox.Size = new System.Drawing.Size(28, 20);
             this.KiteSettingTextbox.TabIndex = 28;
-            this.KiteSettingTextbox.Text = "0";
             this.KiteSettingTextbox.Visible = false;
             // 
             // FpsFixButton
@@ -436,16 +442,6 @@ namespace CatHack.GUI
             this.pictureBox5.TabIndex = 18;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.OrbwalkSettingClick);
-            // 
-            // WindupOverrideTextbox
-            // 
-            this.WindupOverrideTextbox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.WindupOverrideTextbox.Location = new System.Drawing.Point(519, 114);
-            this.WindupOverrideTextbox.Name = "WindupOverrideTextbox";
-            this.WindupOverrideTextbox.Size = new System.Drawing.Size(28, 20);
-            this.WindupOverrideTextbox.TabIndex = 32;
-            this.WindupOverrideTextbox.Text = "0";
-            this.WindupOverrideTextbox.Visible = false;
             // 
             // CatHackGUIOrb
             // 

@@ -107,6 +107,11 @@ namespace CatHack
             {
                 FileStream fs = File.Create(path);
             }
+            catch (IndexOutOfRangeException err)
+            {
+                Console.WriteLine(err.Message);
+                File.Delete(path);
+            }
 
             try
             {

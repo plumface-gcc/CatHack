@@ -190,5 +190,17 @@ namespace CatHack.Properties {
                 this["HasSetDefaults"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool orbFpsFixIsOn {
+            get {
+                return ((bool)(this["orbFpsFixIsOn"]));
+            }
+            set {
+                this["orbFpsFixIsOn"] = value;
+            }
+        }
     }
 }

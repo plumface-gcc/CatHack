@@ -23,8 +23,7 @@ namespace CatHack.GUI
         private static string userName = Environment.UserName;
         private String path = @"C:\Users\" + userName + @"\Documents\userData.txt";
         private static int x, y, xSize, ySize;
-        private static int timer;
-
+ 
         public CatHackGUIPlayer()
         {
             InitializeComponent();
@@ -65,7 +64,34 @@ namespace CatHack.GUI
             }
             catch (FileNotFoundException err)
             {
+                Console.WriteLine(err.Message);
                 FileStream fs = File.Create(path);
+            }
+            catch (IndexOutOfRangeException err)
+            {
+                Console.WriteLine(err.Message);
+                File.Delete(path);
+
+                errorTextbox.Visible = true;
+                errorLabel1.Visible = true;
+                errorLabel2.Visible = true;
+                errorLabel3.Visible = true;
+                errorLabel1.Text = "Index out of range.";
+                errorLabel2.Text = "Please close the player tab";
+                errorLabel3.Text = "and reopen it.";
+            }
+            catch (FormatException err)
+            {
+                Console.WriteLine(err.Message);
+                File.Delete(path);
+
+                errorTextbox.Visible = true;
+                errorLabel1.Visible = true;
+                errorLabel2.Visible = true;
+                errorLabel3.Visible = true;
+                errorLabel1.Text = "userData format exception.";
+                errorLabel2.Text = "Please close the player tab";
+                errorLabel3.Text = "and reopen it.";
             }
         }
 
