@@ -18,6 +18,7 @@ namespace CatHack
         private static int LastAATick;
         private static int LastMoveCommandT;
         private static Point LastMovePoint;
+        private static int width = Screen.PrimaryScreen.Bounds.Height;
         private static readonly Random rnd = new Random();
 
         [DllImport("user32.dll")]
@@ -52,7 +53,7 @@ namespace CatHack
             }
             else
             {
-                return LastMoveCommandT < Environment.TickCount + extraWindup;
+                return LastMoveCommandT <= Environment.TickCount + extraWindup;
             }
         }
 
@@ -66,23 +67,21 @@ namespace CatHack
             short keyStateTemp = GetAsyncKeyState(orbwalkKey);
             bool keyIsPressed = ((keyStateTemp >> 15) & 0x0001) == 0x0001;
             
-            if (keyIsPressed && CatHackGUIOrb.getOrbCheck())
+            if (keyIsPressed && CatHackGUIOrb.getOrbCheck() && LastAATick < Environment.TickCount)
             {
-                Point enemyPos = modules.ChampPosition.GetEnemyPosition();
+                Point enemyPos = modules.ChampPosition.GetEnemyPosition(width);
 
                 if (CanAttack() && enemyPos != Point.Empty)
                 {
                     LastMovePoint = Cursor.Position; // save original position of cursor before attacking an enemy
                     KeyMouseHandler.IssueOrder(OrderEnum.AttackUnit, enemyPos); // attack le enemy
 
-                    System.Threading.Thread.Sleep(5);
-
-                    LastAATick = Environment.TickCount + 3;
-                    LastMoveCommandT = Environment.TickCount + GetAttackWindup() + 3;
+                    LastAATick = Environment.TickCount;
+                    LastMoveCommandT = Environment.TickCount + GetAttackWindup();
 
                     KeyMouseHandler.IssueOrder(OrderEnum.MoveMouse, LastMovePoint); // move back cursor to original position, but don't right click
                 }
-                else if (CanMove(CatHackGUIOrb.getExtraWindup()))
+                else if (CanMove(CatHackGUIOrb.getExtraWindup()) && LastMoveCommandT < Environment.TickCount)
                 {
                     KeyMouseHandler.IssueOrder(OrderEnum.RightClick);
 

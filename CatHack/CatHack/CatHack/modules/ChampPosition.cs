@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+
 
 namespace CatHack.modules
 {
@@ -11,24 +13,63 @@ namespace CatHack.modules
         private static Point[] Searched;
         private static Rectangle FOV;
 
-        public static Point GetEnemyPosition()
+        public static Point GetEnemyPosition(double screenWidth)
         {
             float attackRange = ActivePlayerData.ChampionStats.GetAttackRange();
 
-            if (attackRange >= 550 && attackRange < 650)
+            if (screenWidth == 1440)
             {
-                Rectangle FOV = new Rectangle(450, 70, 910, 750);
-                Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                if (attackRange >= 525 && attackRange < 650)
+                {
+                    Rectangle FOV = new Rectangle(400, 50, 1400, 1100);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else if (attackRange >= 650 && attackRange < 850)
+                {
+                    Rectangle FOV = new Rectangle(350, 35, 1700, 1100);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else
+                {
+                    Rectangle FOV = new Rectangle(150, 0, 2300, 1200);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
             }
-            else if (attackRange >= 650 && attackRange < 850)
+            else if (screenWidth == 1080)
             {
-                Rectangle FOV = new Rectangle(385, 35, 1100, 875);
-                Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                if (attackRange >= 525 && attackRange < 650)
+                {
+                    Rectangle FOV = new Rectangle(450, 70, 910, 750);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else if (attackRange >= 650 && attackRange < 850)
+                {
+                    Rectangle FOV = new Rectangle(385, 35, 1100, 875);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else
+                {
+                    Rectangle FOV = new Rectangle(200, 0, 1600, 900);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
             }
-            else
+            else if (screenWidth <= 900)
             {
-                Rectangle FOV = new Rectangle(200, 0, 1600, 900);
-                Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                if (attackRange >= 525 && attackRange < 650)
+                {
+                    Rectangle FOV = new Rectangle(330, 35, 895, 740);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else if (attackRange >= 650 && attackRange < 850)
+                {
+                    Rectangle FOV = new Rectangle(310, 15, 935, 740);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
+                else
+                {
+                    Rectangle FOV = new Rectangle(200, 0, 1200, 740);
+                    Searched = PixelSearch.Search(FOV, RGB_ENEMY_LEVEL_NUMBER_COLOR, 1);
+                }
             }
 
             Point result = new Point();

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tesseract;
 
@@ -9,7 +10,7 @@ namespace CatHack
 {
     public partial class SaveUserPing : Form
     {
-        private bool loop = true;
+        private readonly bool loop = true;
         private static string userName = Environment.UserName;
         private static string pattern = @"(^[0-9]{2,2}$)";
         private static float userPing; // XDDDDD???
@@ -52,7 +53,7 @@ namespace CatHack
                     }
                 }
 
-                System.Threading.Thread.Sleep(1000);
+                Task.Delay(1000).Wait();
             }
         }
 
